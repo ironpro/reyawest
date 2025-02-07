@@ -1,0 +1,172 @@
+{% assign on_sale = false %}
+{% if product.compare_at_price > product.price %}
+{% assign on_sale = true %}
+{% endif %}
+
+
+{% assign section_id = product.selected_or_first_available_variant.id %}
+
+<section class="featured-collection">
+  {% if settings.cart_title != blank %}
+  <h2 class="featured-collection__title">{{ settings.cart_title }}</h2>
+  {% endif %}
+
+
+  {%- assign collection = collections[settings.cv_coll_cart] -%}
+  <div class="cv_index_coll cartInjectCollection" >
+
+    {% for product in collection.products %}
+    {% assign CaptureContainsCart = false %}
+    {% for captureItem in cart.items %}
+    {% if product.handle contains captureItem.product.handle %}
+    {% assign CaptureContainsCart = true %}
+    {% break %}
+    {% endif %}
+    {% endfor %}
+
+    {% if  CaptureContainsCart == false %} 
+    {% assign current_variant = product.selected_or_first_available_variant %}
+    <div class="main-cll "  data-product-handle="{{product.handle}}">
+      <div class="m_cll">
+        {% if product.featured_image != blank %}
+        <div class="featured-collection__image cart_recomm_mg">
+          <img class="lazyload" src="{{ product | img_url: "master" }}" cart-recomm-image-update>
+        </div>
+        {% endif %}
+        <div class="hover_cv_cll">
+          <p class="CartBuiltTitleRecomm">{{ product.title | escape }}</p>
+
+          <div class="cart_recommendationPrice" data-recomm-price-update>
+            {%- if product.price_varies -%}
+            {%- assign price = product.price_min | money -%}
+            <span {% if on_sale %}class="sale-price {% if current_variant.compare_at_price > current_variant.price %} hasprice {% endif %}"{% endif %} actual-price>
+              {{current_variant.price | money_with_currency}}
+            </span>
+            {%- else -%}
+            <span {% if on_sale %}class="sale-price {% if current_variant.compare_at_price > current_variant.price %} hasprice {% endif %}"{% endif %} actual-price>
+              {{current_variant.price | money_with_currency}}
+            </span>
+            {%- endif -%}
+
+            {%- if current_variant.compare_at_price > current_variant.price-%}
+            {%- if on_sale -%}
+            <span class="grid-product__price--original" recomm-cmopare-price>{{ current_variant.compare_at_price | money }}</span>
+            <span class="percent-icon">
+              <svg id="discount" xmlns="http://www.w3.org/2000/svg" width="23.988" height="25" viewBox="0 0 23.988 25">
+                <g id="Group_2087" data-name="Group 2087" transform="translate(0 0)">
+                  <g id="Group_2086" data-name="Group 2086" transform="translate(0 0)">
+                    <path id="Path_9502" data-name="Path 9502" d="M33.191,12.822a.733.733,0,0,1,0-.648l.932-1.907a2.17,2.17,0,0,0-.936-2.882l-1.875-1a.733.733,0,0,1-.381-.524l-.367-2.091a2.17,2.17,0,0,0-2.452-1.781l-2.1.3a.733.733,0,0,1-.616-.2L23.868.615a2.17,2.17,0,0,0-3.03,0L19.312,2.091a.733.733,0,0,1-.616.2l-2.1-.3a2.17,2.17,0,0,0-2.452,1.781l-.367,2.091a.733.733,0,0,1-.381.524l-1.875,1a2.17,2.17,0,0,0-.936,2.882l.932,1.907a.733.733,0,0,1,0,.648l-.932,1.907a2.17,2.17,0,0,0,.936,2.882l1.875,1a.733.733,0,0,1,.381.524l.367,2.091a2.169,2.169,0,0,0,2.139,1.8A2.229,2.229,0,0,0,16.594,23l2.1-.3a.732.732,0,0,1,.616.2l1.526,1.476a2.17,2.17,0,0,0,3.03,0l1.526-1.476a.733.733,0,0,1,.616-.2l2.1.3a2.17,2.17,0,0,0,2.452-1.781l.367-2.091a.733.733,0,0,1,.381-.524l1.875-1a2.17,2.17,0,0,0,.936-2.882ZM19.469,6.01a2.643,2.643,0,1,1-2.643,2.643A2.646,2.646,0,0,1,19.469,6.01ZM18.1,17.766a.721.721,0,1,1-1.02-1.02L26.6,7.23a.721.721,0,0,1,1.02,1.02Zm7.132,1.221a2.643,2.643,0,1,1,2.643-2.643A2.646,2.646,0,0,1,25.237,18.987Z" transform="translate(-10.359 0.002)" fill="#ff393c"></path>
+                  </g>
+                </g>
+                <g id="Group_2089" data-name="Group 2089" transform="translate(13.676 15.144)">
+                  <g id="Group_2088" data-name="Group 2088" transform="translate(0)">
+                    <path id="Path_9503" data-name="Path 9503" d="M291.654,310.141a1.2,1.2,0,1,0,1.2,1.2A1.2,1.2,0,0,0,291.654,310.141Z" transform="translate(-290.452 -310.141)" fill="#ff393c"></path>
+                  </g>
+                </g>
+                <g id="Group_2091" data-name="Group 2091" transform="translate(7.909 7.453)">
+                  <g id="Group_2090" data-name="Group 2090" transform="translate(0)">
+                    <path id="Path_9504" data-name="Path 9504" d="M173.535,152.646a1.2,1.2,0,1,0,1.2,1.2A1.2,1.2,0,0,0,173.535,152.646Z" transform="translate(-172.333 -152.646)" fill="#ff393c"></path>
+                  </g>
+                </g>
+              </svg>
+            </span>
+            {%- endif -%}
+            {% endif %}
+          </div>
+
+
+          <form  class="product-form captureFormBuilt" action="/cart/add" data-productid="{{product.selected_or_first_available_variant.id}}"  method="post"> 
+
+
+            <div class="ox_cart_variants ox_variant_main">
+
+              {% unless product.has_only_default_variant %}
+              {%- for option in product.options_with_values -%}
+
+              {%- if settings.product_color_swatches -%}
+              {%- assign is_color = false -%}
+              {%- assign color_option_index = 0 -%}
+              {%- assign swatch_trigger = 'products.general.color_swatch_trigger' | t | downcase-%}
+              {%- assign color_option_index = forloop.index0 -%}
+              {%- assign downcased_option = option.name | downcase -%}
+              {%- if downcased_option contains swatch_trigger -%}
+              {%- assign is_color = true -%}
+              {%- elsif swatch_trigger == 'color' and downcased_option contains 'colour' -%}
+              {%- assign is_color = true -%}
+              {%- endif -%}
+              {%- endif -%}
+
+
+              {%- render 'variant-dropdown',
+              section_id: section_id,
+              option: option,
+              forloop: forloop
+              -%}
+              {%- endfor -%}
+
+              <div class="ox_sl_trigger" style="display:none">
+                <select name="id" id="ProductSelect-{{ product.id }}" class="hiddenCustomSelector no-js synch">
+                  {%- for variant in product.variants -%}
+                  <option data-img="{{variant.featured_image |img_url: '360x360' }}" data-compare="{{variant.compare_at_price | money}}" data-price="{{variant.price | money}}" vid="{{ variant.id }}" {% if variant.available %} {% else %} disabled="disabled" {% endif %} {% if variant == product.selected_or_first_available_variant %}selected="selected" {% endif %} value="{{ variant.id }}">{{ variant.title }}</option>
+                  {%- endfor -%}
+                </select>
+              </div>
+              {% endunless %}
+
+            </div>
+
+            <button type="submit" name="add" data-variant="{{ product.selected_or_first_available_variant.id }}" value="{{ product.selected_or_first_available_variant.id }}" id="AddToCart-{{ product.selected_or_first_available_variant.id }}" class="btn btn--full  ox_cart_atc" tabindex="0">
+              <span id="AddToCartText-{{ product.id }}" data-default-text="Add to cart">
+                Add to cart 
+              </span>
+            </button> 
+          </form>
+
+        </div>
+      </div>
+    </div>
+    {% endif %}
+
+
+    {% endfor %}
+  </div>
+
+</section>
+
+
+<style>
+  .cv_index_coll {display: none;}
+  .cv_index_coll.cartInjectCollection.slick-initialized.slick-slider {display: block;}
+</style>
+
+
+{% schema %}
+{
+"name": "Index Featured collection",
+"settings": [
+{
+"type": "checkbox",
+"id": "banner_enable",
+"label": "Enable ATC",
+"default": false
+},
+{
+"type": "text",
+"id": "title",
+"label": "Heading",
+"default": "Featured collection"
+},
+{
+"id": "collection",
+"type": "collection",
+"label": "Collection"
+}
+],
+"presets": [
+{
+"name": "Index Featured collection",
+"category": "Collection"
+}
+]
+}
+{% endschema %}

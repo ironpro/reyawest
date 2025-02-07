@@ -1,0 +1,51 @@
+{% section 'product-template' %}
+ 
+{% section 'product-description' %}
+{% section 'product-collection-links' %}
+
+
+{% assign main_product_handle = product.metafields.custom.main_product_handle | default: product.handle %}
+{% assign main_product = all_products[main_product_handle] %}
+
+<div class="alireviews-container" data-product-id="{{ main_product.id }}"></div>
+
+{%- liquid assign current_variant = product.selected_or_first_available_variant %}
+<!-- 
+<div class="clear"></div>
+<div class="index-section index-section--small product-reviews ">
+  <div class="page-width">
+
+
+  </div>
+</div>
+<div class="clear"></div> -->
+
+
+
+
+<style>
+  .defaulttamp
+  {
+    max-width: 1088px;
+    margin: 0 auto;padding: 0px 20px;    margin-top: 20px;
+  }
+  @media(max-width:767px)
+  {
+    .defaulttamp
+    {
+      padding: 0px 20px;    margin-top: 20px;
+    }
+    .page-content
+    {
+      padding-bottom:0px;
+    }
+  }
+</style>
+
+
+
+
+
+
+
+{% section 'alireviews-widget-580284' %}

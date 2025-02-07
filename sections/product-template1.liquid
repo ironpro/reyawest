@@ -1,0 +1,661 @@
+{%- liquid
+  assign isModal = false
+  if template == 'product.modal'
+    assign isModal = true
+  endif 
+-%}
+
+{%- render 'product-template',
+  product: product,
+  description_style: section.settings.description_style,
+  image_container_width: section.settings.image_size,
+  section_id: product.id,
+  social: section.settings.social_enable,
+  isModal: isModal,
+  thumbnail_position: section.settings.thumbnail_position,
+  thumbnail_arrows: section.settings.thumbnail_arrows,
+  video_looping: section.settings.enable_video_looping,
+  video_style: section.settings.product_video_style,
+  review_rating: section.settings.rating,
+   atc_text: section.settings.atc_text,
+   text_under_atc:  section.settings.text_under_atc,
+-%}
+
+
+{% if section.settings.description_style == 'full' %}
+{% unless settings.product_description_collapse %}
+{% if product.handle == 'barkroad-car-seat-cover-waterproof-hammock-convertible' %}
+{% else %}
+{{ product.description }}
+{% endif %}
+{% endunless %}
+{% endif %}
+
+
+
+{%- if settings.enable_product_reviews and settings.reviews_layout == 'full' -%}
+  <hr id="Reviews-{{ product.id }}" class="hr--large">
+  <div class="index-section index-section--small product-reviews product-reviews--full">
+    <div class="page-width">
+      <div id="shopify-product-reviews" data-id="{{product.id}}">{{ product.metafields.spr.reviews }}</div>
+      {% include 'alireviews-widget-102519' %}
+    </div>
+  </div>
+{%- endif -%}
+
+
+<div class="clear"></div>
+<style>
+  .product-single__description {
+    margin-top: 20px;
+  }
+  
+  .ProductShownDetail a, .ProductShownHeading h2{
+    color:{{settings.color_drawer_text}}
+  }
+</style>
+
+
+{% if settings.variant_type == 'button' %}
+
+<style>
+  .varname
+  {
+    max-height:100%;
+    display:block;
+    width:100%;border-radius:4px;
+    overflow:hidden;   
+    {% if  section.settings.border_color != blank %}  
+    border:solid 1px  {{ section.settings.border_color }};
+    {% endif %} 
+  }
+  .variant-input-wrap
+  {
+    height:auto;
+    position:relative;
+    width: 100%;
+    margin: 0 0 5px 0;
+  }
+  .buttonsale
+  {
+    {% if  section.settings.salebadgebg_color != blank %}  
+    background:{{ section.settings.salebadgebg_color }};
+    {% endif %} 
+    {% if  section.settings.salebadge_color != blank %}     
+    color:{{ section.settings.salebadge_color }};
+    {% endif %}  
+    border-radius: 10px;
+    position: absolute;
+    left: 50%;
+    top: -10px;
+    transform: translate(-50%,0);
+    padding: 3px 8px;
+    line-height: 14px;
+    font-size: 12px;
+  }
+  .variant-input-wrap label
+  {
+    {% if  section.settings.variant_bg != blank %}   
+    background:{{ section.settings.variant_bg }};
+    {% endif %}  
+    {% if  section.settings.variant_color != blank %}   
+    color:{{ section.settings.variant_color }};
+    {% endif %}  
+    border-radius:4px;
+    height: 40px;
+    line-height: 38px;
+    font-size:15px;display: block;padding: 0;
+    text-align: center;
+    border:none;  
+    box-shadow: none;
+    box-shadow: {{ settings.selectors_shadow }};
+  }
+  .variant-input
+  {
+    display: inline-block;
+    width: 50%;
+    float: left;    margin-bottom: 15px;
+  }
+  .variant-input-wrap label
+  {
+    margin:0px 10px 0px 0px
+  }
+  .variant-input-wrap input[type=radio]:checked+label
+  {
+    {% if  section.settings.selected_bg != blank %} 
+    background:{{ section.settings.selected_bg }};
+    {% endif %}  
+    {% if  section.settings.selected_color != blank %} 
+    color:{{ section.settings.selected_color }};
+    {% endif %}   
+    border:none;
+    box-shadow:{{ settings.selected_shadow }}; 
+  }
+  .variant-input-wrap input[type=radio]:checked+label .varname
+  {
+    {% if  section.settings.selected_border != blank %}  
+    border:solid 2px {{ section.settings.selected_border }};
+    {% endif %}   
+  }
+  .product__quantity .js-qty__wrapper
+  {
+
+    max-width: 100%;
+  }
+  .variant-input-wrap .variant-input:last-child  label
+  {
+    {% if  section.settings.last_variant_bg != blank %}   
+    background:{{ section.settings.last_variant_bg }};
+    {% endif %}  
+    {% if    section.settings.last_variant_color != blank %}    
+    color:{{ section.settings.last_variant_color }};
+    {% endif %}  
+  }
+  .variant-input-wrap 
+  {
+    margin-right:-10px;  width: calc(100% + 10px);
+  }
+  .variant-input-wrap.odd .variant-input:last-child 
+  {
+    width:100%;  
+  }
+  .variant-wrapper {
+    margin-bottom: 0;
+  }
+  .variant__label, .product__quantity label
+  {
+    height: auto;
+    margin-bottom: 15px;
+    font-size: 15px;
+  }
+  .product__quantity label
+  {
+    text-align:left;
+  }
+  .product__quantity label
+  {
+    margin-bottom:10px;
+  }
+</style>
+
+{% endif %}
+
+
+<style>
+
+  .product-single__meta .sale-price,.sale-price
+  {
+    {% if section.settings.reg_color != blank %}  
+    color:{{ section.settings.reg_color }} 
+      {% endif %}
+  }
+  .product-single__meta .product__price--compare
+  {
+    {% if section.settings.saleprice_color != blank %}  
+    color:{{ section.settings.saleprice_color }};
+    {% endif %} 
+  }
+  .yousave,.saleicon,.productleft .yousave2
+  {
+    {% if section.settings.save_color != blank %}   
+    color:{{ section.settings.save_color }};
+    {% endif %} 
+  }
+  .saleicon2 svg  path,.addtocart_sticky  svg path,.saleicon svg path
+  {
+    {% if section.settings.save_color != blank %}    
+    fill:{{ section.settings.save_color }}
+      {% endif %} 
+  }
+  .topreview p
+  {
+    {% if section.settings.topreview_color != blank %}  
+    color:{{ section.settings.topreview_color }}
+      {% endif %} 
+  }
+  .topreview span
+  {
+    {% if section.settings.topreviewer_color != blank %}
+    color:{{ section.settings.topreviewer_color }}
+      {% endif %} 
+  }
+  .prodetail,.prodetail p,.prodetail ul li
+  {
+    {% if section.settings.detail_color != blank %}
+    color:{{ section.settings.detail_color }}  !important
+      {% endif %} 
+  }
+  .prodetail ul li
+  {
+    {% if section.settings.list_color != blank %}
+    color:{{ section.settings.list_color }}  !important
+      {% endif %} 
+  }
+  .prodetail ul li span svg path
+  {
+    {% if section.settings.mark_color != blank %}
+    fill:{{ section.settings.mark_color }}  !important
+      {% endif %} 
+  }
+  .freedelivery li span
+  {
+    {% if section.settings.underdetail_color != blank %}
+    color:{{ section.settings.underdetail_color }}
+      {% endif %} 
+  }
+  .freedelivery
+  {
+    {% if section.settings.underdetail_bgolor != blank %}
+    background-color:{{ section.settings.underdetail_bgolor }}
+      {% endif %} 
+  }
+
+
+
+
+
+  .variant-input-wrap select,.product-single__variant
+  {
+    {% if section.settings.variant_arrow %}
+    background-image: url({{ section.settings.variant_arrow | img_url:'10x' }});
+    {% endif %}
+  }
+
+
+  .productleft .sale-price span
+  {
+    {% if section.settings.atc_color != blank %}
+    color:{{ section.settings.atc_color }}{% endif %} 
+  }
+
+  {% if settings.quantity_enable %}
+  .lastvariant
+  {
+
+  }
+
+  {% if product.variants.size <= 1 %}
+  .js-qty__wrapper
+  {
+    max-width: 100%;
+  }
+  .product__quantity label
+  {
+    text-align:center
+  }
+  .product__quantity--dropdown {
+    width: 100%;
+  }
+  {% endif %}
+
+  {% else %}
+  .variant-wrapper--dropdown
+  {
+    width:100%;
+  }
+  .variant-input-wrap
+  {
+    margin-right:0px;
+  }
+
+
+  {% endif %}
+
+  .text_under_atc
+  {
+    margin-top: 10px;
+    font-size: 15px;
+    text-align: center;
+    line-height: 15px;
+    color:{{ section.settings.atc_text_color }}
+  }
+
+
+</style>
+
+
+
+
+{% schema %}
+  {
+    "name": "Product pages",
+    "settings": [
+{
+        "type": "header",
+        "content": "ATC review ratng"
+},
+{
+        "type": "text",
+        "id": "rating",
+        "label": "Put review rating here"
+},
+{
+        "type": "header",
+        "content": "Additional Information of specific"
+},
+{
+        "type": "product",
+        "id": "product",
+        "label": "Choose Specific Product"
+},
+{
+        "type": "header",
+        "content": "Colors"
+},
+{
+        "type": "color",
+        "id": "atc_color",
+        "label": "Current Price Color Sticky ATC"
+},
+{
+        "type": "color",
+        "id": "atc_star_color",
+        "label": "Regular Star Color ATC POPUP"
+},
+{
+        "type": "color",
+        "id": "reg_color",
+        "label": "Sale Price Color"
+},
+{
+        "type": "color",
+        "id": "saleprice_color",
+        "label": "Product Sale Price Color"
+},
+{
+        "type": "color",
+        "id": "save_color",
+        "label": "Saving/Sale text Color"
+},
+{
+        "type": "textarea",
+        "id": "topreview",
+        "label": "Specific Product  - Text Over product title"
+},
+{
+        "type": "color",
+        "id": "topreview_color",
+        "label": " Text Review Color"
+},
+{
+        "type": "color",
+        "id": "topreviewer_color",
+        "label": "Text Reviewer Color"
+},
+{
+        "type": "header",
+        "content": "Specific Product  - Text Under product price"
+},
+{
+        "type": "textarea",
+        "id": "detail",
+        "label": "Specific Product  - Text Under product price"
+},
+{
+        "type": "textarea",
+        "id": "tickicon",
+        "label": "Tick SVG Icon"
+},
+{
+        "type": "text",
+        "id": "rowtext1",
+        "label": "Text Row1"
+},
+{
+        "type": "text",
+        "id": "rowtext2",
+        "label": "Text Row2"
+},
+{
+        "type": "text",
+        "id": "rowtext3",
+        "label": "Text Row3"
+},
+{
+        "type": "color",
+        "id": "detail_color",
+        "label":" Color of Text Under product price"
+},
+{
+        "type": "color",
+        "id": "list_color",
+        "label":" Color of List type Text "
+},
+{
+        "type": "color",
+        "id": "mark_color",
+        "label":" Color - Tick Mark "
+},
+{
+        "type": "header",
+        "content": "ATC TEXT OPTIONS"
+},
+{
+        "type": "text",
+        "id": "atc_text",
+        "label": "ATC Button Custom Text"
+},
+{
+        "type": "text",
+        "id": "text_under_atc",
+        "label": "Text Under - ATC Button"
+},
+{
+        "type": "color",
+        "id": "atc_text_color",
+        "label": "Color - ATC Button Custom Text",
+        "default": "#343f4c"
+},
+{
+        "type": "header",
+        "content": "Product  - Text Under Add to Cart"
+},
+{
+        "type": "textarea",
+        "id": "underdetail_icon1",
+        "label": "Row 1 SVG"
+},
+{
+        "type": "text",
+        "id": "underdetail1",
+        "label": "Row 1 text"
+},
+{
+        "type": "textarea",
+        "id": "underdetail_icon2",
+        "label": "Row 2 SVG"
+},
+{
+        "type": "text",
+        "id": "underdetail2",
+        "label": "Row 2 text"
+},
+{
+        "type": "textarea",
+        "id": "underdetail_icon3",
+        "label": "Row 3 SVG"
+},
+{
+        "type": "text",
+        "id": "underdetail3",
+        "label": "Row 3 text"
+},
+{
+        "type": "color",
+        "id": "underdetail_color",
+        "label": "Color -Text Under Add to Cart "
+},
+{
+        "type": "color",
+        "id": "underdetail_bgolor",
+        "label": "Background Color -Text Under Add to Cart "
+},
+{
+        "type": "header",
+        "content": "Variant Buttons Colors options"
+},
+{
+        "type": "color",
+        "id": "salebadge_color",
+        "label": "Color - Sale badge"
+},
+{
+        "type": "color",
+        "id": "salebadgebg_color",
+        "label": "Background Color - Sale badge"
+}, 
+{
+        "type": "color",
+        "id": "variant_bg",
+        "label": "Background Color - Variant Background"
+},
+{
+        "type": "color",
+        "id": "variant_color",
+        "label": " Color - Variant Color"
+},
+{
+        "type": "color",
+        "id": "border_color",
+        "label": "Color - Variant Border"
+},
+{
+        "type": "color",
+        "id": "variant_shadow",
+        "label": "Color - Variant Shadow"
+},  
+{
+        "type": "color",
+        "id": "selected_bg",
+        "label": "Background Color - Selected Variant "
+}, 
+{
+        "type": "color",
+        "id": "selected_color",
+        "label": "Color - Selected Variant "
+}, 
+{
+        "type": "color",
+        "id": "selected_border",
+        "label": "Border Color - Selected Variant "
+},  
+{
+        "type": "color",
+        "id": "last_variant_bg",
+        "label": "Background Color - Last Variant  "
+},  
+{
+        "type": "color",
+        "id": "last_variant_color",
+        "label": "Color - Last Variant"
+},
+{
+        "type": "header",
+        "content": "Variant Selector"
+},
+{
+        "type": "image_picker",
+        "id": "variant_arrow",
+        "label": "Uploadvariant Selector Arrow "
+},
+      {
+        "type": "select",
+        "id": "description_style",
+        "label": "Description position",
+        "default": "default",
+        "options": [
+          {
+            "value": "default",
+            "label": "Next to media"
+          },
+          {
+            "value": "full",
+            "label": "Below media"
+          }
+        ]
+      },
+      {
+        "type": "checkbox",
+        "id": "social_enable",
+        "label": "Enable social sharing",
+        "default": true
+      },
+      {
+        "type": "header",
+        "content": "Media"
+      },
+      {
+        "type": "paragraph",
+        "content": "Learn more about [media types](https://help.shopify.com/en/manual/products/product-media)"
+      },
+      {
+        "type": "select",
+        "id": "image_size",
+        "label": "Image size",
+        "default": "medium",
+        "options": [
+          {
+            "value": "small",
+            "label": "Small"
+          },
+          {
+            "value": "medium",
+            "label": "Medium"
+          },
+          {
+            "value": "large",
+            "label": "Large"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "thumbnail_position",
+        "label": "Thumbnail position",
+        "default": "below",
+        "options": [
+          {
+            "value": "beside",
+            "label": "Next to media"
+          },
+          {
+            "value": "below",
+            "label": "Below media"
+          }
+        ]
+      },
+      {
+        "type": "checkbox",
+        "id": "thumbnail_arrows",
+        "label": "Show thumbnail arrows"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_video_looping",
+        "label": "Enable video looping",
+        "default": true
+      },
+      {
+        "type": "select",
+        "id": "product_video_style",
+        "label": "Video style",
+        "default": "muted",
+        "options": [
+          {
+            "value": "muted",
+            "label": "Video without sound"
+          },
+          {
+            "value": "unmuted",
+            "label": "Video with sound"
+          }
+        ],
+        "info": "Video with sound will not autoplay"
+      }
+  
+
+    ]
+}
+{% endschema %}
+
+

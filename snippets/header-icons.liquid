@@ -1,0 +1,94 @@
+<div class="site-nav site-nav--icons">
+  <div class="site-nav__icons">
+    {% if shop.customer_accounts_enabled %}
+      <a class="site-nav__link site-nav__link--icon medium-down--hide" href="{{ routes.account_url }}">
+        <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-user" viewBox="0 0 64 64"><path d="M35 39.84v-2.53c3.3-1.91 6-6.66 6-11.41 0-7.63 0-13.82-9-13.82s-9 6.19-9 13.82c0 4.75 2.7 9.51 6 11.41v2.53c-10.18.85-18 6-18 12.16h42c0-6.19-7.82-11.31-18-12.16z"/></svg>
+        <span class="icon__fallback-text">
+          {% if customer %}
+            {{ 'layout.customer.account' | t }}
+          {% else %}
+            {{ 'layout.customer.log_in' | t }}
+          {% endif %}
+        </span>
+      </a>
+    {% endif %}
+
+    {% if settings.search_enable %}
+      <a href="{{ routes.search_url }}" class="site-nav__link site-nav__link--icon js-search-header js-no-transition{% if section.settings.main_menu_alignment == 'center' or section.settings.main_menu_alignment == 'center-split' %} large-up--hide{% endif %}">
+        <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-search" viewBox="0 0 64 64"><path d="M47.16 28.58A18.58 18.58 0 1 1 28.58 10a18.58 18.58 0 0 1 18.58 18.58zM54 54L41.94 42"/></svg>
+        <span class="icon__fallback-text">{{ 'general.search.title' | t }}</span>
+      </a>
+    {% endif %}
+
+    {% if section.settings.main_menu_alignment == 'left' or section.settings.main_menu_alignment == 'left-center' or section.settings.main_menu_alignment == 'left-drawer' %}
+      <button
+        type="button"
+        class="site-nav__link site-nav__link--icon menudrawr {% if section.settings.main_menu_alignment == 'left' or section.settings.main_menu_alignment == 'left-center' %} large-up--hide{% endif %}"
+        aria-controls="">
+       
+       <svg class="iconbactive" xmlns="http://www.w3.org/2000/svg" width="22.8" height="22.8" viewBox="0 0 22.8 22.8">
+  <g id="Group_2196" data-name="Group 2196" transform="translate(-6148 29)">
+    <g id="Rectangle_156" data-name="Rectangle 156" transform="translate(6148 -29)" fill="none" stroke="#17428b" stroke-linecap="round" stroke-width="1.2">
+      <rect width="10.2" height="10.2" rx="1.8" stroke="none"/>
+      <rect x="0.6" y="0.6" width="9" height="9" rx="1.2" fill="none"/>
+    </g>
+    <g id="Rectangle_157" data-name="Rectangle 157" transform="translate(6148 -16.4)" fill="none" stroke="#17428b" stroke-linecap="round" stroke-width="1.2">
+      <rect width="10.2" height="10.2" rx="1.8" stroke="none"/>
+      <rect x="0.6" y="0.6" width="9" height="9" rx="1.2" fill="none"/>
+    </g>
+    <g id="Rectangle_158" data-name="Rectangle 158" transform="translate(6160.6 -16.4)" fill="none" stroke="#17428b" stroke-linecap="round" stroke-width="1.2">
+      <rect width="10.2" height="10.2" rx="1.8" stroke="none"/>
+      <rect x="0.6" y="0.6" width="9" height="9" rx="1.2" fill="none"/>
+    </g>
+    <g id="Rectangle_159" data-name="Rectangle 159" transform="translate(6160.6 -29)" fill="none" stroke="#17428b" stroke-linecap="round" stroke-width="1.2">
+      <rect width="10.2" height="10.2" rx="1.8" stroke="none"/>
+      <rect x="0.6" y="0.6" width="9" height="9" rx="1.2" fill="none"/>
+    </g>
+  </g>
+</svg>
+
+<svg  class="activeicon" xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19">
+  <g id="Group_2199" data-name="Group 2199" transform="translate(-6524 121)">
+    <g id="Rectangle_156" data-name="Rectangle 156" transform="translate(6524 -121)" fill="none" stroke="#17428b" stroke-linecap="round" stroke-width="1.2">
+      <rect width="10.2" height="10.2" rx="1.8" stroke="none"/>
+      <rect x="0.6" y="0.6" width="9" height="9" rx="1.2" fill="none"/>
+    </g>
+    <rect id="Rectangle_157" data-name="Rectangle 157" width="6.4" height="6.4" rx="1.2" transform="translate(6527.8 -108.4)" fill="#17428b"/>
+    <rect id="Rectangle_158" data-name="Rectangle 158" width="6.4" height="6.4" rx="1.2" transform="translate(6536.6 -108.4)" fill="#17428b"/>
+    <rect id="Rectangle_159" data-name="Rectangle 159" width="6.4" height="6.4" rx="1.2" transform="translate(6536.6 -117.2)" fill="#17428b"/>
+  </g>
+</svg>
+        
+        <span class="icon__fallback-text">{{ 'general.drawers.navigation' | t }}</span>
+      </button>
+    {% endif %}
+
+    <a href="{{ routes.cart_url }}" class="site-nav__link site-nav__link--icon js-drawer-open-cart js-no-transition" aria-controls="CartDrawer" data-icon="{{ settings.cart_icon }}">
+      <span class="cart-link">
+        {%- if settings.cart_icon == 'bag' -%}
+          <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-bag" viewBox="0 0 64 64"><g fill="none" stroke="#000" stroke-width="2"><path d="M25 26c0-15.79 3.57-20 8-20s8 4.21 8 20"/><path d="M14.74 18h36.51l3.59 36.73h-43.7z"/></g></svg>
+        {%- elsif settings.cart_icon == 'bag-minimal' -%}
+          <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-bag-minimal" viewBox="0 0 64 64"><path stroke="null" id="svg_4" fill-opacity="null" stroke-opacity="null" fill="null" d="M11.375 17.863h41.25v36.75h-41.25z"/><path stroke="null" id="svg_2" d="M22.25 18c0-7.105 4.35-9 9.75-9s9.75 1.895 9.75 9"/></svg>
+        {%- else -%}
+        
+        
+        {% if settings.cartbag  != blank %}
+        
+       {{ settings.cartbag }}
+        {% else %}
+         <svg  id="Group_2124" data-name="Group 2124" xmlns="http://www.w3.org/2000/svg" width="25.06" height="24.015" viewBox="0 0 25.06 24.015">
+  <path id="Path_9516" data-name="Path 9516" d="M24.512,6.145H5.14L4.745,3.664A3.519,3.519,0,0,0,2.073.671L.641.388A.558.558,0,0,0,0,.887.614.614,0,0,0,.449,1.6l1.437.283A2.343,2.343,0,0,1,3.664,3.879L5.606,16.174a2.848,2.848,0,0,0,2.7,2.543H19.827a2.8,2.8,0,0,0,2.628-2.186l2.579-9.592a.709.709,0,0,0-.082-.548.538.538,0,0,0-.439-.246ZM21.407,16.168a1.67,1.67,0,0,1-1.575,1.311H8.311a1.7,1.7,0,0,1-1.618-1.527L5.337,7.37H23.777Zm0,0" transform="translate(0.004 -0.379)" fill="#1c2f5c"/>
+  <circle id="Ellipse_548" data-name="Ellipse 548" cx="2" cy="2" r="2" transform="translate(6.06 20.015)" fill="#1c2f5c"/>
+  <circle id="Ellipse_549" data-name="Ellipse 549" cx="2" cy="2" r="2" transform="translate(18.06 20.015)" fill="#1c2f5c"/>
+</svg>
+{% endif %}
+        
+        {%- endif -%}
+        <span class="icon__fallback-text">{{ 'layout.cart.title' | t }}</span>
+        <span class="cart-link__bubble{% if cart.item_count > 0 %} cart-link__bubble--visible{% endif %}">
+        {{ cart.item_count }}
+        </span>
+      </span>
+    </a>
+  </div>
+</div>

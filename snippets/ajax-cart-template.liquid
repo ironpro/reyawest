@@ -1,0 +1,178 @@
+
+
+{% capture new_sec %}
+ {% render 'collection-cart' %}
+{% endcapture %}
+<script id="CartTemplate" type="text/template">
+{% raw %}
+
+  <div class="drawer__scrollable">
+  <div class="carttimerwrap appear-animation appear-delay-{{lastAnimationRow}}">
+    <div class="carttimer">
+  {% endraw %} {{ settings.carttimersvg }}{{ settings.carttimertext }} {% raw %}
+  </div>
+  </div>
+  
+    {{#items}}
+    <div class="ajaxcart__product appear-animation appear-delay-{{animationRow}}">
+    
+  
+    
+      <div id="adj" class="ajaxcart__row">
+        <div class="grid">
+          <div class="grid__item one-third proimg">
+            <a href="{{url}}" class="ajaxcart__product-image"><img src="{{img}}" alt="{{name}}"></a>
+          </div>
+          <div class="grid__item two-thirds rightinfoall">
+            <div class="ajaxcart__product-name--wrapper">
+              <a href="{{url}}" class="ajaxcart__product-name">{{{name}}}</a>
+              {{#if variation}}
+                <span class="ajaxcart__product-meta">{{variation}}</span>
+              {{/if}}
+              {{#properties}}
+                {{#each this}}
+                  {{#if this}}
+                    <span class="ajaxcart__product-meta">{{@key}}: {{this}}</span>
+                  {{/if}}
+                {{/each}}
+              {{/properties}}
+            </div>
+            {% endraw %}
+<div class="remove__me_from_there"><svg xmlns="http://www.w3.org/2000/svg" width="16.875" height="22.345" viewBox="0 0 16.875 22.345"> <g id="Group_2154" data-name="Group 2154" transform="translate(-1883.164 -155.893)"> <g id="trash-can" transform="translate(1883.264 155.993)" opacity="0.9"> <path id="Path_3" data-name="Path 3" d="M26.149,35.015h-9.6a1.04,1.04,0,0,1-1.042-.955l-1.4-16.107.631-.053,1.4,16.106a.411.411,0,0,0,.411.376h9.6A.411.411,0,0,0,26.56,34l1.4-16.1.63.055L27.19,34.06A1.04,1.04,0,0,1,26.149,35.015Z" transform="translate(-13.01 -12.87)" fill="#343f4c" stroke="#343f4c" stroke-linecap="round" stroke-width="0.2"/> <path id="Path_4" data-name="Path 4" d="M27,12.1H10.961a.316.316,0,0,1-.316-.316V10.69a1.777,1.777,0,0,1,1.774-1.775H25.546A1.777,1.777,0,0,1,27.32,10.69v1.094A.316.316,0,0,1,27,12.1Zm-15.726-.633h15.41V10.69a1.143,1.143,0,0,0-1.142-1.142H12.419a1.143,1.143,0,0,0-1.142,1.142Z" transform="translate(-10.645 -6.727)" fill="#343f4c" stroke="#343f4c" stroke-linecap="round" stroke-width="0.2"/> <path id="Path_5" data-name="Path 5" d="M32.93,4.82H27.1a.316.316,0,0,1-.316-.316V3.775A1.777,1.777,0,0,1,28.554,2h2.917a1.777,1.777,0,0,1,1.775,1.775V4.5a.316.316,0,0,1-.316.318Zm-5.518-.633h5.2V3.775a1.143,1.143,0,0,0-1.142-1.142H28.554a1.143,1.143,0,0,0-1.142,1.142Z" transform="translate(-21.675 -2)" fill="#343f4c" stroke="#343f4c" stroke-linecap="round" stroke-width="0.2"/> <path id="Path_6" data-name="Path 6" d="M0,0H11.872V.633H0Z" transform="translate(10.941 19.355) rotate(-86.445)" fill="#343f4c" stroke="#343f4c" stroke-linecap="round" stroke-width="0.2"/> <path id="Path_7" data-name="Path 7" d="M36,25.763h.633v11.85H36Z" transform="translate(-27.979 -18.245)" fill="#343f4c" stroke="#343f4c" stroke-linecap="round" stroke-width="0.2"/> <path id="Path_8" data-name="Path 8" d="M0,0H.633V11.872H0Z" transform="translate(4.371 7.539) rotate(-3.498)" fill="#343f4c" stroke="#343f4c" stroke-linecap="round" stroke-width="0.2"/> </g> </g> </svg></div>
+{% raw %}
+		<div class="grid grid--full display-table">
+              <div class="grid__item display-table-cell one-half cartQty_block">
+                <label for="updates_{{key}}" class="visually-hidden">{% endraw %}{{ 'products.product.quantity' | t }}{% raw %}</label>
+                <div class="js-qty__wrapper">
+                  <input type="text" id="updates_{{key}}"
+                    class="js-qty__num"
+                    value="{{itemQty}}"
+                    data-id="{{key}}"
+                    min="0"
+                    aria-label="quantity"
+                    pattern="[0-9]*"
+                    name="updates[]">
+                  <button type="button"
+                    class="js-qty__adjust js-qty__adjust--minus"
+                    aria-label="{% endraw %}{{ 'cart.general.reduce_quantity' | t }}{% raw %}">
+                      {% endraw %}<svg xmlns="http://www.w3.org/2000/svg" width="3.372" height="1.236" viewBox="0 0 3.372 1.236"> <path id="Path_9519" data-name="Path 9519" d="M-1.686-4.236H1.686V-3H-1.686Z" transform="translate(1.686 4.236)" fill="#17428b"/> </svg>{% raw %}
+                      <span class="icon__fallback-text" aria-hidden="true">&minus;</span>
+                  </button>
+                  <button type="button"
+                    class="js-qty__adjust js-qty__adjust--plus"
+                    aria-label="{% endraw %}{{ 'cart.general.increase_quantity' | t }}{% raw %}">
+                      {% endraw %}<svg xmlns="http://www.w3.org/2000/svg" width="6.096" height="5.892" viewBox="0 0 6.096 5.892"> <path id="Path_9518" data-name="Path 9518" d="M.708-5.892v2.328h2.34v1.236H.708V0H-.708V-2.328h-2.34V-3.564h2.34V-5.892Z" transform="translate(3.048 5.892)" fill="#17428b"/> </svg>{% raw %}
+                      <span class="icon__fallback-text" aria-hidden="true">+</span>
+                  </button>
+                </div>
+              </div>
+              <div class="grid__item display-table-cell one-half text-right cart-price">
+                {{#if discountsApplied}}
+                  <small class="cart__price--strikethrough">{{{price}}}</small>
+                  <span class="ajaxcart__price">
+                    {{{discountedPrice}}}
+                  </span>
+                {{else}}
+                  <span class="ajaxcart__price reg-price">
+                  
+                    {{{price}}}
+                  </span>
+                {{/if}}
+              </div>
+            </div>
+
+            <div class="grid grid--full">
+              {{#if discountsApplied}}
+                <div class="grid__item text-right">
+                  {{#each discounts}}
+                    <small class="ajaxcart__discount cart__discount">
+                      {{this.discount_application.title}} (-{{{this.formattedAmount}}})
+                    </small>
+                  {{/each}}
+                </div>
+              {{/if}}
+
+              {{#if unitBase}}
+                <div class="grid__item text-right">
+                  <div class="product__unit-price">
+                    {{{ unitPrice }}}/{{{ unitBase }}}
+                  </div>
+                </div>
+              {{/if}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {{/items}}
+
+    {% endraw %}{% if settings.cart_notes_enable %}{% raw %}
+      <div class="appear-animation appear-delay-{{lastAnimationRow}}">
+        <label for="CartSpecialInstructions">{% endraw %}{{ 'cart.general.note' | t }}{% raw %}</label>
+        <textarea name="note" class="input-full cart-notes" id="CartSpecialInstructions">{{note}}</textarea>
+      </div>
+    {% endraw %}{% endif %}{% raw %}
+    
+    <div class="our__features cust-pad">
+   <div class="grid grid--full">
+       
+     {% endraw %} {% if settings.check_featuredimg1 %} {% raw %} <div class="grid__item one-third  appear-animation appear-delay-{{lastAnimationRow}}">
+         {% endraw %}  
+         {% if settings.featuredimage1 %}
+         {% raw %}
+        <img src="{% endraw %}  {{  settings.featuredimage1 | img_url:'original' }}{% raw %}"   height="auto"/>
+          {% endraw %}  
+         {% endif %}
+         {% raw %}
+        <p>
+       {% endraw %}  
+        {{ settings.featuredtext1 }}
+        {% raw %}
+  </p>
+        </div>
+       {% endraw %} {% endif %}{% raw %}
+       {% endraw %} {% if settings.check_featuredimg2 %} {% raw %}
+         <div class="grid__item one-third  appear-animation appear-delay-{{lastAnimationRow}}">
+        
+          {% endraw %}  
+         {% if settings.featuredimage2 %}
+         {% raw %}
+        <img src="{% endraw %}  {{  settings.featuredimage2 | img_url:'original' }}{% raw %}"   height="auto"/>
+          {% endraw %}  
+         {% endif %}
+         {% raw %}
+        <p>
+       
+         {% endraw %}  
+          {{ settings.featuredtext2 }}
+        {% raw %}
+  		</p>
+         </div>
+        {% endraw %}{% endif %}
+        {% if settings.check_featuredimg3 %} {% raw %}
+         <div class="grid__item one-third  appear-animation appear-delay-{{lastAnimationRow}}">
+           {% endraw %}  
+         {% if settings.featuredimage3 %}
+         {% raw %}
+        <img src="{% endraw %}  {{  settings.featuredimage3 | img_url:'original' }}{% raw %}"   height="auto"/>
+          {% endraw %}  
+         {% endif %}
+         {% raw %}
+        <p>
+       
+        {% endraw %}  
+       {{ settings.featuredtext3 }}
+        {% raw %}
+  </p>
+        
+         </div>
+        {% endraw %}{% endif %}{% raw %}
+        
+        </div>
+  </div>
+    {% endraw %}
+         {{ new_sec }}
+        
+</script>
+
+

@@ -1,0 +1,76 @@
+<div class="clear"></div>
+<div id="notbg{{ block.id }}">
+<div class="notavialble" id="notavialble{{ block.id }}"  {{ block.shopify_attributes }}>
+   {% if block.settings.iconcode != blank %}
+    {{ block.settings.iconcode }}
+    {% elsif block.settings.icon %}
+      <img src="{{  block.settings.icon | img_url:'original' }}">
+    {% endif %}
+  
+<h2>{{ block.settings.title }}</h2>
+  
+</div>
+<div class="clear"></div>
+</div>
+
+
+
+<style>
+  #notavialble{{ block.id }}
+  {
+    position: relative;
+    padding: 0px 0 0px;
+    max-width: 415px;
+    margin: 10px auto 0px;
+  }
+  #notavialble{{ block.id }}  img, #notavialble{{ block.id }}   svg
+  {
+    display:block;
+    margin:0 auto;
+  }
+ #notavialble{{ block.id }} h2
+  {
+    font-size:45px;
+    line-height:52px;
+    color:{{ block.settings.headingcolor }};
+    max-width:337px;
+    position:absolute;
+    top:50%;
+    left:50%;
+    width:100%;
+    transform:translate(-50%,-50%);
+    margin: 0;
+    letter-spacing: 0;
+    text-align: center;
+  }
+  #notbg{{ block.id }}
+  {
+    padding:{{ block.settings.padding }};
+    margin:{{ block.settings.margin }};
+     {{ block.settings.secgradiant }}
+  }
+  @media(max-width:767px)
+    {
+ #notavialble{{ block.id }} h2 {
+    font-size: 28px;
+    line-height: 33px;
+    max-width: 260px;
+}
+     #notavialble{{ block.id }} {
+    padding: 0px 0 0px;
+    max-width: 260px;
+    margin: 35px auto 0px;
+}
+      #notbg{{ block.id }}
+  {
+   padding:{{ block.settings.padding_mob }};
+    margin:{{ block.settings.margin_mob }};
+    {{ block.settings.secgradiant_mob }}
+  }
+      #notavialble{{ block.id }}  img, #notavialble{{ block.id }}   svg
+  {
+   max-width:100%;
+  }
+      
+    }
+</style>

@@ -1,0 +1,160 @@
+<div class="clear"></div>
+<!-- Image with text - TWO BLOCK -->
+<div class="section2" id="section2{{ block.id }}"  {{ block.shopify_attributes }}>
+<div class="page-width">
+<div class="grid">
+<div class="grid__item medium-up--one-half">
+  
+{% if block.settings.image1 %}
+  <img class="deskbnr" src="{{ block.settings.image1 | img_url:'original' }}">
+{% endif %}
+  
+  <h2>
+ {{ block.settings.title1 }}
+  </h2>
+<div>
+<p>
+  {{ block.settings.text1 }}
+  </p>
+
+   {{ block.settings.icontext1 }}
+</div>
+  
+{% if block.settings.image1 %}
+  <img class="mobbnr" src="{{ block.settings.image1 | img_url:'original' }}">
+{% endif %}
+  
+ </div>
+
+<div class="grid__item medium-up--one-half">
+   
+{% if block.settings.image2 %}
+  <img class="deskbnr" src="{{ block.settings.image2 | img_url:'original' }}">
+{% endif %}
+  
+     <h2>
+ {{ block.settings.title2 }}
+  </h2>
+<div>
+<p>
+  {{ block.settings.text2 }}
+  </p>
+
+   {{ block.settings.icontext2 }}
+</div>
+    
+{% if block.settings.image2 %}
+  <img class="mobbnr" src="{{ block.settings.image2 | img_url:'original' }}">
+{% endif %}
+
+</div>
+</div>
+<div class="clear"></div>
+</div>
+<div class="clear"></div>
+</div>
+<style>
+ 
+#section2{{ block.id }}
+{
+  width:100%;
+  background:{{ block.settings.bg }};
+  float:left;
+}
+ #section2{{ block.id }} img
+  {
+    vertical-align:middle;
+    box-shadow:{{ block.settings.shadow }};  
+    border-radius: 4px;
+  }
+ #section2{{ block.id }} p.text-or-icon img
+  {
+      border-radius: 0px;
+    box-shadow: none;
+    margin-right: 8px;
+  }
+#section2{{ block.id }} .page-width
+  {
+    max-width:812px;
+    margin:50px auto;
+    padding:0px;
+  }
+ #section2{{ block.id }} h2
+  {
+    color:{{ block.settings.headingcolor }};
+    font-size:28px;
+    margin-top:20px;
+    margin-bottom: 20px;
+    font-weight:normal;    line-height:33px;
+  }
+#section2{{ block.id }} p
+  {
+    color:{{ block.settings.textcolor }};
+    font-size:17px;
+    margin:0px;line-height: 24px;
+  }
+#section2{{ block.id }} .grid__item 
+  {
+    padding-left: 50px;
+  }
+ #section2{{ block.id }}  .grid
+  {
+    margin-left: -50px;
+  }
+ #section2{{ block.id }} p.text-or-icon
+  {     
+    margin-top: 15px;
+    vertical-align: middle;
+    margin-right: 12px;
+    font-style:italic
+  }
+#section2{{ block.id }} p.text-or-icon svg
+  {   
+    vertical-align: middle;
+    margin-right: 12px;
+  }
+  #section2{{ block.id }} img.mobbnr
+      {
+        display:none;
+      }
+  #section2{{ block.id }} .grid__item:first-child {
+    float: right;
+}
+  @media(max-width:767px)
+    {
+   #section2{{ block.id }} img.deskbnr
+      {
+        display:none;
+      }
+     #section2{{ block.id }} img.mobbnr
+      {
+        display:block;
+      }
+   #section2{{ block.id }} .grid {
+    margin-left: 00px;
+} 
+  #section2{{ block.id }} .grid__item {
+    padding-left: 0px;
+}    
+    #section2{{ block.id }} .grid__item:first-child
+      {
+        background:{{ block.settings.bgmob }};
+        padding: 0 20px 30px;
+      }
+       #section2{{ block.id }} .grid__item:last-child
+      {
+        padding: 0 20px 30px;
+      }
+ #section2{{ block.id }} .page-width {
+    margin: 0px auto 0px;
+    padding: 0px 0px;
+}    
+   #section2{{ block.id }} p {
+    margin-bottom: 30px;
+}
+     #section2{{ block.id }} .grid__item:first-child  p:first-child
+      {
+          margin-bottom: 0px;
+      }
+    }
+</style>

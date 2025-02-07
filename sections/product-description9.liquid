@@ -1,0 +1,3177 @@
+<div class="product-single__description-full cust-sett">
+
+  {%- for block in section.blocks -%}
+
+  {% case block.type %} 
+
+  {% when 'custom-text-and-image' %}
+
+  {% if block.settings.show_section %}
+  {%- render 'product-image-with-text1', block: block -%}
+  {% endif %}
+
+  {% when 'custom-rich-text' %}
+
+  {% if block.settings.show_section %}
+  {%- render 'product-rich-text1', block: block -%}
+  {% endif %}  
+
+  {% when 'custom-icon-with-text' %}
+
+  {% if block.settings.show_section %}
+  {%- render 'product-icon-with-text1', block: block -%}
+  {% endif %}  
+
+  {% when 'custom-fullwidthbanner' %}
+
+  {% if block.settings.show_section %}
+  {%- render 'product-fullwidthbanner1', block: block -%}
+  {% endif %}  
+
+  {% when 'custom-faq' %}
+
+  {% if block.settings.show_section %}
+  {%- render 'product-custom-faq1', block: block -%}
+  {% endif %}   
+
+  {% when 'custom-special-heading' %}
+
+  {% if block.settings.show_section %}
+  {%- render 'product-special-heading1', block: block -%}
+  {% endif %}  
+
+  {% when 'list-style-text-icon' %}
+
+  {% if block.settings.show_section %}
+  {%- render 'list-style-text-icon1', block: block -%}
+  {% endif %}  
+
+  {% when 'image-with-tooltip' %}
+
+  {% if block.settings.show_section %}
+  {%- render 'product-image-with-tooltip1', block: block -%}
+  {% endif %}  
+
+  {% when 'bg-text-and-image' %}
+
+  {% if block.settings.show_section %}
+  {%- render 'product-bg-text-and-image1', block: block -%}
+  {% endif %}  
+
+  {% when 'image-text-columns' %}
+
+  {% if block.settings.show_section %}
+  {%- render 'product-image-text-columns1', block: block -%}
+  {% endif %}  
+
+  {% when 'image-toggle-text' %}
+
+  {% if block.settings.show_section %}
+  {%- render 'product-image-toggle-text1', block: block -%}
+  {% endif %}   
+
+  {% when 'comparision-table' %}
+
+  {% if block.settings.show_section %}
+  {%- render 'product-comparision-table1', block: block -%}
+  {% endif %}  
+
+  {% when 'product-happy-customers' %}
+
+  {% if block.settings.show_section %}
+  {%- render 'product-happy-customers1', block: block -%}
+  {% endif %} 
+
+  {% when 'mobile-happy-customers' %}
+
+  {% if block.settings.show_section %}
+  {%- render 'mobile-happy-customers1', block: block -%}
+  {% endif %} 
+
+  {% when 'mobile-text-with-image' %}
+
+  {% if block.settings.show_section %}
+  {%- render 'mobile-text-with-image1', block: block -%}
+  {% endif %}  
+
+  {% when 'product-recommendation' %}
+
+  {% if block.settings.show_section %}
+  {%- render 'product-shown-collection', block: block -%}
+  {% endif %} 
+  
+  {% when 'product-recommendation2' %}
+
+  {% if block.settings.show_section %}
+  {%- render 'product-shown-collection1', block: block -%}
+  {% endif %}
+  
+  {% when 'product-recommendation3' %}
+
+  {% if block.settings.show_section %}
+  {%- render 'product-shown-collection2', block: block -%}
+  {% endif %}
+  
+  {% endcase %}
+
+  {%- endfor -%}
+
+
+</div>
+
+<style>
+  .product-single__description {
+    margin-top: 20px; 
+  }
+  .rte>div {
+    margin-bottom: 0px;
+  }
+  .product-single__description-full
+  {
+    margin-bottom:0px;
+  }
+
+
+  @media(max-width:767px)
+  {
+    .product-single__description-full 
+    {
+      margin: 0px 0;
+    }
+  }
+  
+  
+</style>
+
+{% schema %}
+  {
+    "name": "Product Description",
+    "settings": [],
+    "blocks": [
+ {
+        "type": "custom-text-and-image",
+        "name": "Custom - Image with text",
+        "settings": [
+ {
+            "type": "checkbox",
+            "id": "show_section",
+            "label": "Show / Hide Section"
+          },
+{
+            "type": "textarea",
+            "id": "secgradiant",
+            "label": "Section gradiant on desktop"
+          },
+{
+            "type": "textarea",
+            "id": "secgradiant_mob",
+            "label": "Section gradiant on mob"
+          },
+ {
+            "type": "text",
+            "id": "margin",
+            "label": "Margin:10px 10px 10px 10px"
+          },
+ {
+            "type": "text",
+            "id": "padding",
+            "label": "Padding:10px 10px 10px 10px",
+            "default":"0px 0px 50px 0px"
+          },
+ {
+            "type": "text",
+            "id": "margin_mob",
+            "label": "Mobile Margin:10px 10px 10px 10px"
+          },
+ {
+            "type": "text",
+            "id": "padding_mob",
+            "label": "Mobile Padding:10px 10px 10px 10px",
+           "default":"0px 0px 20px 0px"
+          },
+{
+"type":"header",
+"content":"Video Settings"
+},
+ {
+        "type": "image_picker",
+        "id": "videothumb",
+        "label": "Video default Poster"
+      },
+{
+        "type": "checkbox",
+        "id": "muted",
+        "label": "Video Muted"
+      },
+ {
+        "type": "checkbox",
+        "id": "autoplay",
+        "label": "Video Autoplay"
+      },
+ {
+        "type": "textarea",
+        "id": "video_url",
+        "label": "Video link",
+        "info": "Insert Mp4 video file Url"
+      },
+{
+"type":"header",
+"content":"Image Settings"
+},
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          },
+{
+            "type": "checkbox",
+            "id": "roundcorner",
+            "label": "Rounded Image Corner"
+          }, 
+{
+            "type": "text",
+            "id": "roundvalue",
+            "label": "Radius",
+           "default":"4px"
+          },
+   {
+            "type": "text",
+            "id": "shadow",
+            "label": "Shadow - Image",
+            "default": "0px 2px 15px rgba(19,32,56,0.30)"
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title",
+            "default": "Image with text"
+          },
+ {
+            "type": "checkbox",
+            "id": "centertitle",
+            "label": "Centralized Title on Mobile"
+          },
+          {
+            "type": "color",
+            "id": "headingcolor",
+            "label": "Color - Title",
+            "default": "#1C2F5C"
+          },
+          {
+            "type": "richtext",
+            "id": "text",
+            "label": "Text",
+            "default": "<p>Pair large text with an image to tell a story, explain a detail about your product, or describe a new promotion.</p>"
+          },  
+          {
+            "type": "text",
+            "id": "subtitle",
+            "label": "Subtitle",
+            "default": "Improved"
+          },
+ {
+            "type": "checkbox",
+            "id": "centertext",
+            "label": "Centralized text on Mobile"
+          },
+   {
+            "type": "color",
+            "id": "textcolor",
+            "label": "Color - Text",
+            "default": "#343F4C"
+          },
+          {
+            "type": "textarea",
+            "id": "iconcode",
+            "label": "SVG icon code"
+          },
+          {
+            "type": "image_picker",
+            "id": "icon",
+            "label": "Upload Icon"
+          },
+          {
+            "type": "select",
+            "id": "layout",
+            "label": "Layout",
+            "default": "left",
+            "options": [
+              {
+                "value": "left",
+                "label": "Image on left"
+              },
+              {
+                "value": "right",
+                "label": "Image on right"
+              }
+            ]
+          },
+{
+            "type": "select",
+            "id": "layout_mob",
+            "label": "Mobile Image Placement",
+            "default": "up",
+            "options": [
+              {
+                "value": "up",
+                "label": "Image Above Text"
+              },
+              {
+                "value": "down",
+                "label": "Image Below Text"
+              }
+            ]
+          },
+{
+"type":"text",
+"id":"imagepadding",
+"label":"Mobile - padding around image section",
+"default":"0px"
+}
+        ]
+      },
+    {
+        "type": "custom-rich-text",
+        "name": "Custom Rich text",
+        "settings": [
+ {
+            "type": "checkbox",
+            "id": "show_section",
+            "label": "Show / Hide Section"
+          },
+{
+            "type": "textarea",
+            "id": "secgradiant",
+            "label": "Section gradiant on Desktop"
+          },
+{
+            "type": "textarea",
+            "id": "secgradiant_mob",
+            "label": "Section gradiant on mob"
+          },
+ {
+            "type": "text",
+            "id": "margin",
+            "label": "Margin:10px 10px 10px 10px",
+            "default":"0px 0px 0px 0px"
+          },
+ {
+            "type": "text",
+            "id": "padding",
+            "label": "Padding:10px 10px 10px 10px",
+             "default":"0px 20px 0px 20px"
+          },
+ {
+            "type": "text",
+            "id": "margin_mob",
+            "label": "Mobile Margin:10px 10px 10px 10px",
+"default":"0px 0px 0px 0px"
+          },
+ {
+            "type": "text",
+            "id": "padding_mob",
+            "label": "Mobile Padding:10px 10px 10px 10px",
+"default":"0px 20px 0px 20px"
+          },
+
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title",
+            "default": "Rich text block"
+          },
+ {
+            "type": "checkbox",
+            "id": "centertitle",
+            "label": "Centralized Title on Mobile"
+          },
+         {
+            "type": "color",
+            "id": "colortitle",
+            "label": "Color - Title",
+            "default": "#1C2F5C"
+          },
+          {
+            "type": "textarea",
+            "id": "text",
+            "label": "Text",
+            "default": "<p>Use this section for any descriptive text you need to fill out your pages or to add introductory headings between other blocks.</p>"
+          },
+ {
+            "type": "checkbox",
+            "id": "centertext",
+            "label": "Centralized text on Mobile"
+          },
+         {
+            "type": "color",
+            "id": "colortext",
+            "label": "Color - Text",
+            "default": "#343F4C"
+          },
+          {
+            "type": "select",
+            "id": "align_text",
+            "label": "Text alignment",
+            "default": "left",
+            "options": [
+              {
+                "value": "left",
+                "label": "Left"
+              },
+              {
+                "value": "center",
+                "label": "Centered"
+              }
+            ]
+          },
+          {
+            "type": "checkbox",
+            "id": "narrow_column",
+            "label": "Narrow column",
+            "default": true
+          }
+        ]
+      }, 
+   {
+        "type": "custom-icon-with-text",
+        "name": "Custom - Icon with text",
+        "settings": [
+ {
+            "type": "checkbox",
+            "id": "show_section",
+            "label": "Show / Hide Section"
+          },
+
+{
+            "type": "textarea",
+            "id": "secgradiant",
+            "label": "Section gradiant on desktop"
+          },
+{
+            "type": "textarea",
+            "id": "secgradiant_mob",
+            "label": "Section gradiant on mob"
+          },
+ {
+            "type": "text",
+            "id": "margin",
+            "label": "Margin:10px 10px 10px 10px",
+            "default":"0"
+          },
+ {
+            "type": "text",
+            "id": "padding",
+            "label": "Padding:10px 10px 10px 10px",
+           "default":"25px 0px 100px 0px"
+          },
+ {
+            "type": "text",
+            "id": "margin_mob",
+            "label": "Mobile Margin:10px 10px 10px 10px"
+          },
+ {
+            "type": "text",
+            "id": "padding_mob",
+            "label": "Mobile Padding:10px 10px 10px 10px",
+            "default":"5px 0px 50px 0px"
+          },
+   {
+            "type": "color",
+            "id": "headingcolor",
+            "label": "Color - Title",
+            "default": "#1C2F5C"
+          },
+{
+            "type": "select",
+            "id": "hideonmob",
+            "label": "Choose to hide one column",
+            "default": "5",
+            "options": [
+              {
+                "value": "1",
+                "label": "1"
+              },
+               {
+                "value": "2",
+                "label": "2"
+              },
+ {
+                "value": "3",
+                "label": "3"
+              },
+ {
+                "value": "4",
+                "label": "4"
+              },
+ {
+                "value": "5",
+                "label": "5"
+              }
+            ]
+          },
+   {
+            "type": "header",
+            "content": "Column-1"
+  },
+         {
+            "type": "textarea",
+            "id": "iconcode",
+            "label": "SVG icon code"
+          },
+          {
+            "type": "image_picker",
+            "id": "icon",
+            "label": "Upload Icon"
+          },
+   {
+            "type": "text",
+            "id": "title",
+            "label": "Title",
+            "default":"Title"
+          },
+    {
+            "type": "header",
+            "content": "Column-2"
+  },
+         {
+            "type": "textarea",
+            "id": "iconcode2",
+            "label": "SVG icon code"
+          },
+          {
+            "type": "image_picker",
+            "id": "icon2",
+            "label": "Upload Icon"
+          },
+   {
+            "type": "text",
+            "id": "title2",
+            "label": "Title",
+            "default":"Title"
+          },
+    {
+            "type": "header",
+            "content": "Column-3"
+  },
+         {
+            "type": "textarea",
+            "id": "iconcode3",
+            "label": "SVG icon code"
+          },
+          {
+            "type": "image_picker",
+            "id": "icon3",
+            "label": "Upload Icon"
+          },
+   {
+            "type": "text",
+            "id": "title3",
+            "label": "Title",
+            "default":"Title"
+          },
+    {
+            "type": "header",
+            "content": "Column-4"
+  },
+         {
+            "type": "textarea",
+            "id": "iconcode4",
+            "label": "SVG icon code"
+          },
+          {
+            "type": "image_picker",
+            "id": "icon4",
+            "label": "Upload Icon"
+          },
+   {
+            "type": "text",
+            "id": "title4",
+            "label": "Title",
+            "default":"Title"
+          },
+    {
+            "type": "header",
+            "content": "Column-5"
+  },
+         {
+            "type": "textarea",
+            "id": "iconcode5",
+            "label": "SVG icon code"
+          },
+          {
+            "type": "image_picker",
+            "id": "icon5",
+            "label": "Upload Icon"
+          },
+   {
+            "type": "text",
+            "id": "title5",
+            "label": "Title",
+            "default":"Title"
+          }
+  ]
+  },  
+  {
+        "type": "custom-fullwidthbanner",
+        "name": "Custom BG Image Text",
+        "settings": [
+ {
+            "type": "checkbox",
+            "id": "show_section",
+            "label": "Show / Hide Section"
+          },
+  {
+        "id":"mobhide",
+         "type": "checkbox",
+         "label": "Hide On Mobile"
+         },
+         {
+        "id":"bggradiant",
+         "type": "textarea",
+         "label": "Background Gradiant",
+         "info":"https://www.colorzilla.com/gradient-editor/"
+         },
+ {
+        "id":"boxborder",
+         "type": "color",
+         "label": "Image Box Border Color",
+         "default":"#FFF4DF"
+         },
+ {
+        "id":"bgcolor",
+         "type": "color",
+         "label": "Image Box Background Color",
+         "default":"#F8B133"
+         },
+ {
+        "id":"boxshadow",
+         "type": "text",
+         "label": "Image Box Shadow"
+         },
+ {
+        "id":"imageradius",
+         "type": "text",
+         "label": "Box Radius"
+         },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title",
+            "default": "Large image with text box"
+          },
+ {
+        "id":"titlecolor",
+         "type": "color",
+         "label": "Color - Title",
+         "default":"#1C2F5C"
+         },
+          {
+            "type": "textarea",
+            "id": "text",
+            "label": "Text",
+            "default": "<p>Pair large text with a full-width image to draw attention to an important detail of your brand or product line.</p>"
+          },
+ {
+        "id":"textcolor",
+         "type": "color",
+         "label": "Color - Text",
+         "default":"#343F4C"
+         },
+ {
+        "id":"linkcolor",
+         "type": "color",
+         "label": "Color - Link",
+         "default":"#17428B"
+         },
+             {
+            "type": "textarea",
+            "id": "iconcode",
+            "label": "SVG icon code"
+          },
+          {
+            "type": "image_picker",
+            "id": "icon",
+            "label": "Upload Icon"
+          },
+         
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          },
+          {
+            "type": "select",
+            "id": "alignment",
+            "label": "Image focal point",
+            "info": "Used to keep the subject of your photo in view.",
+            "default": "center",
+            "options": [
+              {
+                "value": "top left",
+                "label": "Top left"
+              },
+              {
+                "value": "top",
+                "label": "Top"
+              },
+              {
+                "value": "top right",
+                "label": "Top right"
+              },
+              {
+                "value": "center left",
+                "label": "Left"
+              },
+              {
+                "value": "center",
+                "label": "Middle"
+              },
+              {
+                "value": "center right",
+                "label": "Right"
+              },
+              {
+                "value": "bottom left",
+                "label": "Bottom left"
+              },
+              {
+                "value": "bottom",
+                "label": "Bottom"
+              },
+              {
+                "value": "bottom right",
+                "label": "Bottom right"
+              }
+            ]
+          },
+          {
+            "type": "select",
+            "id": "layout",
+            "label": "Image Position",
+            "default": "right",
+            "options": [
+              {
+                "value": "left",
+                "label": "left"
+              },
+              {
+                "value": "right",
+                "label": "right"
+              }
+            ]
+          }
+         
+   ]
+  },
+ {
+        "type": "custom-faq",
+        "name": "Custom FAQs",
+        "settings": [
+ {
+            "type": "checkbox",
+            "id": "show_section",
+            "label": "Show / Hide Section"
+          },
+{
+            "type": "textarea",
+            "id": "secgradiant",
+            "label": "Section gradiant on desktop"
+          },
+{
+            "type": "textarea",
+            "id": "secgradiant_mob",
+            "label": "Section gradiant on mob"
+          },
+ {
+            "type": "text",
+            "id": "margin",
+            "label": "Margin:10px 10px 10px 10px"
+          },
+ {
+            "type": "text",
+            "id": "padding",
+            "label": "Padding:10px 10px 10px 10px"
+          },
+ {
+            "type": "text",
+            "id": "margin_mob",
+            "label": "Mobile Margin:10px 10px 10px 10px"
+          },
+ {
+            "type": "text",
+            "id": "padding_mob",
+            "label": "Mobile Padding:10px 10px 10px 10px"
+          },
+  {
+            "type": "text",
+            "id": "title",
+            "label": "Title",
+            "default": "Large image with text box"
+          },
+ {
+        "id":"titlecolor",
+         "type": "color",
+         "label": "Color - Title",
+         "default":"#1C2F5C"
+         },
+  {
+            "type": "text",
+            "id": "subtitle",
+            "label": "SubTitle",
+            "default": "Sub Title"
+          },
+ {
+        "id":"subtitle_color",
+         "type": "color",
+         "label": "Color - Sub Title",
+         "default":"#1C2F5C"
+         },
+{
+            "type": "header",
+            "content": "Faq 1"
+},
+  {
+            "type": "text",
+            "id": "faqtitle1",
+            "label": "Question",
+            "default": "Large image with text box"
+          },
+          {
+            "type": "textarea",
+            "id": "faqtext1",
+            "label": "Answer",
+            "default": "<p>Pair large text with a full-width image to draw attention to an important detail of your brand or product line.</p>"
+          },
+{
+            "type": "header",
+            "content": "Faq 2"
+},
+  {
+            "type": "text",
+            "id": "faqtitle2",
+            "label": "Question",
+            "default": "Large image with text box"
+          },
+          {
+            "type": "textarea",
+            "id": "faqtext2",
+            "label": "Answer",
+            "default": "<p>Pair large text with a full-width image to draw attention to an important detail of your brand or product line.</p>"
+          },
+{
+            "type": "header",
+            "content": "Faq 3"
+},
+  {
+            "type": "text",
+            "id": "faqtitle3",
+            "label": "Question",
+            "default": "Large image with text box"
+          },
+          {
+            "type": "textarea",
+            "id": "faqtext3",
+            "label": "Answer",
+            "default": "<p>Pair large text with a full-width image to draw attention to an important detail of your brand or product line.</p>"
+          },
+{
+            "type": "header",
+            "content": "Faq 4"
+},
+  {
+            "type": "text",
+            "id": "faqtitle4",
+            "label": "Question",
+            "default": "Large image with text box"
+          },
+          {
+            "type": "textarea",
+            "id": "faqtext4",
+            "label": "Answer",
+            "default": "<p>Pair large text with a full-width image to draw attention to an important detail of your brand or product line.</p>"
+          },
+{
+            "type": "header",
+            "content": "Faq 5"
+},
+  {
+            "type": "text",
+            "id": "faqtitle5",
+            "label": "Question",
+            "default": "Large image with text box"
+          },
+          {
+            "type": "textarea",
+            "id": "faqtext5",
+            "label": "Answer",
+            "default": "<p>Pair large text with a full-width image to draw attention to an important detail of your brand or product line.</p>"
+          },
+{
+            "type": "header",
+            "content": "Faq 6"
+},
+  {
+            "type": "text",
+            "id": "faqtitle6",
+            "label": "Question",
+            "default": "Large image with text box"
+          },
+          {
+            "type": "textarea",
+            "id": "faqtext6",
+            "label": "Answer",
+            "default": "<p>Pair large text with a full-width image to draw attention to an important detail of your brand or product line.</p>"
+          },
+{
+            "type": "header",
+            "content": "Faq 7"
+},
+  {
+            "type": "text",
+            "id": "faqtitle7",
+            "label": "Question",
+            "default": "Large image with text box"
+          },
+          {
+            "type": "textarea",
+            "id": "faqtext7",
+            "label": "Answer",
+            "default": "<p>Pair large text with a full-width image to draw attention to an important detail of your brand or product line.</p>"
+          },
+ {
+        "id":"textcolor",
+         "type": "color",
+         "label": "Color - Text",
+         "default":"#343F4C"
+         },
+ {
+        "id":"rowcolor",
+         "type": "color",
+         "label": "Color - Alternative Row BG",
+         "default":"#FDECE4"
+         },
+
+{
+            "type": "header",
+            "content": "Faq list Style Icon"
+},
+ {
+            "type": "textarea",
+            "id": "iconcode",
+            "label": "SVG icon code"
+          },
+ {
+            "type": "image_picker",
+            "id": "icon",
+            "label": "Upload Icon"
+          },
+{
+            "type": "header",
+            "content": "Faq Arrow up Icon"
+},         
+ {
+            "type": "textarea",
+            "id": "iconcode2",
+            "label": "SVG icon code"
+          },
+          {
+            "type": "image_picker",
+            "id": "icon2",
+            "label": "Upload Icon"
+          },
+{
+            "type": "header",
+            "content": "Faq Arrow Down Icon"
+}, 
+ {
+            "type": "textarea",
+            "id": "iconcode3",
+            "label": "SVG icon code"
+          },
+          {
+            "type": "image_picker",
+            "id": "icon3",
+            "label": "Upload Icon"
+          }
+
+]
+},
+ {
+        "type": "custom-special-heading",
+        "name": "Custom - Special heading",
+        "settings": [
+ {
+            "type": "checkbox",
+            "id": "show_section",
+            "label": "Show / Hide Section"
+          },
+{
+            "type": "textarea",
+            "id": "secgradiant",
+            "label": "Section gradiant on desktop"
+          },
+{
+            "type": "textarea",
+            "id": "secgradiant_mob",
+            "label": "Section gradiant on mob"
+          },
+ {
+            "type": "text",
+            "id": "margin",
+            "label": "Margin:10px 10px 10px 10px"
+          },
+ {
+            "type": "text",
+            "id": "padding",
+            "label": "Padding:10px 10px 10px 10px"
+          },
+ {
+            "type": "text",
+            "id": "margin_mob",
+            "label": "Mobile Margin:10px 10px 10px 10px"
+          },
+ {
+            "type": "text",
+            "id": "padding_mob",
+            "label": "Mobile Padding:10px 10px 10px 10px"
+          },
+   {
+            "type": "color",
+            "id": "headingcolor",
+            "label": "Color - Title",
+            "default": "#1C2F5C"
+          },
+         {
+            "type": "textarea",
+            "id": "iconcode",
+            "label": "SVG BG code"
+          },
+          {
+            "type": "image_picker",
+            "id": "icon",
+            "label": "Upload Background"
+          },
+   {
+            "type": "text",
+            "id": "title",
+            "label": "Title",
+            "default":"Not available in physical stores"
+          }
+  ]
+},
+{
+        "type": "list-style-text-icon",
+        "name": "List Style text and icon",
+        "settings": [
+ {
+            "type": "checkbox",
+            "id": "show_section",
+            "label": "Show / Hide Section"
+          },
+ {
+            "type": "select",
+            "id": "align_text",
+            "label": "Alignment",
+            "default": "left",
+            "options": [
+              {
+                "value": "left",
+                "label": "Left"
+              },
+              {
+                "value": "center",
+                "label": "Centered"
+              }
+            ]
+          },
+{
+            "type": "textarea",
+            "id": "secgradiant",
+            "label": "Section gradiant on desktop"
+          },
+{
+            "type": "textarea",
+            "id": "secgradiant_mob",
+            "label": "Section gradiant on mob"
+          },
+ {
+            "type": "text",
+            "id": "margin",
+            "label": "Margin:10px 10px 10px 10px"
+          },
+ {
+            "type": "text",
+            "id": "padding",
+            "label": "Padding:10px 10px 10px 10px"
+          },
+ {
+            "type": "text",
+            "id": "margin_mob",
+            "label": "Mobile Margin:10px 10px 10px 10px"
+          },
+ {
+            "type": "text",
+            "id": "padding_mob",
+            "label": "Mobile Padding:10px 10px 10px 10px"
+          },
+   {
+            "type": "color",
+            "id": "headingcolor",
+            "label": "Color - Text",
+            "default": "#343F4C"
+
+          },
+ {
+            "type": "header",
+            "content": "Heading 1"
+},
+         {
+            "type": "textarea",
+            "id": "iconcode1",
+            "label": "SVG BG code"
+          },
+          {
+            "type": "image_picker",
+            "id": "icon1",
+            "label": "Upload Background"
+          },
+         {
+            "type": "text",
+            "id": "title1",
+            "label": "Title",
+            "default":"Easily install it in less than 60 seconds!"
+          },
+{
+            "type": "header",
+            "content": "Heading 2"
+},
+         {
+            "type": "textarea",
+            "id": "iconcode2",
+            "label": "SVG BG code"
+          },
+          {
+            "type": "image_picker",
+            "id": "icon2",
+            "label": "Upload Background"
+          },
+         {
+            "type": "text",
+            "id": "title2",
+            "label": "Title",
+            "default":"Easily install it in less than 60 seconds!"
+          },
+{
+            "type": "header",
+            "content": "Heading 3"
+},
+         {
+            "type": "textarea",
+            "id": "iconcode3",
+            "label": "SVG BG code"
+          },
+          {
+            "type": "image_picker",
+            "id": "icon3",
+            "label": "Upload Background"
+          },
+         {
+            "type": "text",
+            "id": "title3",
+            "label": "Title",
+            "default":"Easily install it in less than 60 seconds!"
+          },
+{
+            "type": "header",
+            "content": "Heading 4"
+},
+         {
+            "type": "textarea",
+            "id": "iconcode4",
+            "label": "SVG BG code"
+          },
+          {
+            "type": "image_picker",
+            "id": "icon4",
+            "label": "Upload Background"
+          },
+         {
+            "type": "text",
+            "id": "title4",
+            "label": "Title",
+            "default":"Easily install it in less than 60 seconds!"
+          },
+{
+            "type": "header",
+            "content": "Heading 5"
+},
+         {
+            "type": "textarea",
+            "id": "iconcode5",
+            "label": "SVG BG code"
+          },
+          {
+            "type": "image_picker",
+            "id": "icon5",
+            "label": "Upload Background"
+          },
+         {
+            "type": "text",
+            "id": "title5",
+            "label": "Title",
+            "default":"Easily install it in less than 60 seconds!"
+          },
+{
+            "type": "header",
+            "content": "Heading 6"
+},
+         {
+            "type": "textarea",
+            "id": "iconcode6",
+            "label": "SVG BG code"
+          },
+          {
+            "type": "image_picker",
+            "id": "icon6",
+            "label": "Upload Background"
+          },
+         {
+            "type": "text",
+            "id": "title6",
+            "label": "Title",
+            "default":"Easily install it in less than 60 seconds!"
+          },
+{
+            "type": "header",
+            "content": "Heading 7"
+},
+         {
+            "type": "textarea",
+            "id": "iconcode7",
+            "label": "SVG BG code"
+          },
+          {
+            "type": "image_picker",
+            "id": "icon7",
+            "label": "Upload Background"
+          },
+         {
+            "type": "text",
+            "id": "title7",
+            "label": "Title",
+            "default":"Easily install it in less than 60 seconds!"
+          }
+  ]
+},
+{
+        "type": "image-with-tooltip",
+        "name": "Image With Tooltip",
+        "settings": [
+ {
+            "type": "checkbox",
+            "id": "show_section",
+            "label": "Show / Hide Section"
+          },
+{
+            "type": "textarea",
+            "id": "secgradiant",
+            "label": "Section gradiant on desktop"
+          },
+{
+            "type": "textarea",
+            "id": "secgradiant_mob",
+            "label": "Section gradiant on mob"
+          },
+ {
+            "type": "text",
+            "id": "margin",
+            "label": "Margin:10px 10px 10px 10px"
+          },
+ {
+            "type": "text",
+            "id": "padding",
+            "label": "Padding:10px 10px 10px 10px",
+"default":"60px 0px 70px 0px"
+          },
+ {
+            "type": "text",
+            "id": "margin_mob",
+            "label": "Mobile Margin:10px 10px 10px 10px"
+          },
+ {
+            "type": "text",
+            "id": "padding_mob",
+            "label": "Mobile Padding:10px 10px 10px 10px",
+"default":"30px 0px 30px 0px"
+          },
+ {
+            "type": "image_picker",
+            "id": "image",
+            "label":"Upload Image"
+          },
+   {
+            "type": "image_picker",
+            "id": "bg",
+            "label": "Upload fade edge image"
+          },
+{
+            "type": "color",
+            "id": "headingcolor",
+            "label": "Color - Text",
+            "default": "#343F4C"
+          },
+{
+            "type": "header",
+            "content": "Top Left Heading"
+},
+         {
+            "type": "text",
+            "id": "title1",
+            "label": "Title",
+            "default":"Top Left"
+          },
+{
+            "type": "textarea",
+            "id": "customcode1",
+            "label":"Custom Code For Heading",
+"info":"Use Left,right,bottom,top css properties to set position of text"
+          },
+ {
+            "type": "image_picker",
+            "id": "image1",
+            "label":"Pointing Arrow"
+          },
+{
+            "type": "textarea",
+            "id": "customcode1_arrow",
+            "label":"Custom Code For Arrow",
+"info":"Use Left,right,bottom,top css properties to set position of text"
+          },
+{
+            "type": "header",
+            "content": "Top Right Heading"
+},
+         {
+            "type": "text",
+            "id": "title2",
+            "label": "Title",
+            "default":"Top Right"
+          },
+{
+            "type": "textarea",
+            "id": "customcode2",
+            "label":"Custom Code For Heading",
+"info":"Use Left,right,bottom,top css properties to set position of text"
+          },
+ {
+            "type": "image_picker",
+            "id": "image2",
+            "label":"Pointing Arrow"
+          },
+{
+            "type": "textarea",
+            "id": "customcode2_arrow",
+            "label":"Custom Code For Arrow",
+"info":"Use Left,right,bottom,top css properties to set position of text"
+          },
+{
+            "type": "header",
+            "content": "Right Middle Heading"
+},
+         {
+            "type": "text",
+            "id": "title3",
+            "label": "Title",
+            "default":"Right Middle"
+          },
+{
+            "type": "textarea",
+            "id": "customcode3",
+            "label":"Custom Code For Heading",
+"info":"Use Left,right,bottom,top css properties to set position of text"
+          },
+ {
+            "type": "image_picker",
+            "id": "image3",
+            "label":"Pointing Arrow"
+          },
+{
+            "type": "textarea",
+            "id": "customcode3_arrow",
+            "label":"Custom Code For Arrow",
+"info":"Use Left,right,bottom,top css properties to set position of text"
+          },
+{
+            "type": "header",
+            "content": "Bottom Center Heading"
+},
+         {
+            "type": "text",
+            "id": "title4",
+            "label": "Title",
+            "default":"Bottom Center Heading"
+          },
+{
+            "type": "textarea",
+            "id": "customcode4",
+            "label":"Custom Code For Heading",
+"info":"Use Left,right,bottom,top css properties to set position of text"
+          },
+ {
+            "type": "image_picker",
+            "id": "image4",
+            "label":"Pointing Arrow"
+          },
+{
+            "type": "textarea",
+            "id": "customcode4_arrow",
+            "label":"Custom Code For Arrow",
+"info":"Use Left,right,bottom,top css properties to set position of text"
+          },
+{
+            "type": "header",
+            "content": "Middle Left Heading"
+},
+         {
+            "type": "text",
+            "id": "title5",
+            "label": "Title",
+            "default":"Middle Left Heading"
+          },
+{
+            "type": "textarea",
+            "id": "customcode5",
+            "label":"Custom Code For Heading",
+"info":"Use Left,right,bottom,top css properties to set position of text"
+          },
+ {
+            "type": "image_picker",
+            "id": "image5",
+            "label":"Pointing Arrow"
+          },
+{
+            "type": "textarea",
+            "id": "customcode5_arrow",
+            "label":"Custom Code For Arrow",
+"info":"Use Left,right,bottom,top css properties to set position of text"
+          },
+{
+            "type": "header",
+            "content": "Bottom right Heading"
+},
+         {
+            "type": "text",
+            "id": "title6",
+            "label": "Title",
+            "default":"Bottom right Heading"
+          },
+{
+            "type": "textarea",
+            "id": "customcode6",
+            "label":"Custom Code For Heading",
+"info":"Use Left,right,bottom,top css properties to set position of text"
+          },
+ {
+            "type": "image_picker",
+            "id": "image6",
+            "label":"Pointing Arrow"
+          },
+{
+            "type": "textarea",
+            "id": "customcode6_arrow",
+            "label":"Custom Code For Arrow",
+"info":"Use Left,right,bottom,top css properties to set position of text"
+          }
+
+]
+},
+ {
+        "type": "bg-text-and-image",
+        "name": "BG - Image with text",
+        "settings": [
+ {
+            "type": "checkbox",
+            "id": "show_section",
+            "label": "Show / Hide Section"
+          },
+{
+"type":"header",
+"content":"Video Settings"
+},
+ {
+        "type": "image_picker",
+        "id": "videothumb",
+        "label": "Video default Poster"
+      },
+{
+        "type": "checkbox",
+        "id": "muted",
+        "label": "Video Muted"
+      },
+ {
+        "type": "checkbox",
+        "id": "autoplay",
+        "label": "Video Autoplay"
+      },
+ {
+        "type": "textarea",
+        "id": "video_url",
+        "label": "Video link",
+        "info": "Insert Mp4 video file Url"
+      },
+{
+"type":"header",
+"content":"Image Settings"
+},
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          },
+{
+            "type": "checkbox",
+            "id": "roundcorner",
+            "label": "Rounded Image Corner"
+          }, 
+{
+            "type": "text",
+            "id": "roundvalue",
+            "label": "Radius",
+           "default":"4px"
+          },
+{
+            "type": "textarea",
+            "id": "secgradiant",
+            "label": "Section gradiant on desktop"
+          },
+{
+            "type": "textarea",
+            "id": "secgradiant_mob",
+            "label": "Section gradiant on mob"
+          },
+ {
+            "type": "text",
+            "id": "margin",
+            "label": "Margin:10px 10px 10px 10px"
+          },
+ {
+            "type": "text",
+            "id": "padding",
+            "label": "Padding:10px 10px 10px 10px",
+          "default":"50px 0px 50px 0px"
+          },
+ {
+            "type": "text",
+            "id": "margin_mob",
+            "label": "Mobile Margin:10px 10px 10px 10px"
+          },
+ {
+            "type": "text",
+            "id": "padding_mob",
+            "label": "Mobile Padding:10px 10px 10px 10px",
+          "default":"20px 0px 0px 0px"
+          },
+   {
+            "type": "text",
+            "id": "shadow",
+            "label": "Shadow - Image",
+            "default": "0px 2px 15px rgba(19,32,56,0.30)"
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title",
+            "default": "Image with text"
+          },
+          {
+            "type": "color",
+            "id": "headingcolor",
+            "label": "Color - Title",
+            "default": "#1C2F5C"
+          },
+          {
+            "type": "richtext",
+            "id": "text",
+            "label": "Text",
+            "default": "<p>Pair large text with an image to tell a story, explain a detail about your product, or describe a new promotion.</p>"
+          },  
+   {
+            "type": "color",
+            "id": "textcolor",
+            "label": "Color - Text",
+            "default": "#343F4C"
+          },
+          {
+            "type": "select",
+            "id": "layout",
+            "label": "Layout",
+            "default": "left",
+            "options": [
+              {
+                "value": "left",
+                "label": "Image on left"
+              },
+              {
+                "value": "right",
+                "label": "Image on right"
+              }
+            ]
+          },
+{
+            "type": "select",
+            "id": "layout_mob",
+            "label": "Mobile Image Placement",
+            "default": "up",
+            "options": [
+              {
+                "value": "up",
+                "label": "Image Above Text"
+              },
+              {
+                "value": "down",
+                "label": "Image Below Text"
+              }
+            ]
+          },
+{
+"type":"text",
+"id":"imagepadding",
+"label":"Mobile - padding around image section" 
+}
+        ]
+      },
+{
+        "type": "image-text-columns",
+        "name": "Two Columns images",
+        "settings": [
+ {
+            "type": "checkbox",
+            "id": "show_section",
+            "label": "Show / Hide Section"
+          },
+{
+            "type": "textarea",
+            "id": "secgradiant",
+            "label": "Section gradiant on desktop"
+          },
+{
+            "type": "textarea",
+            "id": "secgradiant_mob",
+            "label": "Section gradiant on mob"
+          },
+ {
+            "type": "text",
+            "id": "margin",
+            "label": "Margin:10px 10px 10px 10px"
+          },
+ {
+            "type": "text",
+            "id": "padding",
+            "label": "Padding:10px 10px 10px 10px",
+"default":"50px 0px 50px 0px"
+          },
+ {
+            "type": "text",
+            "id": "margin_mob",
+            "label": "Mobile Margin:10px 10px 10px 10px"
+          },
+ {
+            "type": "text",
+            "id": "padding_mob",
+            "label": "Mobile Padding:10px 10px 10px 10px",
+"default":"0px 0px 0px 0px"
+          },
+ {
+            "type": "text",
+            "id": "shadow",
+            "label": "Shadow - Image",
+            "default": "0px 0px 15px rgba(19,32,56,0.30)"
+          },
+   {
+            "type": "color",
+            "id": "headingcolor",
+            "label": "Color - Title",
+            "default": "#1C2F5C"
+          },
+  {
+            "type": "color",
+            "id": "textcolor",
+            "label": "Color - Text",
+            "default": "#343F4C"
+          },
+         
+ {
+            "type": "color",
+            "id": "bg",
+            "label": "BG ",
+         "default":"#fdece4"
+          },
+{
+            "type": "header",
+            "content": "Column 1"
+          },
+{
+"type":"header",
+"content":"Video Settings"
+},
+ {
+        "type": "image_picker",
+        "id": "videothumb",
+        "label": "Video default Poster"
+      },
+{
+        "type": "checkbox",
+        "id": "muted",
+        "label": "Video Muted"
+      },
+ {
+        "type": "checkbox",
+        "id": "autoplay",
+        "label": "Video Autoplay"
+      },
+ {
+        "type": "textarea",
+        "id": "video_url",
+        "label": "Video link",
+        "info": "Insert Mp4 video file Url"
+      },
+          {
+            "type": "image_picker",
+            "id": "image1",
+            "label": "Image"
+          },
+{
+            "type": "checkbox",
+            "id": "roundcorner1",
+            "label": "Rounded Image Corner"
+          }, 
+{
+            "type": "text",
+            "id": "roundvalue1",
+            "label": "Radius",
+           "default":"4px"
+          },
+ {
+            "type": "color",
+            "id": "bgmob",
+            "label": "Mobile BG ",
+         "default":"#fdece4"
+          },
+ {
+            "type": "text",
+            "id": "title1",
+            "label": "Title",
+            "default": "Image with text"
+          },
+ {
+            "type": "textarea",
+            "id": "text1",
+            "label": "Text",
+            "default": "<p>Pair large text with an image to tell a story, explain a detail about your product, or describe a new promotion.</p>"
+          },
+ {
+            "type": "textarea",
+            "id": "icontext1_svg",
+            "label": "SVG CODE -1"
+},
+ {
+            "type": "text",
+            "id": "icontext1",
+            "label": "List Text - 1",
+            "default": "<p>Pair large text with an image to tell a story, explain a detail about your product, or describe a new promotion.</p>"
+          },
+{
+            "type": "textarea",
+            "id": "icontext1_svg1",
+            "label": "SVG CODE -2"
+},
+ {
+            "type": "text",
+            "id": "icontext1_1",
+            "label": "List Text - 2",
+            "default": "<p>Pair large text with an image to tell a story, explain a detail about your product, or describe a new promotion.</p>"
+          },
+{
+            "type": "textarea",
+            "id": "icontext1_svg2",
+            "label": "SVG CODE -3"
+},
+ {
+            "type": "text",
+            "id": "icontext1_2",
+            "label": "List Text - 3",
+            "default": "<p>Pair large text with an image to tell a story, explain a detail about your product, or describe a new promotion.</p>"
+          },
+{
+            "type": "select",
+            "id": "layout_mob",
+            "label": "Mobile Image Placement",
+            "default": "up",
+            "options": [
+              {
+                "value": "up",
+                "label": "Image Above Text"
+              },
+              {
+                "value": "down",
+                "label": "Image Below Text"
+              }
+            ]
+          },
+{
+"type":"text",
+"id":"wholepadding",
+"label":"Mobile - Whole column padding " 
+},
+{
+"type":"text",
+"id":"imagepadding",
+"label":"Mobile - padding around image section" 
+},
+{
+            "type": "header",
+            "content": "Column 2"
+          },
+{
+"type":"header",
+"content":"Video Settings"
+},
+ {
+        "type": "image_picker",
+        "id": "videothumb1",
+        "label": "Video default Poster"
+      },
+{
+        "type": "checkbox",
+        "id": "muted1",
+        "label": "Video Muted"
+      },
+ {
+        "type": "checkbox",
+        "id": "autoplay1",
+        "label": "Video Autoplay"
+      },
+ {
+        "type": "textarea",
+        "id": "video_url1",
+        "label": "Video link",
+        "info": "Insert Mp4 video file Url"
+      },
+          {
+            "type": "image_picker",
+            "id": "image2",
+            "label": "Image"
+          },
+
+ {
+            "type": "text",
+            "id": "title2",
+            "label": "Title",
+            "default": "Image with text"
+          },
+  {
+            "type": "textarea",
+            "id": "text2",
+            "label": "Text",
+            "default": "<p>Pair large text with an image to tell a story, explain a detail about your product, or describe a new promotion.</p>"
+          },
+ {
+            "type": "textarea",
+            "id": "icontext2_svg",
+            "label": "SVG CODE -1"
+},
+ {
+            "type": "text",
+            "id": "icontext2",
+            "label": "List Text - 1",
+            "default": "<p>Pair large text with an image to tell a story, explain a detail about your product, or describe a new promotion.</p>"
+          },
+{
+            "type": "textarea",
+            "id": "icontext2_svg1",
+            "label": "SVG CODE -2"
+},
+ {
+            "type": "text",
+            "id": "icontext2_1",
+            "label": "List Text - 2",
+            "default": "<p>Pair large text with an image to tell a story, explain a detail about your product, or describe a new promotion.</p>"
+          },
+{
+            "type": "textarea",
+            "id": "icontext2_svg2",
+            "label": "SVG CODE -3"
+},
+ {
+            "type": "text",
+            "id": "icontext2_2",
+            "label": "List Text - 3",
+            "default": "<p>Pair large text with an image to tell a story, explain a detail about your product, or describe a new promotion.</p>"
+          },
+
+
+
+{
+            "type": "select",
+            "id": "layout_mob1",
+            "label": "Mobile Image Placement",
+            "default": "up",
+            "options": [
+              {
+                "value": "up",
+                "label": "Image Above Text"
+              },
+              {
+                "value": "down",
+                "label": "Image Below Text"
+              }
+            ]
+          },
+{
+"type":"text",
+"id":"wholepadding1",
+"label":"Mobile - Whole column padding " 
+},
+{
+"type":"text",
+"id":"imagepadding1",
+"label":"Mobile - padding around image section" 
+}
+ 
+  
+ 
+        ]
+      },
+{
+        "type": "image-toggle-text",
+        "name": "Three Columns toggle text",
+        "settings": [
+ {
+            "type": "checkbox",
+            "id": "show_section",
+            "label": "Show / Hide Section"
+          },
+{
+            "type": "textarea",
+            "id": "secgradiant",
+            "label": "Section gradiant on desktop"
+          },
+{
+            "type": "textarea",
+            "id": "secgradiant_mob",
+            "label": "Section gradiant on mob"
+          },
+ {
+            "type": "text",
+            "id": "margin",
+            "label": "Margin:10px 10px 10px 10px"
+          },
+ {
+            "type": "text",
+            "id": "padding",
+            "label": "Padding:10px 10px 10px 10px",
+"default":"60px 0px 60px 0px"
+          },
+ {
+            "type": "text",
+            "id": "margin_mob",
+            "label": "Mobile Margin:10px 10px 10px 10px"
+          },
+ {
+            "type": "text",
+            "id": "padding_mob",
+            "label": "Mobile Padding:10px 10px 10px 10px",
+"default":"30px 0px 30px 0px"
+          },
+ {
+            "type": "text",
+            "id": "title",
+            "label": "Title",
+            "default": "Title"
+          },
+ {
+            "type": "textarea",
+            "id": "text",
+            "label": "Text Under main Title",
+            "default": "Text Under main Title"
+          },
+   {
+            "type": "color",
+            "id": "headingcolor",
+            "label": "Color - Title",
+            "default": "#1C2F5C"
+          },
+  {
+            "type": "color",
+            "id": "textcolor",
+            "label": "Color - Text Under main Title",
+            "default": "#343F4C"
+          },
+ {
+            "type": "color",
+            "id": "bg",
+            "label": "BG ",
+         "default":"#fff"
+          },
+ {
+            "type": "text",
+            "id": "shadow",
+            "label": "Box Shadow",
+            "default": "1px 2px 10px rgba(19,32,56,0.15)"
+          },
+ {
+            "type": "color",
+            "id": "boxheading_color",
+            "label": "Box Heading Color",
+         "default":"#17428B"
+          }, 
+ {
+            "type": "color",
+            "id": "mob_color",
+            "label": "Mobile - Box Heading Color",
+         "default":"#343F4C"
+          },
+{
+            "type": "color",
+            "id": "boxlink_color",
+            "label": "Box Link Color",
+         "default":"#343F4C"
+          },
+{
+            "type": "color",
+            "id": "boxtext_color",
+            "label": "Box Text Color",
+         "default":"#343F4C"
+          }, 
+{
+            "type": "color",
+            "id": "border",
+            "label": "Box Border Color",
+         "default":"#d2d2d2"
+          },
+ {
+            "type": "text",
+            "id": "more",
+            "label": "More info Label"
+          },
+{
+            "type": "textarea",
+            "id": "iconup",
+            "label": "SVG Icon code - Arrow Up"
+          },
+{
+            "type": "textarea",
+            "id": "icondown",
+            "label": "SVG Icon code - Arrow Down"
+          },
+{
+            "type": "header",
+            "content": "Column 1"
+},
+         {
+            "type": "textarea",
+            "id": "iconcode1",
+            "label": "SVG Icon code"
+          },
+          {
+            "type": "image_picker",
+            "id": "icon1",
+            "label": "Upload Icon"
+          },
+
+{
+            "type": "text",
+            "id": "title1",
+            "label": "Title",
+            "default": "Title"
+          },
+ {
+            "type": "textarea",
+            "id": "text1",
+            "label": "Toggle Text",
+            "default": "Text"
+          },
+
+{
+            "type": "header",
+            "content": "Column 2"
+},
+{
+            "type": "text",
+            "id": "title2",
+            "label": "Title",
+            "default": "Title"
+          },
+ {
+            "type": "textarea",
+            "id": "text2",
+            "label": "Toggle Text",
+            "default": "Text"
+          },
+         {
+            "type": "textarea",
+            "id": "iconcode2",
+            "label": "SVG Icon code"
+          },
+          {
+            "type": "image_picker",
+            "id": "icon2",
+            "label": "Upload Icon"
+          },
+{
+            "type": "header",
+            "content": "Column 3"
+},
+{
+            "type": "text",
+            "id": "title3",
+            "label": "Title",
+            "default": "Title"
+          },
+ {
+            "type": "textarea",
+            "id": "text3",
+            "label": "Toggle Text",
+            "default": "Text"
+          },
+         {
+            "type": "textarea",
+            "id": "iconcode3",
+            "label": "SVG Icon code"
+          },
+          {
+            "type": "image_picker",
+            "id": "icon3",
+            "label": "Upload Icon"
+          },
+{
+            "type": "header",
+            "content": "Column 4"
+},
+{
+            "type": "checkbox",
+            "id": "hide_on_desk4",
+            "label": "Hide On desktop"
+          },
+{
+            "type": "text",
+            "id": "title4",
+            "label": "Title",
+            "default": "Title"
+          },
+ {
+            "type": "textarea",
+            "id": "text4",
+            "label": "Toggle Text",
+            "default": "Text"
+          },
+         {
+            "type": "textarea",
+            "id": "iconcode4",
+            "label": "SVG Icon code"
+          },
+          {
+            "type": "image_picker",
+            "id": "icon4",
+            "label": "Upload Icon"
+          },
+{
+            "type": "header",
+            "content": "Column 5"
+},
+{
+            "type": "checkbox",
+            "id": "hide_on_desk5",
+            "label": "Hide On desktop"
+          },
+{
+            "type": "text",
+            "id": "title5",
+            "label": "Title",
+            "default": "Title"
+          },
+ {
+            "type": "textarea",
+            "id": "text5",
+            "label": "Toggle Text",
+            "default": "Text"
+          },
+         {
+            "type": "textarea",
+            "id": "iconcode5",
+            "label": "SVG Icon code"
+          },
+          {
+            "type": "image_picker",
+            "id": "icon5",
+            "label": "Upload Icon"
+          },
+{
+            "type": "header",
+            "content": "Column 6"
+},
+{
+            "type": "checkbox",
+            "id": "hide_on_desk6",
+            "label": "Hide On desktop"
+          },
+{
+            "type": "text",
+            "id": "title6",
+            "label": "Title",
+            "default": "Title"
+          },
+ {
+            "type": "textarea",
+            "id": "text6",
+            "label": "Toggle Text",
+            "default": "Text"
+          },
+         {
+            "type": "textarea",
+            "id": "iconcode6",
+            "label": "SVG Icon code"
+          },
+          {
+            "type": "image_picker",
+            "id": "icon6",
+            "label": "Upload Icon"
+          }
+]
+},
+{
+        "type": "comparision-table",
+        "name": "Comparision Table",
+        "settings": [
+ {
+            "type": "checkbox",
+            "id": "show_section",
+            "label": "Show / Hide Section"
+          },
+{
+            "type": "textarea",
+            "id": "secgradiant",
+            "label": "Section gradiant on desktop"
+          },
+{
+            "type": "textarea",
+            "id": "secgradiant_mob",
+            "label": "Section gradiant on mob"
+          },
+ {
+            "type": "text",
+            "id": "margin",
+            "label": "Margin:10px 10px 10px 10px"
+          },
+ {
+            "type": "text",
+            "id": "padding",
+            "label": "Padding:10px 10px 10px 10px"
+          },
+ {
+            "type": "text",
+            "id": "margin_mob",
+            "label": "Mobile Margin:10px 10px 10px 10px"
+          },
+ {
+            "type": "text",
+            "id": "padding_mob",
+            "label": "Mobile Padding:10px 10px 10px 10px"
+          },
+ {
+            "type": "text",
+            "id": "title",
+            "label": "Title",
+            "default": "Title"
+          }, 
+ {
+            "type": "checkbox",
+            "id": "centertitle",
+            "label": "Centralized text on Mobile"
+          },
+{
+            "type": "text",
+            "id": "shadow",
+            "label": "Shadow",
+            "default": "0px 3px 15px rgba(0,0,0,0.15)"
+          },
+  {
+            "type": "color",
+            "id": "headingcolor",
+            "label": "Color - Title",
+            "default": "#1C2F5C"
+          },
+ {
+            "type": "color",
+            "id": "altcolor",
+            "label": "Color - Alternative Row BG",
+            "default": "#FDECE4"
+          },
+ {
+            "type": "color",
+            "id": "bgcolor",
+            "label": "Color - Centre Column BG",
+            "default": "#17428B"
+          },
+ {
+            "type": "color",
+            "id": "col1color",
+            "label": "Color-Column 1 Text Color",
+            "default": "#343F4C"
+          },
+ {
+            "type": "color",
+            "id": "txtcolor",
+            "label": "Color - Centre Top Column Text Color",
+            "default": "#17428B"
+          }, 
+ {
+            "type": "color",
+            "id": "hcolor",
+            "label": "Color-Top Column 3 Heading Color",
+            "default": "#343F4C"
+          },
+{
+            "type": "header",
+            "content": "Row 1"
+},
+{
+            "type": "checkbox",
+            "id": "showrow1",
+            "label": "Show Column 1 "
+          },
+{
+            "type": "text",
+            "id": "row1col1",
+            "label": "Column 1 text"
+          },
+{
+            "type": "textarea",
+            "id": "row1col2",
+            "label": "Column 2 text"
+          },
+{
+            "type": "textarea",
+            "id": "row1col3",
+            "label": "Column 3 text"
+          },
+{
+            "type": "header",
+            "content": "Row 2"
+},  
+{
+            "type": "checkbox",
+            "id": "showrow2",
+            "label": "Show Column 2 "
+          },
+{
+            "type": "text",
+            "id": "row2col1",
+            "label": "Column 1 text"
+          },
+{
+            "type": "textarea",
+            "id": "row2col2",
+            "label": "Column 2 text"
+          },
+{
+            "type": "textarea",
+            "id": "row2col3",
+            "label": "Column 3 text"
+          },
+{
+            "type": "header",
+            "content": "Row 3"
+},
+{
+            "type": "checkbox",
+            "id": "showrow3",
+            "label": "Show Column 3 "
+          },
+{
+            "type": "text",
+            "id": "row3col1",
+            "label": "Column 1 text"
+          },
+{
+            "type": "textarea",
+            "id": "row3col2",
+            "label": "Column 2 text"
+          },
+{
+            "type": "textarea",
+            "id": "row3col3",
+            "label": "Column 3 text"
+          },
+{
+            "type": "header",
+            "content": "Row 4"
+},
+{
+            "type": "checkbox",
+            "id": "showrow4",
+            "label": "Show Column 4 "
+          },
+{
+            "type": "text",
+            "id": "row4col1",
+            "label": "Column 1 text"
+          },
+{
+            "type": "textarea",
+            "id": "row4col2",
+            "label": "Column 2 text"
+          },
+{
+            "type": "textarea",
+            "id": "row4col3",
+            "label": "Column 3 text"
+          },
+{
+            "type": "header",
+            "content": "Row 5"
+},
+{
+            "type": "checkbox",
+            "id": "showrow5",
+            "label": "Show Column 5 "
+          },
+{
+            "type": "text",
+            "id": "row5col1",
+            "label": "Column 1 text"
+          },
+{
+            "type": "textarea",
+            "id": "row5col2",
+            "label": "Column 2 text"
+          },
+{
+            "type": "textarea",
+            "id": "row5col3",
+            "label": "Column 3 text"
+          },
+{
+            "type": "header",
+            "content": "Row 6"
+},
+{
+            "type": "checkbox",
+            "id": "showrow6",
+            "label": "Show Column 6 "
+          },
+{
+            "type": "text",
+            "id": "row6col1",
+            "label": "Column 1 text"
+          },
+{
+            "type": "textarea",
+            "id": "row6col2",
+            "label": "Column 2 text"
+          },
+{
+            "type": "textarea",
+            "id": "row6col3",
+            "label": "Column 3 text"
+          },
+{
+            "type": "header",
+            "content": "Row 7"
+},
+{
+            "type": "checkbox",
+            "id": "showrow7",
+            "label": "Show Column 7 "
+          },
+{
+            "type": "text",
+            "id": "row7col1",
+            "label": "Column 1 text"
+          },
+{
+            "type": "textarea",
+            "id": "row7col2",
+            "label": "Column 2 text"
+          },
+{
+            "type": "textarea",
+            "id": "row7col3",
+            "label": "Column 3 text"
+          },
+{
+            "type": "header",
+            "content": "Row 8"
+},
+{
+            "type": "checkbox",
+            "id": "showrow8",
+            "label": "Show Column 8 "
+          },
+{
+            "type": "text",
+            "id": "row8col1",
+            "label": "Column 1 text"
+          },
+{
+            "type": "textarea",
+            "id": "row8col2",
+            "label": "Column 2 text"
+          },
+{
+            "type": "textarea",
+            "id": "row8col3",
+            "label": "Column 3 text"
+          },
+{
+            "type": "header",
+            "content": "Row 9"
+},
+{
+            "type": "checkbox",
+            "id": "showrow9",
+            "label": "Show Column 9 "
+          },
+{
+            "type": "text",
+            "id": "row9col1",
+            "label": "Column 1 text"
+          },
+{
+            "type": "textarea",
+            "id": "row9col2",
+            "label": "Column 2 text"
+          },
+{
+            "type": "textarea",
+            "id": "row9col3",
+            "label": "Column 3 text"
+          },
+{
+            "type": "checkbox",
+            "id": "showrow10",
+            "label": "Show Last Column "
+          }
+]
+},
+{
+        "type": "product-happy-customers",
+        "name": "Happy Customers",
+        "settings": [
+ {
+            "type": "checkbox",
+            "id": "show_section",
+            "label": "Show / Hide Section"
+          },
+{
+            "type": "textarea",
+            "id": "secgradiant",
+            "label": "Section gradiant on desktop"
+          },
+{
+            "type": "textarea",
+            "id": "secgradiant_mob",
+            "label": "Section gradiant on mob"
+          },
+ {
+            "type": "text",
+            "id": "margin",
+            "label": "Margin:10px 10px 10px 10px"
+          },
+ {
+            "type": "text",
+            "id": "padding",
+            "label": "Padding:10px 10px 10px 10px"
+          },
+ {
+            "type": "text",
+            "id": "margin_mob",
+            "label": "Mobile Margin:10px 10px 10px 10px"
+          },
+ {
+            "type": "text",
+            "id": "padding_mob",
+            "label": "Mobile Padding:10px 10px 10px 10px"
+          },
+ {
+            "type": "text",
+            "id": "title",
+            "label": "Title",
+            "default": "Title"
+          }, 
+{
+            "type": "color",
+            "id": "titlecolor",
+            "label": "Title Color",
+            "default":"#1C2F5C"
+          },  
+{
+            "type": "text",
+            "id": "titlespacing",
+            "label": "Desktop- Margin For Title"
+          },
+{
+            "type": "text",
+            "id": "titlespacing_mob",
+            "label": "Mobile- Margin For Title"
+          },
+{
+            "type": "checkbox",
+            "id": "bg_enable",
+            "label": "BG Enable for title"
+          },
+{
+            "type": "image_picker",
+            "id": "titlebg",
+            "label": "Title Bg Desktop"
+          },  
+{
+            "type": "textarea",
+            "id": "titlebg_svg",
+            "label": "Title Bg Desktop -svg format"
+          },
+{
+            "type": "image_picker",
+            "id": "titlebgmob",
+            "label": "Title Bg Mobile"
+          }, 
+{
+            "type": "textarea",
+            "id": "titlemobbg_svg",
+            "label": "Title Bg Mobile -svg format"
+          },
+{
+            "type": "image_picker",
+            "id": "image",
+            "label": "Customers Big Image"
+          },
+
+ {
+            "type": "checkbox",
+            "id": "hide_ondesk",
+            "label": " Hide Review Image on DESKTOP"
+          },
+{
+            "type": "checkbox",
+            "id": "chathide",
+            "label": "Hide Chat boxes on Desktop"
+          },
+ {
+            "type": "checkbox",
+            "id": "show_onmob",
+            "label": "Show / Hide Image on mobile"
+          },
+{
+            "type": "checkbox",
+            "id": "hide",
+            "label": "hide review part on mobile"
+          },
+
+{
+            "type": "header",
+            "content": "Column 1"
+},
+{
+            "type": "textarea",
+            "id": "quote1SVG",
+            "label": "Quote 1 SVG BG"
+},
+{
+            "type": "color",
+            "id": "quote1bg",
+            "label": "Quote BG",
+           "default":"#F8B133"
+},
+{
+            "type": "color",
+            "id": "quote1txt",
+            "label": "Quote Text",
+           "default":"#1C2F5C"
+}, 
+{
+            "type": "textarea",
+            "id": "quote_text1",
+            "label": "Quote Text"
+          },
+
+{
+            "type": "textarea",
+            "id": "quote_author1",
+            "label": "Quote Author"
+          },
+{
+            "type": "header",
+            "content": "Column 2"
+},
+{
+            "type": "textarea",
+            "id": "quote2SVG",
+            "label": "Quote 2 SVG BG"
+},
+{
+            "type": "color",
+            "id": "quotebg2",
+            "label": "Quote BG",
+"default":"#FDECE4"
+          },
+{
+            "type": "color",
+            "id": "quote2txt",
+            "label": "Quote Text",
+           "default":"#1C2F5C"
+}, 
+{
+            "type": "textarea",
+            "id": "quote_text2",
+            "label": "Quote Text"
+          },
+{
+            "type": "textarea",
+            "id": "quote_author2",
+            "label": "Quote Author"
+          },
+{
+            "type": "header",
+            "content": "Column 3"
+},
+{
+            "type": "textarea",
+            "id": "quote3SVG",
+            "label": "Quote 3 SVG BG"
+},
+{
+            "type": "color",
+            "id": "quotebg3",
+            "label": "Quote BG",
+            "default":"#17428B"
+          },
+{
+            "type": "color",
+            "id": "quote3txt",
+            "label": "Quote Text",
+           "default":"#1C2F5C"
+}, 
+{
+            "type": "textarea",
+            "id": "quote_text3",
+            "label": "Quote Text"
+          },
+{
+            "type": "textarea",
+            "id": "quote_author3",
+            "label": "Quote Author"
+          }
+]
+},
+{
+        "type": "mobile-happy-customers",
+        "name": "MOB-Reviews-fullBanner",
+        "settings": [
+ {
+            "type": "checkbox",
+            "id": "show_section",
+            "label": "Show / Hide Section"
+          },
+{
+            "type": "image_picker",
+            "id": "image",
+            "label": "Customers Big Image"
+},
+{
+            "type": "textarea",
+            "id": "gradiant",
+            "label": "Section gradiant"
+},
+{
+            "type": "color",
+            "id": "linkcolor",
+            "label": "link color ",
+           "default":"#17428B"
+}, 
+{
+            "type": "color",
+            "id": "txtcolor",
+            "label": "Color - Text",
+           "default":"#343F4C"
+}, 
+{
+            "type": "color",
+            "id": "titlecolor",
+            "label": "Color - Title",
+           "default":"#1C2F5C"
+}, 
+{
+            "type": "textarea",
+            "id": "svgcode",
+            "label": "SVG CODE ICON"
+},
+{
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+},
+{
+            "type": "textarea",
+            "id": "text",
+            "label": "Text"
+},
+{
+            "type": "image_picker",
+            "id": "imagebottom",
+            "label": "Bottom Image"
+}
+
+
+
+]
+},
+{
+        "type": "mobile-text-with-image",
+        "name": "MOB-Banner with image",
+        "settings": [
+ {
+            "type": "checkbox",
+            "id": "show_section",
+            "label": "Show / Hide Section"
+          },
+ {
+            "type": "textarea",
+            "id": "iconcode",
+            "label": "SVG  code"
+          },
+          {
+            "type": "image_picker",
+            "id": "icon",
+            "label": "Upload Icon"
+          },
+{
+            "type": "textarea",
+            "id": "gradiant",
+            "label": "Section gradiant"
+},
+{
+            "type": "color",
+            "id": "linkcolor",
+            "label": "link color ",
+           "default":"#17428B"
+}, 
+{
+            "type": "color",
+            "id": "txtcolor",
+            "label": "Color - Text",
+           "default":"#343F4C"
+}, 
+{
+            "type": "color",
+            "id": "titlecolor",
+            "label": "Color - Title",
+           "default":"#1C2F5C"
+}, 
+{
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+},
+{
+            "type": "textarea",
+            "id": "text",
+            "label": "Text"
+},
+{
+            "type": "image_picker",
+            "id": "imagebottom",
+            "label": "BG Image"
+},
+{
+            "type": "text",
+            "id": "topspacing",
+            "label": "Top Spacing of BG Image"
+},
+{
+            "type": "image_picker",
+            "id": "image",
+            "label": " Image"
+},
+{
+            "type": "textarea",
+            "id": "pointingimageposition",
+            "label": " Postion of above image "
+},
+{
+            "type": "textarea",
+            "id": "imagearrow",
+            "label": "Image Arrow Code"
+}, 
+{
+            "type": "textarea",
+            "id": "arrowcode",
+            "label": "Postion of Arrow"
+}, 
+{
+            "type": "textarea",
+            "id": "author",
+            "label": "Author"
+}
+
+
+]
+},
+
+	{
+        "type": "product-recommendation",
+        "name": "Product recommendations",
+		"limit":1,
+        "settings": [
+ 		  {
+            "type": "checkbox",
+            "id": "show_section",
+            "label": "Show / Hide Section",
+			"default":false
+          },
+          {
+            "type": "text",
+            "id": "heading",
+            "label": "Heading",
+            "default": "Others also bought (Product page)"
+          },
+          {
+            "type": "text",
+            "id": "sub_heading",
+            "label": "Sub-Heading",
+            "default": "You may also like"
+          },
+          {
+            "type": "collection",
+            "id": "assign_collection",
+            "label": "Collection"
+          },
+          {
+            "type": "header",
+            "content": "Atc Style"
+          },
+          {
+            "type": "color",
+            "id": "product_sh_bg_cr",
+            "label": "button Background",
+            "default": "#121050"
+          },
+          {
+            "type": "color",
+            "id": "product_sh_txt_cr",
+            "label": "button text",
+            "default": "#000"
+          },
+          {
+            "type": "text",
+            "id": "color_atc_shadow",
+            "label": "Button shadow",
+			"default": "0px 0px 5px rgb(17 40 79 / 70%)"
+          },
+          {
+            "type": "color",
+            "id": "color_atc_hover",
+            "label": "button hover",
+            "default": "#c3281f"
+          },
+          {
+            "type": "color",
+            "id": "color_atc_hover_txt",
+            "label": "button hover text",
+            "default": "#fff"
+          },
+          {
+            "type": "text",
+            "id": "color_atc_shadow_hover",
+            "label": "Button hover shadow",
+			"default": "0px 0px 5px rgb(195 40 31 / 60%)"
+          },
+          {
+              "type": "color",
+              "id": "arrow_color_slider",
+              "label": "Slider - Arrow color"
+      	 },
+		  {
+            "type": "image_picker",
+            "id": "recommend_product_variant_arrow",
+            "label": "Upload variant Selector Arrow for recommendation"
+          }
+
+		]
+	},
+
+{
+        "type": "product-recommendation2",
+        "name": "Product Recommendations 2",
+		"limit":1,
+        "settings": [
+ 		  {
+            "type": "checkbox",
+            "id": "show_section",
+            "label": "Show / Hide Section",
+			"default":false
+          },
+          {
+            "type": "text",
+            "id": "heading2",
+            "label": "Heading",
+            "default": "Others also bought (Product page)"
+          },
+          {
+            "type": "text",
+            "id": "sub_heading2",
+            "label": "Sub-Heading",
+            "default": "You may also like"
+          },
+          {
+            "type": "collection",
+            "id": "assign_collection2",
+            "label": "Collection"
+          },
+          {
+            "type": "header",
+            "content": "Atc Style"
+          },
+          {
+            "type": "color",
+            "id": "product_sh_bg_cr2",
+            "label": "button Background",
+            "default": "#121050"
+          },
+          {
+            "type": "color",
+            "id": "product_sh_txt_cr2",
+            "label": "button text",
+            "default": "#000"
+          },
+          {
+            "type": "text",
+            "id": "color_atc_shadow2",
+            "label": "Button shadow",
+			"default": "0px 0px 5px rgb(17 40 79 / 70%)"
+          },
+          {
+            "type": "color",
+            "id": "color_atc_hover2",
+            "label": "button hover",
+            "default": "#c3281f"
+          },
+          {
+            "type": "color",
+            "id": "color_atc_hover_txt2",
+            "label": "button hover text",
+            "default": "#fff"
+          },
+          {
+            "type": "text",
+            "id": "color_atc_shadow_hover2",
+            "label": "Button hover shadow",
+			"default": "0px 0px 5px rgb(195 40 31 / 60%)"
+          },
+			{
+              "type": "color",
+              "id": "arrow_color_slider2",
+              "label": "Slider - Arrow color"
+      	 },
+		  {
+            "type": "image_picker",
+            "id": "recommend_product_variant_arrow2",
+            "label": "Upload variant Selector Arrow for recommendation"
+          }
+
+		]
+	},
+{
+        "type": "product-recommendation3",
+        "name": "Product Recommendations 3",
+		"limit":1,
+        "settings": [
+ 		  {
+            "type": "checkbox",
+            "id": "show_section",
+            "label": "Show / Hide Section",
+			"default":false
+          },
+          {
+            "type": "text",
+            "id": "heading3",
+            "label": "Heading",
+            "default": "Others also bought (Product page)"
+          },
+          {
+            "type": "text",
+            "id": "sub_heading3",
+            "label": "Sub-Heading",
+            "default": "You may also like"
+          },
+          {
+            "type": "collection",
+            "id": "assign_collection3",
+            "label": "Collection"
+          },
+          {
+            "type": "header",
+            "content": "Atc Style"
+          },
+          {
+            "type": "color",
+            "id": "product_sh_bg_cr3",
+            "label": "button Background",
+            "default": "#121050"
+          },
+          {
+            "type": "color",
+            "id": "product_sh_txt_cr3",
+            "label": "button text",
+            "default": "#000"
+          },
+          {
+            "type": "text",
+            "id": "color_atc_shadow3",
+            "label": "Button shadow",
+			"default": "0px 0px 5px rgb(17 40 79 / 70%)"
+          },
+          {
+            "type": "color",
+            "id": "color_atc_hover3",
+            "label": "button hover",
+            "default": "#c3281f"
+          },
+          {
+            "type": "color",
+            "id": "color_atc_hover_txt3",
+            "label": "button hover text",
+            "default": "#fff"
+          },
+          {
+            "type": "text",
+            "id": "color_atc_shadow_hover3",
+            "label": "Button hover shadow",
+			"default": "0px 0px 5px rgb(195 40 31 / 60%)"
+          },
+			{
+              "type": "color",
+              "id": "arrow_color_slider3",
+              "label": "Slider - Arrow color"
+      	 },
+		  {
+            "type": "image_picker",
+            "id": "recommend_product_variant_arrow3",
+            "label": "Upload variant Selector Arrow for recommendation"
+          }
+
+		]
+	}
+
+
+
+  
+    ]
+
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

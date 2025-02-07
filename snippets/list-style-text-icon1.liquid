@@ -1,0 +1,228 @@
+ <div class="clearfix"></div>
+<div class="listsec{{ block.id }}">
+<div class="bottomdetil" id="bottomdetil{{ block.id }}"  {{ block.shopify_attributes }}>
+  {% if block.settings.title1  != blank %}
+  
+  {% assign title_size = block.settings.title1 | size  %}
+  
+<div class="detailrow {% if title_size > 40 %}icon-top {% endif %} ">
+  <span class="lefticon "> 
+   {% if block.settings.iconcode1 != blank %}
+    {{ block.settings.iconcode1 }}
+    {% elsif block.settings.icon1 %}
+      <img src="{{  block.settings.icon1 | img_url:'original' }}">
+    {% endif %}
+  </span> 
+ <span class="righticontxt">
+  {{ block.settings.title1 }}
+  </span>
+  
+  </div>
+  {% endif %}
+  {% if block.settings.title2  != blank %}
+  
+   {% assign title_size = block.settings.title2 | size  %}
+  
+<div class="detailrow {% if title_size > 40 %}icon-top {% endif %} ">
+  <span class="lefticon "> 
+   {% if block.settings.iconcode2 != blank %}
+    {{ block.settings.iconcode2 }}
+    {% elsif block.settings.icon2 %}
+      <img src="{{  block.settings.icon2 | img_url:'original' }}">
+    {% endif %}
+  </span> 
+ <span class="righticontxt">
+  {{ block.settings.title2 }}
+  </span>
+  
+  </div> 
+  {% endif %}
+  {% if block.settings.title3  != blank %}
+{% assign title_size = block.settings.title3 | size  %}
+  
+<div class="detailrow {% if title_size > 40 %}icon-top {% endif %} ">
+  <span class="lefticon"> 
+   {% if block.settings.iconcode3 != blank %}
+    {{ block.settings.iconcode3 }}
+    {% elsif block.settings.icon3 %}
+      <img src="{{  block.settings.icon3 | img_url:'original' }}">
+    {% endif %}
+  </span> 
+ <span class="righticontxt">
+  {{ block.settings.title3 }}
+  </span>
+  
+  </div>
+  {% endif %}
+  {% if block.settings.title4  != blank %}
+{% assign title_size = block.settings.title4 | size  %}
+  
+<div class="detailrow {% if title_size > 40 %}icon-top {% endif %} ">
+  <span class="lefticon"> 
+   {% if block.settings.iconcode4 != blank %}
+    {{ block.settings.iconcode4 }}
+    {% elsif block.settings.icon4 %}
+      <img src="{{  block.settings.icon4 | img_url:'original' }}">
+    {% endif %}
+  </span> 
+ <span class="righticontxt">
+  {{ block.settings.title4 }}
+  </span>
+  
+  </div> 
+  {% endif %}
+  {% if block.settings.title5  != blank %}
+{% assign title_size = block.settings.title5 | size  %}
+  
+<div class="detailrow {% if title_size > 40 %}icon-top {% endif %} ">
+  <span class="lefticon"> 
+   {% if block.settings.iconcode5 != blank %}
+    {{ block.settings.iconcode5 }}
+    {% elsif block.settings.icon5 %}
+      <img src="{{  block.settings.icon5 | img_url:'original' }}">
+    {% endif %}
+  </span> 
+ <span class="righticontxt">
+  {{ block.settings.title5 }}
+  </span>
+  
+  </div>  
+  {% endif %}
+  {% if block.settings.title6  != blank %}
+ {% assign title_size = block.settings.title6 | size  %}
+  
+<div class="detailrow {% if title_size > 40 %}icon-top {% endif %} ">
+  <span class="lefticon"> 
+   {% if block.settings.iconcode6 != blank %}
+    {{ block.settings.iconcode6 }}
+    {% elsif block.settings.icon6 %}
+      <img src="{{  block.settings.icon6 | img_url:'original' }}">
+    {% endif %}
+  </span> 
+ <span class="righticontxt">
+  {{ block.settings.title6 }}
+  </span>
+  
+  </div>
+  
+  {% endif %}
+  {% if block.settings.title7  != blank %}
+  <div class="detailrow">
+  <span class="lefticon"> 
+   {% if block.settings.iconcode7 != blank %}
+    {{ block.settings.iconcode7 }}
+    {% elsif block.settings.icon7 %}
+      <img src="{{  block.settings.icon7 | img_url:'original' }}">
+    {% endif %}
+  </span> 
+ <span class="righticontxt">
+  {{ block.settings.title7 }}
+  </span>
+  
+  </div>
+  {% endif %}
+  
+  
+<div class="clear"></div>
+</div>
+
+  <div class="clearfix"></div>
+
+</div>
+ <div class="clearfix"></div>
+<style>
+#bottomdetil{{ block.id }}
+{
+ 
+}  
+#bottomdetil{{ block.id }}
+  {
+    max-width: 100%;
+}  
+#bottomdetil{{ block.id }}
+  {
+    color:{{ block.settings.headingcolor }};
+/*     font-size:17px; */
+    line-height:24px;
+    font-style:italic;
+    {% if block.settings.align_text == 'left' %}
+      max-width: 812px;
+    margin: 0px auto 0px;
+    {% else %}
+    max-width: 334px;margin: 0px auto 0px;
+    {% endif %}
+    
+  }
+  
+ 
+#bottomdetil{{ block.id }} .lefticon
+  {
+    margin-right:12px;
+    float:left;
+    width: 20px;
+    height: 20px;
+  }
+  #bottomdetil{{ block.id }} .lefticon svg, #bottomdetil{{ block.id }} .lefticon img
+  {
+    max-width:100%;
+    height:auto;
+  }
+#bottomdetil{{ block.id }} .lefticon img,#bottomdetil{{ block.id }} .lefticon svg
+  {
+    vertical-align: text-bottom;
+  }
+#bottomdetil{{ block.id }}  .righticontxt
+  {
+    width:calc(100% - 30px);
+    float:left;
+  }
+#bottomdetil{{ block.id }}  .detailrow
+  {
+    margin-bottom:5px;
+    width: 100%;
+    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   }
+#bottomdetil{{ block.id }}  .righticontxt
+  {
+    position:relative;
+  }
+#bottomdetil{{ block.id }}  .rghtcontnt p
+  {
+        display: inline-block;
+  }
+  
+  
+.icon-top{
+    align-items: flex-start !important;
+}
+ 
+ .listsec{{ block.id }}
+  {
+    padding:{{ block.settings.padding }};
+    margin:{{ block.settings.margin }}
+  }
+ .listsec{{ block.id }}
+  {
+    {{ block.settings.secgradiant }}
+  }
+@media(max-width:767px)
+{
+ 
+#bottomdetil{{ block.id }}
+{
+    max-width: 100%;
+}
+   .listsec{{ block.id }}
+  {
+    {{ block.settings.secgradiant_mob }}
+  }
+   .listsec{{ block.id }}
+  {
+    padding:{{ block.settings.padding_mob }};
+    margin:{{ block.settings.margin_mob }}
+  }
+}
+</style>

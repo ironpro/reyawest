@@ -1,0 +1,398 @@
+<div class="clear"></div>
+<!-- Image with text - TWO BLOCK -->
+<div class="section2" id="section2{{ block.id }}"  {{ block.shopify_attributes }}>
+<div class="page-width">
+<div class="grid">
+<div class="grid__item medium-up--one-half firstpart">
+  
+ <div class="imageinner">
+     {% if block.settings.video_url != blank %}
+      <div class="video-wrapper cust-wr">
+        <video  class="cust-vi auto_video" {% if block.settings.autoplay %}   playsinline autoplay loop {% else %} playsinline  controls="controls" {% endif %}  {% if block.settings.muted %}muted="muted"{% endif %} {% if block.settings.videothumb  %} poster="{{ block.settings.videothumb | img_url:'original' }}" {% endif %}> 
+          <source src="{{ block.settings.video_url }}" type="video/mp4" />
+        </video>
+
+    </div>
+    {% endif %}
+  
+{% if block.settings.image1 %}
+  <img class="imgbnr" src="{{ block.settings.image1 | img_url:'original' }}">
+{% endif %}
+  </div>
+   
+<div class="textinner">
+  
+  <h2> 
+ {{ block.settings.title1 }}
+  </h2>
+<div>
+<p>
+  {{ block.settings.text1 }}
+  </p>
+
+  
+   {% if block.settings.icontext1 != blank %}
+  
+  {% assign title_size = block.settings.icontext1 | size  %}
+  
+  <div class="text-or-icon {% if title_size > 50 %}icon-top {% endif %}">
+    <div class="icon-box">  
+      {{ block.settings.icontext1_svg }}
+    </div>
+<span>{{ block.settings.icontext1 }}</span>
+  </div>
+  {% endif %}
+  
+   {% if block.settings.icontext1_1 != blank %}
+   {% assign title_size = block.settings.icontext1_1 | size  %}
+  
+  <div class="text-or-icon {% if title_size > 50 %}icon-top {% endif %}">
+   <div class="icon-box">    
+   {{ block.settings.icontext1_svg1 }}
+     </div> 
+<span>{{ block.settings.icontext1_1 }}</span>
+  </div>
+   {% endif %}
+  
+  {% if block.settings.icontext1_2 != blank %}
+ {% assign title_size = block.settings.icontext1_2 | size  %}
+  
+  <div class="text-or-icon {% if title_size > 50 %}icon-top {% endif %}">
+   <div class="icon-box">  
+   {{ block.settings.icontext1_svg2 }}
+   </div>
+<span>{{ block.settings.icontext1_2 }}</span>
+  </div>
+  {% endif %}
+  
+</div>
+  </div>
+  
+
+ </div>
+
+<div class="grid__item medium-up--one-half secondpart">
+       
+  
+    <div class="imageinner">
+  {% if block.settings.video_url1 != blank %}
+  <div class="video-wrapper">
+  <video class="auto_video" {% if block.settings.autoplay1 %}   playsinline autoplay loop {% else %} playsinline  controls="controls" {% endif %}  {% if block.settings.muted1 %}muted="muted"{% endif %} {% if block.settings.videothumb1  %} poster="{{ block.settings.videothumb1 | img_url:'original' }}" {% endif %}> 
+  <source src="{{ block.settings.video_url1 }}" type="video/mp4" />
+  </video>
+    
+ </div>
+ {% endif %}
+
+{% if block.settings.image2 %}
+  <img class="imgbnr" src="{{ block.settings.image2 | img_url:'original' }}">
+{% endif %}
+  </div>
+  
+   <div class="textinner">
+     <h2>
+ {{ block.settings.title2 }}
+  </h2>
+<div>
+<p>
+  {{ block.settings.text2 }}
+  </p>
+
+  
+  
+  
+ 
+  
+  {% if block.settings.icontext2 != blank %}
+   {% assign title_size = block.settings.icontext2 | size  %}
+  
+  <div class="text-or-icon {% if title_size > 50 %}icon-top {% endif %}">
+     <div class="icon-box"> 
+   {{ block.settings.icontext2_svg }}
+      </div>
+      
+<span>{{ block.settings.icontext2 }}</span>
+  </div>
+  {% endif %}
+  
+   {% if block.settings.icontext2_1 != blank %}
+   {% assign title_size = block.settings.icontext2_1 | size  %}
+  
+  <div class="text-or-icon {% if title_size > 50 %}icon-top {% endif %}">
+    <div class="icon-box">   
+   {{ block.settings.icontext2_svg1 }}
+     </div>
+<span>{{ block.settings.icontext2_1 }}</span>
+  </div>
+   {% endif %}
+  
+  {% if block.settings.icontext2_2 != blank %}
+{% assign title_size = block.settings.icontext2_2 | size  %}
+  
+  <div class="text-or-icon {% if title_size > 50 %}icon-top {% endif %}">
+    <div class="icon-box"> 
+   {{ block.settings.icontext2_svg2 }}
+   </div>
+<span>{{ block.settings.icontext2_2 }}</span>
+  </div>
+  {% endif %}
+  
+  
+  
+  
+  
+</div>
+    </div>
+  
+  
+  
+</div>
+</div>
+<div class="clear"></div>
+</div>
+<div class="clear"></div>
+</div>
+<style>
+ 
+  .icon-top{
+    align-items: flex-start !important;
+}
+ 
+  
+#section2{{ block.id }}
+{
+  width:100%;
+  background:{{ block.settings.bg }};
+  float:left;
+}
+ #section2{{ block.id }} img
+  {
+    vertical-align:middle;
+    box-shadow:{{ block.settings.shadow }};  
+    {% if block.settings.roundcorner %}
+    border-radius: {{ block.settings.roundvalue }};
+    {% endif %}
+  }
+  
+  #section2{{ block.id }}   .video-wrapper
+  {
+    /*box-shadow:{{   block.settings.shadow}}; */ {% if block.settings.roundcorner %}
+    border-radius: {{ block.settings.roundvalue }};
+    {% endif %}
+  }
+   #section2{{ block.id }} .text-or-icon
+  {
+    width:100%;
+    float:left;  color:{{ block.settings.textcolor }};
+/*     font-size:17px; */
+   line-height: 24px;
+  }
+   #section2{{ block.id }} .text-or-icon span
+  {
+    float: right;
+    vertical-align: top;
+    width: calc(100% - 30px);
+    margin-left: 12px;
+  }
+  
+ #section2{{ block.id }} .text-or-icon img
+  {
+      border-radius: 0px;
+    box-shadow: none;
+    margin-right: 8px;
+  }
+   #section2{{ block.id }} .text-or-icon svg
+  {
+    width: auto;
+    max-height: 24px;
+    vertical-align: middle;
+  }
+#section2{{ block.id }} .page-width
+  {
+    max-width:812px;
+    margin:0px auto;
+    padding:0px;
+  }
+ #section2{{ block.id }} h2
+  {
+    color:{{ block.settings.headingcolor }};
+    font-size:28px;
+    margin-top:20px;
+    margin-bottom: 20px;
+    font-weight:normal;    line-height:33px;
+  }
+#section2{{ block.id }} p
+  {
+    color:{{ block.settings.textcolor }};
+/*     font-size:17px; */
+    margin:0px;line-height: 24px;
+  }
+#section2{{ block.id }} .grid__item 
+  {
+    padding-left: 50px;
+  }
+ #section2{{ block.id }}  .grid
+  {
+    margin-left: -50px;
+  }
+ #section2{{ block.id }} .text-or-icon
+  {     
+    margin-top: 15px;
+    vertical-align: middle;
+    margin-right: 0px;
+    font-style:italic;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+  }
+#section2{{ block.id }} .text-or-icon svg
+  {   
+    vertical-align: middle;
+    margin-right: 0px;
+  }
+  #section2{{ block.id }} img.mobbnr
+      {
+        display:none;
+      }
+   #section2{{ block.id }} .video-wrapper.mobbnr
+      {
+        display:none;
+      }
+  #section2{{ block.id }} .grid__item:first-child {
+   
+}
+  #section2{{ block.id }}
+  {
+    padding:{{ block.settings.padding }};
+    margin:{{ block.settings.margin }};
+    {{ block.settings.secgradiant }}
+  }
+  
+  @media(max-width:767px)
+    {
+       #section2{{ block.id }} .video-wrapper.deskbnr
+      {
+        display:none;
+      }
+     #section2{{ block.id }} .video-wrapper.mobbnr
+      {
+        display:block;
+      }
+   #section2{{ block.id }} img.deskbnr
+      {
+        display:none;
+      }
+     #section2{{ block.id }} img.mobbnr
+      {
+        display:block;
+      }
+   #section2{{ block.id }} .grid {
+    margin-left: 0px;
+} 
+  #section2{{ block.id }} .grid__item {
+    padding-left: 0px;
+}    
+     #section2{{ block.id }} .firstpart 
+      {
+        background:{{ block.settings.bgmob }};
+        
+      }
+       #section2{{ block.id }} .grid__item:last-child
+      {
+       
+      }
+ #section2{{ block.id }} .page-width {
+    margin: 0px auto 0px;
+    padding: 0px 0px;
+}    
+   #section2{{ block.id }} p {
+    margin-bottom: 0px;
+}
+    
+       #section2{{ block.id }}
+  {
+     padding:{{ block.settings.padding_mob }};
+    margin:{{ block.settings.margin_mob }};
+    {{ block.settings.secgradiant_mob }}
+  }
+      .textinner
+      {
+        padding:0 20px;
+      }
+      
+       #section2{{ block.id }} .firstpart 
+      {
+        padding:{{ block.settings.wholepadding }};
+        
+      }
+       #section2{{ block.id }} .firstpart .imageinner
+      {
+        padding:{{ block.settings.imagepadding }}
+      }
+         #section2{{ block.id }} .secondpart .imageinner
+      {
+        padding:{{ block.settings.imagepadding1 }}
+      }
+       #section2{{ block.id }} .secondpart 
+      {
+        padding:{{ block.settings.wholepadding1 }};
+       
+      }
+      
+       {% if block.settings.layout_mob == 'down' %}
+       #section2{{ block.id }} .firstpart 
+      {
+        display: flex;
+       flex-direction: column;
+      }
+       #section2{{ block.id }} .firstpart  .textinner
+      {
+        order:0;
+      }
+      #section2{{ block.id }} .firstpart .imageinner
+      {
+        order:1;
+      }
+      {% endif %}
+      
+       {% if block.settings.layout_mob1 == 'down' %}
+       #section2{{ block.id }} .secondpart 
+      {
+        display: flex;
+       flex-direction: column;
+      }
+       #section2{{ block.id }} .secondpart  .textinner
+      {
+        order:0;
+      }
+      #section2{{ block.id }} .secondpart .imageinner
+      {
+        order:1;
+      }
+      {% endif %}
+      
+      
+      
+      
+      
+    }
+  
+
+  
+  /*
+  .cust-wr{
+  	height: 500px !important;
+  }
+  .cust-vi{
+  	left: 11% !important;
+  }
+  
+  @media (max-width: 589px){
+  .cust-vi{
+  	left: 0 !important;
+  }
+  
+  
+  }*/
+</style>

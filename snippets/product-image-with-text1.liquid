@@ -1,0 +1,356 @@
+  <!-- Image with text -->
+<div class="clear"></div>
+            
+<div id="tb-image-with-text{{block.id}}" class="tb-image-with-text"  {{ block.shopify_attributes }}>
+<div class="page-width">
+<div class="grid">
+  
+   {% capture image_layout %}
+  <div class="grid__item medium-up--one-half lfttbbnner">
+     {% if block.settings.video_url != blank %}
+      <div class="video-wrapper">
+        <video  class="auto_video"  {% if block.settings.autoplay %} playsinline autoplay loop {% else %} playsinline controls="controls" {% endif %} {% if block.settings.muted %}muted="muted"{% endif %} {% if block.settings.videothumb  %} poster="{{ block.settings.videothumb | img_url:'original' }}" {% endif %}> 
+          <source src="{{ block.settings.video_url }}" type="video/mp4" />
+        </video>
+       
+    </div>
+    {% endif %}
+    
+    
+    {% if block.settings.image %}
+  <img src="{{ block.settings.image | img_url: 'original' }}">
+    {% else %}
+    
+    
+    {% endif %}
+</div>
+   {% endcapture %}
+  
+   
+        {{ image_layout }}
+    
+  
+
+<div class="grid__item medium-up--one-half rghtcontnt rghtcontnt--{{ block.settings.layout }}">
+  
+    {%- if block.settings.title != blank -%}
+          <h2>{{ block.settings.title  }}</h2>
+        {% endif %}
+
+  
+   {% if block.settings.text != blank %}
+{{ block.settings.text }}
+  
+  {% endif %}
+<!-- <p class="withquery">
+  <span class="qry-icon-box">
+  <span>
+    {% if block.settings.iconcode != blank %}
+    {{ block.settings.iconcode }}
+    {% elsif block.settings.icon %}
+      <img src="{{  block.settings.icon | img_url:'50x' }}">
+    {% endif %}
+  
+  </span> 
+  </span>
+  
+  
+  
+  <span>
+      {% if block.settings.subtitle != blank %}
+        {{ block.settings.subtitle }}
+        {% endif %}
+ 
+
+  </span>
+  </p> -->
+  
+  
+ {% if block.settings.subtitle != blank %}
+  
+  {% assign title_size = block.settings.subtitle | size  %}
+  
+  <div class="text-or-icon {% if title_size > 40 %}icon-top {% endif %}">
+    
+    <div class="icon-box">  
+      {% if block.settings.iconcode  != blank %}
+      {{ block.settings.iconcode }}
+      {% elsif block.settings.icon %}
+      <img src="{{  block.settings.icon | img_url:'50x' }}">
+      {% endif %}
+    </div>
+    
+   
+    <span>
+      {% if block.settings.subtitle != blank %}
+        {{ block.settings.subtitle }}
+        {% endif %}
+ 
+    </span>
+  </div>
+  {% endif %}
+
+  </div>
+ 
+  
+</div>
+<div class="clear"></div>
+</div>
+</div>
+
+
+
+
+<style>
+  .icon-top{
+    align-items: flex-start !important
+  }
+  .text-or-icon span {
+    float: right;
+    vertical-align: top;
+    width: calc(100% - 30px);
+    margin-left: 12px;
+}
+  
+  .text-or-icon {
+    margin-top: 15px;
+    vertical-align: middle;
+    margin-right: 0px;
+    font-style: italic;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+  .icon-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+}
+/*   .withquery
+  {
+    position:relative;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+  } */
+  
+/*   .qry-icon-box
+  {
+    display: flex;
+    align-items: center;
+    justify-content: inherit;
+    width: 20px;
+    height: 20px;
+    margin-right: 12px;
+  } */
+  
+ #tb-image-with-text{{block.id}}  .image-wrap svg
+  {
+    opacity:1 !important;
+  }
+ #tb-image-with-text{{block.id}} .page-width
+  {
+    max-width:812px;
+    padding:0px;
+  }
+  #tb-image-with-text{{block.id}} .page-width .grid
+  {
+    margin-left:-17px;
+  }
+  
+#tb-image-with-text{{block.id}} .lfttbbnner img
+  {
+    box-shadow:{{   block.settings.shadow}};  
+    vertical-align:middle;
+    {% if block.settings.roundcorner %}
+    border-radius: {{ block.settings.roundvalue }};
+    {% endif %}
+    
+  }
+#tb-image-with-text{{block.id}}   .video-wrapper
+  {
+    box-shadow:{{   block.settings.shadow}};
+    line-height: 0;
+    padding:0;
+    padding-bottom:0 !important;
+  }
+  #tb-image-with-text{{block.id}} span img,
+#tb-image-with-text{{block.id}} span svg
+  {
+    vertical-align:middle;
+    margin-right: 12px;
+  }
+  #tb-image-with-text{{block.id}} span svg
+  {
+    max-width:36px;
+    height:auto;
+  }
+    {% if block.settings.layout == 'left' %}
+#tb-image-with-text{{block.id}} .page-width .grid__item:last-child
+  {
+     padding-left:50px;
+  }
+#tb-image-with-text{{block.id}} .page-width .grid__item:first-child
+  {
+     padding-left: 17px;
+    padding-right: 15px;
+  }padd
+  {% endif %}
+   {% if block.settings.layout == 'right' %}
+#tb-image-with-text{{block.id}} .page-width .grid__item:last-child
+  {
+     padding-right:33px;padding-left:17px;
+  }
+#tb-image-with-text{{block.id}} .page-width .grid__item:first-child
+  {
+     padding-left:17px;
+  }
+#tb-image-with-text{{block.id}} .page-width .grid__item.lfttbbnner
+  {
+    float:right;
+  }
+  
+  {% endif %}
+#tb-image-with-text{{block.id}}  .rghtcontnt p
+  {
+    color:{{  block.settings.textcolor }};
+    font-size:17px;
+    line-height:24px;   
+  }
+#tb-image-with-text{{block.id}}  .rghtcontnt  h2
+  {
+    color:{{ block.settings.headingcolor }};
+    font-size:45px;
+    line-height:52px; margin-bottom:20px
+  }
+  #tb-image-with-text{{block.id}}
+  {
+    padding:{{ block.settings.padding }};
+    margin:{{ block.settings.margin }}
+  }
+  #tb-image-with-text{{block.id}}
+  {
+    {{ block.settings.secgradiant }}
+  }
+ #tb-image-with-text{{block.id}} .video-wrapper
+  {
+    padding-bottom:100%;
+  }
+  
+  
+  
+  @media(max-width:767px)
+    {
+       #tb-image-with-text{{block.id}}
+  {
+    {{ block.settings.secgradiant_mob }}
+  }
+      #tb-image-with-text{{block.id}}
+  {
+    padding:{{ block.settings.padding_mob }};
+    margin:{{ block.settings.margin_mob }}
+  }
+    #tb-image-with-text{{block.id}}   .rghtcontnt h2 {
+    font-size: 28px;
+    line-height: 33px;
+    margin-top: 20px;
+      margin-bottom:10px
+}
+     #tb-image-with-text{{block.id}} .page-width .grid__item.rghtcontnt {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+     #tb-image-with-text{{block.id}} .page-width .grid
+      {
+            margin-left: 0;
+      }
+      #tb-image-with-text{{block.id}} .page-width .grid__item {
+    padding-left: 0;
+}
+      .tb-image-with-text {
+    padding-bottom: 10px;
+}
+       {% if block.settings.layout == 'right' %}
+   
+ #tb-image-with-text{{block.id}} .page-width .grid__item:first-child
+  {
+     padding:{{ block.settings.imagepadding }};
+  }
+      #tb-image-with-text{{block.id}} .page-width .grid__item:last-child
+  {
+     padding-right:20px;padding-left:20px;
+  }
+      {% endif %}
+         {% if block.settings.layout == 'left' %}
+     
+    #tb-image-with-text{{block.id}} .page-width .grid__item:first-child
+  {
+      padding:{{ block.settings.imagepadding }};
+  } 
+      #tb-image-with-text{{block.id}} .page-width .grid__item:last-child
+  {
+     padding-right:20px;padding-left:20px;
+  }
+       {% endif %}
+      
+        #tb-image-with-text{{block.id}} .lfttbbnner
+     {
+      padding:{{ block.settings.imagepadding }};
+    }
+      
+      
+      {% if block.settings.layout_mob == 'up' %}
+      #tb-image-with-text{{block.id}} .grid
+      {
+      
+      }
+      #tb-image-with-text{{block.id}} .rghtcontnt
+      {
+        
+      }
+       #tb-image-with-text{{block.id}} .lfttbbnner
+      {
+        
+      }
+      
+      {% endif %}
+       {% if block.settings.layout_mob == 'down' %}
+       #tb-image-with-text{{block.id}} .grid
+      {
+        display: flex;
+       flex-direction: column;
+      }
+      #tb-image-with-text{{block.id}} .rghtcontnt
+      {
+         order:0
+      }
+       #tb-image-with-text{{block.id}} .lfttbbnner
+      {
+        order:1
+      }
+      
+      {% endif %}
+      
+      
+      {% if block.settings.centertitle %}
+      
+      #tb-image-with-text{{block.id}} h2
+      {
+        text-align:center;
+      }
+      
+      {% endif %}
+      
+       {% if block.settings.centertext %}
+    #tb-image-with-text{{block.id}}  .rghtcontnt
+      {
+        text-align:center;
+      }
+      {% endif %}
+    }
+  
+</style>           
+<div class="clear"></div>
+            <!-- Image with text -->

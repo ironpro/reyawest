@@ -1,0 +1,29 @@
+<style>
+  .product-many__container > div {
+    display: none;
+  }
+
+  .product-many__container > div.selected {
+    display: block;
+  }  
+</style>  
+
+<div class="product-many__container">
+  {% for product_ref in product.metafields.custom.product_reference.value %}
+    <div data-product-id="{{ product_ref.id }}" class="{% if product.id == product_ref.id %} selected {% endif %}">
+      {%- render 'product-template',
+        product: product_ref,
+        description_style: description_style,
+        image_container_width: image_container_width,
+        section_id: section_id,
+        social: social,
+        isModal: isModal,
+        thumbnail_position: thumbnail_position,
+        thumbnail_arrows: thumbnail_arrows,
+        video_looping: video_looping,
+        video_style: video_style,
+        review_rating: review_rating
+      -%}
+    </div>  
+  {% endfor %}
+</div>

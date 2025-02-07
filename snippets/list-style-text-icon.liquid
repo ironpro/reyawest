@@ -1,0 +1,170 @@
+<div class="bottomdetil" id="bottomdetil{{ block.id }}"  {{ block.shopify_attributes }}>
+  {% if block.settings.title1  != blank %}
+<div class="detailrow">
+  <span class="lefticon"> 
+   {% if block.settings.iconcode1 != blank %}
+    {{ block.settings.iconcode1 }}
+    {% elsif block.settings.icon1 %}
+      <img src="{{  block.settings.icon1 | img_url:'original' }}">
+    {% endif %}
+  </span> 
+ <span class="righticontxt">
+  {{ block.settings.title1 }}
+  </span>
+  
+  </div>
+  {% endif %}
+  {% if block.settings.title2  != blank %}
+ <div class="detailrow">
+  <span class="lefticon"> 
+   {% if block.settings.iconcode2 != blank %}
+    {{ block.settings.iconcode2 }}
+    {% elsif block.settings.icon2 %}
+      <img src="{{  block.settings.icon2 | img_url:'original' }}">
+    {% endif %}
+  </span> 
+ <span class="righticontxt">
+  {{ block.settings.title2 }}
+  </span>
+  
+  </div> 
+  {% endif %}
+  {% if block.settings.title3  != blank %}
+<div class="detailrow">
+  <span class="lefticon"> 
+   {% if block.settings.iconcode3 != blank %}
+    {{ block.settings.iconcode3 }}
+    {% elsif block.settings.icon3 %}
+      <img src="{{  block.settings.icon3 | img_url:'original' }}">
+    {% endif %}
+  </span> 
+ <span class="righticontxt">
+  {{ block.settings.title3 }}
+  </span>
+  
+  </div>
+  {% endif %}
+  {% if block.settings.title4  != blank %}
+ <div class="detailrow">
+  <span class="lefticon"> 
+   {% if block.settings.iconcode4 != blank %}
+    {{ block.settings.iconcode4 }}
+    {% elsif block.settings.icon4 %}
+      <img src="{{  block.settings.icon4 | img_url:'original' }}">
+    {% endif %}
+  </span> 
+ <span class="righticontxt">
+  {{ block.settings.title4 }}
+  </span>
+  
+  </div> 
+  {% endif %}
+  {% if block.settings.title5  != blank %}
+<div class="detailrow">
+  <span class="lefticon"> 
+   {% if block.settings.iconcode5 != blank %}
+    {{ block.settings.iconcode5 }}
+    {% elsif block.settings.icon5 %}
+      <img src="{{  block.settings.icon5 | img_url:'original' }}">
+    {% endif %}
+  </span> 
+ <span class="righticontxt">
+  {{ block.settings.title5 }}
+  </span>
+  
+  </div>  
+  {% endif %}
+  {% if block.settings.title6  != blank %}
+  <div class="detailrow">
+  <span class="lefticon"> 
+   {% if block.settings.iconcode6 != blank %}
+    {{ block.settings.iconcode6 }}
+    {% elsif block.settings.icon6 %}
+      <img src="{{  block.settings.icon6 | img_url:'original' }}">
+    {% endif %}
+  </span> 
+ <span class="righticontxt">
+  {{ block.settings.title6 }}
+  </span>
+  
+  </div>
+  
+  {% endif %}
+  {% if block.settings.title7  != blank %}
+  <div class="detailrow">
+  <span class="lefticon"> 
+   {% if block.settings.iconcode7 != blank %}
+    {{ block.settings.iconcode7 }}
+    {% elsif block.settings.icon7 %}
+      <img src="{{  block.settings.icon7 | img_url:'original' }}">
+    {% endif %}
+  </span> 
+ <span class="righticontxt">
+  {{ block.settings.title7 }}
+  </span>
+  
+  </div>
+  {% endif %}
+  
+  
+<div class="clear"></div>
+</div>
+
+<style>
+#bottomdetil{{ block.id }}
+{
+  margin-bottom:30px;
+}  
+#bottomdetil{{ block.id }}
+  {
+    max-width: 100%;
+}  
+#bottomdetil{{ block.id }}
+  {
+    color:{{ block.settings.headingcolor }};
+    font-size:17px;
+    line-height:24px;
+    font-style:italic;max-width: 334px;
+    margin: 20px auto 60px;
+  }
+#bottomdetil{{ block.id }} .lefticon
+  {
+    margin-right:12px;
+    width:18px;
+    float:left;
+  }
+#bottomdetil{{ block.id }} .lefticon img
+  {
+    vertical-align: text-bottom;
+  }
+#bottomdetil{{ block.id }}  .righticontxt
+  {
+    width:calc(100% - 30px);
+    float:left;
+  }
+#bottomdetil{{ block.id }}  .detailrow
+  {
+    margin-bottom:5px;
+    width: 100%;
+    float: left;
+   }
+#bottomdetil{{ block.id }}  .righticontxt
+  {
+    position:relative;
+  }
+#bottomdetil{{ block.id }}  .rghtcontnt p
+  {
+        display: inline-block;
+  }
+  
+@media(max-width:767px)
+{
+#bottomdetil{{ block.id }}
+{
+    max-width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-bottom: 30px;
+}
+}
+</style>

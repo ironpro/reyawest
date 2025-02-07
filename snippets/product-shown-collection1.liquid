@@ -1,0 +1,272 @@
+{% assign collections = collections[block.settings.assign_collection2]%}
+{% assign current_handle =  product.handle %}
+
+<div class="product-shown-collection" snippet="product-shown-collection">
+  <div class="productShownft">
+    {%- if block.settings.heading2 != blank -%}
+    <div class="ProductShownHeading">
+      <h2>{{block.settings.heading2}}</h2>
+      {%- if block.settings.sub_heading2 != blank -%}
+      <p style="text-align: center !important; margin-bttom: 0 !important;">{{block.settings.sub_heading2}}</p>
+      {%- endif-%}
+    </div>
+    {%- endif-%}
+
+    <div class="ProductShownMainWrapCustomST">
+      <div class="ProductShownEachMainBlock2 sliderWrapCustomproduct">
+        {% for product in collections.products %}
+        {% if product.handle == current_handle %}
+        {% else %}
+        {% assign current_variant = product.selected_or_first_available_variant %}
+        <div class="productShownEachblock">
+          <div class="productShownImage">
+            <a href="#!">
+              <img src="{{product.featured_media.preview_image | img_url : '500x500' }}" class="ProductMainImageShows" cart-recomm-image-update>
+              {% if product.images.size > 1 %}
+              {%- for image in product.images offset: 1 limit: 1 -%}
+              {%- assign second_image = image -%} 
+              {%- endfor -%}
+              <img src="{{second_image | img_url : '500x500' }}" class="ProductMainImageHover">
+              {% endif %}
+            </a>
+          </div>
+
+          <div class="productShownPriceDatilCapture" data-recomm-price-update>
+            <div class="ProductShownDetail">
+              <a href="{{product.url}}">{{product.title}}</a>
+            </div>
+            <div class="productShownPriceBox">
+               <p id="" class="productshownActualPrice custcl {% if current_variant.compare_at_price > current_variant.price%}{% else %} {% endif %}" actual-price>{{current_variant.price | money }}</p>
+               <p id="" class="ComparepriceProduct cust-hid custcl2" recomm-cmopare-price>{{current_variant.compare_at_price | money }}</p>
+             
+              <span class="percent-icon sale-i">
+                <svg id="discount" xmlns="http://www.w3.org/2000/svg" width="23.988" height="25" viewBox="0 0 23.988 25">
+                  <g id="Group_2087" data-name="Group 2087" transform="translate(0 0)">
+                    <g id="Group_2086" data-name="Group 2086" transform="translate(0 0)">
+                      <path id="Path_9502" data-name="Path 9502" d="M33.191,12.822a.733.733,0,0,1,0-.648l.932-1.907a2.17,2.17,0,0,0-.936-2.882l-1.875-1a.733.733,0,0,1-.381-.524l-.367-2.091a2.17,2.17,0,0,0-2.452-1.781l-2.1.3a.733.733,0,0,1-.616-.2L23.868.615a2.17,2.17,0,0,0-3.03,0L19.312,2.091a.733.733,0,0,1-.616.2l-2.1-.3a2.17,2.17,0,0,0-2.452,1.781l-.367,2.091a.733.733,0,0,1-.381.524l-1.875,1a2.17,2.17,0,0,0-.936,2.882l.932,1.907a.733.733,0,0,1,0,.648l-.932,1.907a2.17,2.17,0,0,0,.936,2.882l1.875,1a.733.733,0,0,1,.381.524l.367,2.091a2.169,2.169,0,0,0,2.139,1.8A2.229,2.229,0,0,0,16.594,23l2.1-.3a.732.732,0,0,1,.616.2l1.526,1.476a2.17,2.17,0,0,0,3.03,0l1.526-1.476a.733.733,0,0,1,.616-.2l2.1.3a2.17,2.17,0,0,0,2.452-1.781l.367-2.091a.733.733,0,0,1,.381-.524l1.875-1a2.17,2.17,0,0,0,.936-2.882ZM19.469,6.01a2.643,2.643,0,1,1-2.643,2.643A2.646,2.646,0,0,1,19.469,6.01ZM18.1,17.766a.721.721,0,1,1-1.02-1.02L26.6,7.23a.721.721,0,0,1,1.02,1.02Zm7.132,1.221a2.643,2.643,0,1,1,2.643-2.643A2.646,2.646,0,0,1,25.237,18.987Z" transform="translate(-10.359 0.002)" fill="#ff393c"></path>
+                    </g>
+                  </g>
+                  <g id="Group_2089" data-name="Group 2089" transform="translate(13.676 15.144)">
+                    <g id="Group_2088" data-name="Group 2088" transform="translate(0)">
+                      <path id="Path_9503" data-name="Path 9503" d="M291.654,310.141a1.2,1.2,0,1,0,1.2,1.2A1.2,1.2,0,0,0,291.654,310.141Z" transform="translate(-290.452 -310.141)" fill="#ff393c"></path>
+                    </g>
+                  </g>
+                  <g id="Group_2091" data-name="Group 2091" transform="translate(7.909 7.453)">
+                    <g id="Group_2090" data-name="Group 2090" transform="translate(0)">
+                      <path id="Path_9504" data-name="Path 9504" d="M173.535,152.646a1.2,1.2,0,1,0,1.2,1.2A1.2,1.2,0,0,0,173.535,152.646Z" transform="translate(-172.333 -152.646)" fill="#ff393c"></path>
+                    </g>
+                  </g>
+                </svg>
+              </span>
+              
+              
+              {%- if current_variant.compare_at_price > current_variant.price-%}
+              
+              {% endif %}
+            </div>
+          </div>
+
+          <div class="ProductShownFormCapture2">
+            <form method="post" action="/cart/add" id="AddToCartForm-{{product.id}}" accept-charset="UTF-8" class="product-single__form ProductShownForm" enctype="multipart/form-data">
+              <div class="productShownVariantMain">
+                {% unless product.has_only_default_variant %}
+                <div class="ProductShownVariantCollection">
+                  {%- for option in product.options_with_values -%}
+                  <select class="ProductShownSelect-{{forloop.index}} varintBoxesSelect">
+                    {%- for value in option.values -%}
+                    {%- assign variant_label_state = true -%}
+                    {% if product.options.size == 1 %}
+                    {% unless product.variants[forloop.index0].available %}
+                    {%- assign variant_label_state = false -%}
+                    {% endunless %}
+                    {% endif %}
+                    <option 
+                            value="{{ value | escape }}"
+                            vari_dt="{{ variant.id  }}"
+                            {% if option.selected_value == value %} selected="selected"{% endif %}
+                            {% unless variant_label_state %} disabled="disabled"{% endunless %}
+                            name="{{ option.name }}"
+                            class="variant-input"
+                            data-index="option{{ forloop.index }}">
+                      {{ value }}
+                    </option>
+                    {%- endfor -%}
+                  </select>
+                  {%- endfor -%}
+                </div> 
+
+                <div class="productShownHiddenSelector" style="display:none">
+                  <select name="id" id="ProductSelect-{{ product.id }}" class=" no-js synch productCaptionHiddenSt">
+                    {%- for variant in product.variants -%}
+                    <option {% if variant.compare_at_price %} disount-cal="{{variant.compare_at_price | minus: variant.price | money }}" {% endif %} data-img="{{variant.featured_image | img_url : '360x360' }}"  data-compare="{{variant.compare_at_price | money}}" data-price="{{ variant.price | money_with_currency }}" vid="{{ variant.id }}" {% if variant.available %} {% else %} disabled="disabled" {% endif %} {% if variant == product.selected_or_first_available_variant %}selected="selected" {% endif %} value="{{ variant.id }}">{{ variant.title }}</option>
+                    {%- endfor -%}
+                  </select>
+                </div>
+                {% endunless %}
+              </div>
+              <div class="productShownAddCartButton">
+                <button
+                        {% if product.empty? %}type="button"{% else %}type="submit"{% endif %}
+                        name="add" data-variant="{{ current_variant.id }}"
+                        id="AddToCart-{{ current_variant.id }}"
+                        class="btn btn--full  productShownAdding2 WrapActionAddingCart2"
+                        {% unless current_variant.available %} disabled="disabled"{% endunless %}>
+                  <span id="AddToCartText-{{ current_variant.id }}" data-default-text="{{ default_text }}">
+                    {{ 'products.product.add_to_cart' | t }} 
+                  </span>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+      </div>	
+    </div>
+  </div>
+</div>
+
+<style>
+  .productShownAdding2.WrapActionAddingCart2{
+    background: {{ block.settings.product_sh_bg_cr2 }} !important;
+    box-shadow: {{ block.settings.color_atc_shadow2 }} !important;
+    color: {{ block.settings.product_sh_txt_cr2 }} !important;
+  }
+  .productShownAdding2.WrapActionAddingCart2:hover{
+    background: {{ block.settings.color_atc_hover2 }} !important;
+    box-shadow: {{ block.settings.color_atc_shadow_hover2 }} !important;
+    color: {{ block.settings.color_atc_hover_txt2 }} !important;
+  }
+  
+  .ProductShownFormCapture2 select {
+    background-image: url({{ block.settings.recommend_product_variant_arrow2 | img_url}});
+   }
+   .ProductShownEachMainBlock2 .slick-arrow2{
+    background:{{block.settings.arrow_color_slider2 }} !important;  
+    opacity:0.5; 
+  }
+  .ProductShownEachMainBlock2 .slick-arrow:hover{
+    opacity:1 !important;
+  }
+  .ProductShownEachMainBlock2 .slick-disabled:hover{
+    opacity:0.5 !important;
+  }
+@media (max-width: 600px){
+  .cust-hid{
+  visibility:hidden !important;
+    width:0px;
+  }
+    
+  }
+  @media (min-width: 600px){
+  
+  .sale-i{
+    display: none !important;
+    
+    }
+  }
+</style>
+
+<script>
+  
+  $(document).ready(function(){
+  
+  var y = document.getElementsByClassName("custcl");
+    var x = document.getElementsByClassName("custcl2");
+    
+    var z = document.getElementsByClassName("sale-i");
+      
+      var comp = 0;
+    
+    for(let i =0; i< y.length; i++ ){
+      
+      a = y[i].firstChild.innerHTML;	
+      var atl = Number(a.replace(/[^0-9\.]+/g,""));
+      
+      if(x[i].children.length > 0){
+      
+      b = x[i].firstChild.innerHTML;	
+      comp = Number(b.replace(/[^0-9\.]+/g,""));
+        
+      }
+      
+      
+      if(comp > atl){
+        
+        y[i].setAttribute("id", "cust-sale");
+        x[i].style.display = "inline-block";
+        z[i].style.display = "flex";
+        
+      }
+      else if(comp < atl){
+       y[i].setAttribute("id", "cust-rr");
+        x[i].style.display = "none";
+        z[i].style.display = "none";
+      
+      }
+      else{
+      y[i].setAttribute("id", "cust-rr");
+        x[i].style.display = "none";
+        z[i].style.display = "none";
+      
+      }
+      
+      comp = 0;
+    }
+  
+  });
+  
+  $('select').on('change', function() {
+    setTimeout(function() {
+    
+    
+    var y = document.getElementsByClassName("custcl");
+    var x = document.getElementsByClassName("custcl2");
+    var z = document.getElementsByClassName("sale-i");
+      
+      var comp = 0;
+    
+    for(let i =0; i< y.length; i++ ){
+      
+      a = y[i].firstChild.innerHTML;	
+      var atl = Number(a.replace(/[^0-9\.]+/g,""));
+      
+      if(x[i].children.length > 0){
+      
+      b = x[i].firstChild.innerHTML;	
+      comp = Number(b.replace(/[^0-9\.]+/g,""));
+        
+      }
+      
+      
+      if(comp > atl){
+        
+        y[i].setAttribute("id", "cust-sale");
+        x[i].style.display = "inline-block";
+        z[i].style.display = "flex";
+        
+      }
+      else if(comp < atl){
+       y[i].setAttribute("id", "cust-rr");
+        x[i].style.display = "none";
+        z[i].style.display = "none";
+      
+      }
+      else{
+      y[i].setAttribute("id", "cust-rr");
+        x[i].style.display = "none";
+        z[i].style.display = "none";
+      
+      }
+      
+      comp = 0;
+    }
+    
+    }, 100);
+  
+  
+    
+    
+  
+  });
+</script>

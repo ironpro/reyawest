@@ -1,0 +1,182 @@
+<div class="clear"></div>
+<div id="iconssection{{ block.id }}" class="iconssection" {{ block.shopify_attributes }}>
+<div class="page-width">
+<ul>
+<li><span> 
+  
+  
+   {% if block.settings.iconcode != blank %}
+    {{ block.settings.iconcode }}
+    {% elsif block.settings.icon %}
+      <img src="{{  block.settings.icon | img_url:'large' }}">
+  {% else %}
+   <div class="image-wrap">
+              {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+            </div>
+    {% endif %}
+  
+  
+  </span>
+<p>{{ block.settings.title }}</p>
+</li>
+<li><span>
+   {% if block.settings.iconcode2 != blank %}
+    {{ block.settings.iconcode2 }}
+    {% elsif block.settings.icon2 %}
+      <img src="{{  block.settings.icon2 | img_url:'large' }}">
+   {% else %}
+   <div class="image-wrap">
+              {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+            </div>
+    {% endif %}
+  </span>
+<p>{{ block.settings.title2 }}</p>
+</li>
+<li><span>
+   {% if block.settings.iconcode3 != blank %}
+    {{ block.settings.iconcode3 }}
+    {% elsif block.settings.icon3 %}
+      <img src="{{  block.settings.icon3 | img_url:'large' }}">
+   {% else %}
+   <div class="image-wrap">
+              {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+            </div>
+    {% endif %}
+  </span>
+<p>{{ block.settings.title3 }}</p>
+</li>
+<li><span>
+   {% if block.settings.iconcode4 != blank %}
+    {{ block.settings.iconcode4 }}
+    {% elsif block.settings.icon4 %}
+      <img src="{{  block.settings.icon4 | img_url:'large' }}">
+   {% else %}
+   <div class="image-wrap">
+              {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+            </div>
+    {% endif %}
+  </span>
+<p>{{ block.settings.title4 }}</p>
+</li>
+<li><span>
+  {% if block.settings.iconcode5 != blank %}
+    {{ block.settings.iconcode5 }}
+    {% elsif block.settings.icon5 %}
+      <img src="{{  block.settings.icon5 | img_url:'large' }}">
+   {% else %}
+   <div class="image-wrap">
+              {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+            </div>
+    {% endif %}
+  </span>
+<p>{{ block.settings.title5 }}</p>
+</li>
+</ul>
+<div class="clear"></div>
+</div>
+</div>
+<style>
+ 
+  .iconssection .page-width
+  {
+   max-width: 1060px;   margin-left: auto;
+    margin-right: auto;padding: 0;
+   
+  }
+.iconssection ul
+  {
+      padding: 0px;
+    text-align: initial;
+    width: 100%;
+    float: left;
+    margin: 0;
+  }
+  .iconssection ul li{
+   display:inline-block;    vertical-align: top;
+    width:20%;
+ float:left;
+    text-align:center;    margin: 0;
+  }
+   .iconssection ul li p
+  {
+    max-width:116px;
+    margin: 0 auto;
+    font-size:17px;
+    line-height:18px;
+    text-align:center;
+    margin-top:10px;
+    font-weight:bold;
+  }
+  #iconssection{{ block.id }}  ul li p
+  {
+    color:{{ block.settings.headingcolor }}
+  }
+    .iconssection
+  {
+    padding-bottom:100px;padding-top: 25px;
+  }
+    .iconssection ul li span
+  {
+    display: block;
+    max-width: 116px;
+    text-align: center;
+    margin: 0 auto;    height: 100px;
+    vertical-align: middle;    position: relative;
+  }
+  .iconssection ul li span img
+  {
+    vertical-align: middle;
+    max-height: 100%;
+    line-height: 100px;    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+  }
+  #iconssection{{ block.id }} .image-wrap svg
+  {
+    opacity:1;
+  }
+  #iconssection{{ block.id }} .image-wrap
+  {
+    height: 100%;
+    position: relative;
+  }
+  
+  @media(max-width:767px)
+    {
+  .iconssection ul li span 
+   {
+     height: 55px;
+    }
+       .iconssection ul li p
+      {
+      font-size: 15px;
+    max-width: 100%;
+      }
+      .iconssection ul li span
+      {
+      max-width: 68px;
+      }
+      .iconssection
+      {
+    padding-bottom: 50px;
+   padding-left: 10px;
+    padding-right: 10px;    padding-top: 5px;
+     }
+       .iconssection ul li
+      {
+        padding-left: 10px;
+    padding-right: 10px;
+        width:25%
+      }
+      .iconssection ul li:nth-child(4)
+      {
+        display:none;
+      }
+      
+      
+      
+    }
+  
+</style>
+          <div class="clear"></div>

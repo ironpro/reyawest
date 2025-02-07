@@ -1,0 +1,351 @@
+<div class="clear"></div>
+<!-- REVIEWS-->
+<div id="customers{{ block.id }}" class="customers" {{ block.shopify_attributes }}>
+<div class="page-width">
+<div class="cust_title">
+  
+  {% if block.settings.titlebg %}
+  <img class="deskbnr" src="{{  block.settings.titlebg | img_url:'original' }}"> 
+{% endif %}
+  
+  {% if block.settings.titlebgmob %}
+  <img class="mobbnr" src="{{ block.settings.titlebgmob | img_url:'original' }}">
+{% endif %}
+  
+  <h2>{{ block.settings.title }}</h2>
+</div>
+  
+<div class="custwrap">
+  
+<div class="custimages">
+  
+   {% if block.settings.image %}
+  <img src="{{ block.settings.image | img_url:'original' }}">
+  {% endif %}
+  
+  </div>
+  
+<div class="quotes">
+<div class="quote1">
+  
+   <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="59.391" height="57.86" viewBox="0 0 59.391 57.86">
+  <defs>
+    <filter id="Path_9657" x="0" y="0" width="59.391" height="57.86" filterUnits="userSpaceOnUse">
+      <feOffset dx="1" dy="2" input="SourceAlpha"></feOffset>
+      <feGaussianBlur stdDeviation="5" result="blur"></feGaussianBlur>
+      <feFlood flood-color="#573e11" flood-opacity="0.302"></feFlood>
+      <feComposite operator="in" in2="blur"></feComposite>
+      <feComposite in="SourceGraphic"></feComposite>
+    </filter>
+  </defs>
+  <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#Path_9657)">
+    <path id="Path_9657-2" data-name="Path 9657" d="M6912.042,4744.11s9.89,3.714,10.013,20.876,27.994-1.5,16.675-11.466S6912.042,4744.11,6912.042,4744.11Z" transform="translate(-6898.04 -4731.1)" fill="#f8b133"></path>
+  </g>
+</svg>
+  
+  
+  <p>{{ block.settings.quote_text1 }}</p>
+<p><b>{{ block.settings.quote_author1 }}</b></p>
+  
+  
+</div>
+<div class="quote2">
+   {%  if block.settings.quoteimage2 %}
+  <img src="{{ block.settings.quoteimage2 | img_url:'original' }}">
+  {% endif %}
+<div>
+ <p>{{ block.settings.quote_text2 }}</p>
+<p><b>{{ block.settings.quote_author2 }}</b></p>
+</div>
+</div>
+<div class="quote3">
+  
+  {%  if block.settings.quoteimage3 %}
+  <img src="{{ block.settings.quoteimage3 | img_url:'original' }}">
+  {% endif %}
+  
+<div>
+ <p>{{ block.settings.quote_text3 }}</p>
+<p><b>{{ block.settings.quote_author3 }}</b></p>
+</div>
+</div>
+</div>
+  
+<div class="clear"></div>
+</div>
+  
+</div>
+</div>
+<style>
+  .quote2 div
+  {
+        max-width: 307px;
+    position: absolute;
+    top: 28px;
+    left: 42px;
+  }
+   .quote3 div
+  {
+        max-width: 290px;
+    position: absolute;
+    top: 28px;
+    left: 35px;
+  }
+  .custwrap
+  {
+    max-width:1130px;
+    margin:0 auto;
+  }
+  .quote1
+  {
+    position:relative;
+  }
+  /*
+  .quote1::after
+  {
+    content:"";
+    position:absolute;
+   right:-10px;
+    bottom:-10px; 
+    background:url('https://cdn.shopify.com/s/files/1/0020/6998/7374/files/quote3.png?v=1617379745');
+  width:26px;
+    height:25px;
+  }*/
+   .quote2
+  {
+    position:relative;
+  }
+ 
+ 
+   .quote3
+  {
+    position:relative;
+  }
+  /*
+  .quote3::after
+  {
+    content:"";
+    position:absolute;
+   right:-10px;
+    bottom:-10px; 
+    background:url('https://cdn.shopify.com/s/files/1/0020/6998/7374/files/quote1_df15eb06-d705-4c1d-b338-994582819bd0.png?v=1617379144');
+     width:26px;
+    height:25px;
+  }
+  */
+  .custimages
+  {
+    width:60%;
+    float:left;
+  }
+  .quotes
+  {
+    width:40%;
+    float:left;
+  }
+.customers
+{
+  padding-bottom:80px;
+}
+  .page-width
+  {
+    max-width:1260px;
+    margin:0 auto;
+  }
+  
+  .cust_title 
+  {
+    position: relative;
+    padding: 0px 0 0px;
+    max-width: 100%;
+    margin: 0px auto 100px;
+  }
+   .cust_title   img
+  {
+    display:block;
+    margin:0 auto;
+  }
+ .cust_title  h2
+  {
+    font-size:45px;
+    line-height:52px;
+    color:{{ block.settings.titlecolor }};
+    max-width:100%;
+    position:absolute;
+    top:50%;
+    left:50%;
+    width:100%;
+    transform:translate(-50%,-50%);
+    margin: 0;
+    letter-spacing: 0;
+    text-align: center;
+  }
+  .quote1
+  {
+    background:{{ block.settings.quote1bg }};
+    border-radius:15px;
+    box-shadow:{{ block.settings.shadow }};
+    max-width: 327px;
+    padding: 20px 20px 0px 20px;
+    font-size: 17px;
+    color:{{  block.settings.quote1txt }};
+    line-height: 24px;
+    margin-bottom:30px;margin-left:75px;
+  }
+   .quote1 svg
+  {
+    position: absolute;
+    bottom: -22px;
+    right: -24px;
+    transform: rotate(180deg);
+    z-index: -2;
+  }
+  .quote1 svg path
+  {
+    fill:{{ block.settings.quote1bg }}
+  }
+   .quote1 p
+  {
+   color:{{  block.settings.quote1txt }};
+    margin-bottom: 10px;    line-height: 24px;
+  }
+  .quote1 p:last-child
+  {
+    padding-bottom: 20px;
+    margin: 0;
+  }
+    .quote2
+  {
+      border-radius: 15px;
+    padding: 0;
+    font-size: 17px;
+     color:{{  block.settings.quote2txt }};
+    line-height: 24px;
+    margin-bottom: 0px;
+    position: relative;
+      
+  }
+  .quote2 p
+  {
+    color:{{  block.settings.quote2txt }};
+    margin-bottom: 10px;    line-height: 24px;
+  }
+  .quote2 p:last-child
+  {
+    padding-bottom: 20px;
+    margin: 0;
+  }
+   .quote2 svg
+  {
+    position: absolute;
+    bottom: -22px;
+    left: -24px;
+    transform: rotate(180deg);
+    z-index: -2;
+  }
+  
+  
+  .quote3
+  {
+   
+        padding: 0px;
+    font-size: 17px;
+     color:{{  block.settings.quote3txt }};
+    line-height: 24px;
+    margin-left:60px; position:relative;
+  }
+    .quote3 p
+  {
+      color:{{  block.settings.quote3txt }}; 
+    margin-bottom: 10px;    line-height: 24px;
+  }
+  .quote3 p:last-child
+  {
+    padding-bottom: 20px;
+    margin: 0;
+  }
+   .quote3 svg
+  {
+    position: absolute;
+    bottom: -22px;
+    right: -24px;
+    transform: rotate(180deg);
+    z-index: -2;
+  }
+    .cust_title img.mobbnr
+      {
+        display:none;
+      }
+  
+  @media(max-width:767px)
+    {
+      .cust_title img.deskbnr
+      {
+        display:none;
+      }
+     .cust_title img.mobbnr
+      {
+        display:block;
+      }  
+      .cust_title h2 {
+    font-size: 28px;
+    line-height: 33px;
+    padding: 0 15px;
+    max-width: 275px;
+}
+      {% if block.settings.show_onmob %}
+    #customers{{ block.id }}  .custimages
+      {
+    display: none;
+       }
+      {% endif %}
+      
+      {% if block.settings.hide %}
+      .quotes 
+      {
+    display: none;
+       }
+      {% endif %}
+      
+      .customers {
+    padding-bottom: 0;
+}
+      .customers .page-width {
+    padding: 0 0px;
+}
+      .cust_title {
+    margin: 0px auto 0px;
+    padding: 0 20px;
+}
+      #customers{{ block.id }} .custimages {
+    width: 100%;
+    float: left;
+}
+   #customers{{ block.id }} .quotes {
+    width: 100%;
+    float: left;
+}  
+     #customers{{ block.id }}   .quote1 {
+    max-width: 320px;
+    margin-left: 20px;
+}
+      #customers{{ block.id }}  .quote3 div {
+    max-width: 270px;
+}
+     #customers{{ block.id }}  .quote2 {
+    margin-right: 5px;
+} 
+      
+      
+    }
+  
+@media(min-width:768px)
+{
+.custimages
+{
+   padding-right: 78px;
+}
+}
+</style>
+<div class="clear"></div>
+<!--top banner with text -->

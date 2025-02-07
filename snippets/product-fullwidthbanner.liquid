@@ -1,0 +1,175 @@
+<div class="clear"></div>
+<!--top banner with text -->
+<div id="block{{ block.id }}" class="section4"  {{ block.shopify_attributes }}>
+<div class="bannerimgtxt">
+<div class="deco deskbnr">
+  <img src="{{ block.settings.image | img_url:'original' }}"></div>
+</div>
+<div class="page-width">
+   
+  <div class="iconimg">
+    {% if block.settings.iconcode != blank %}
+    {{ block.settings.iconcode }}
+    {% elsif block.settings.icon %}
+      <img src="{{  block.settings.icon | img_url:'80x' }}">
+    {% endif %}
+  </div>
+<h2>{{ block.settings.title }}</h2>
+<p>
+  {{ block.settings.text }}
+</p>
+  
+</div>
+</div>
+<div class="clear"></div>
+  
+  <style>
+   #block{{ block.id }} .iconimg {
+    margin-bottom: 20px;
+    vertical-align: middle;
+}
+     #block{{ block.id }}  .iconimg  img
+    {
+    vertical-align: middle;
+}
+ 
+ #block{{ block.id }}  .bannerimgtxt
+  {
+          position: absolute;
+    top: 0;
+    right: 0;
+    width: 33.333%;
+    max-width: 576px;
+    height: 100%;
+    text-align: right;
+  }
+
+ #block{{ block.id }} 
+{
+  {{ block.settings.bggradiant }}
+  
+}
+  #block{{ block.id }} 
+  {
+    position:relative;
+  }
+ #block{{ block.id }} .page-width
+  {
+    max-width:550px;
+    margin:0 auto;
+    padding:30px 0;
+    text-align:center;
+    z-index: 99;
+    position: relative;
+  }
+ #block{{ block.id }}  svg
+  {
+    margin-bottom:0px;
+    vertical-align:middle;
+  } 
+    #block{{ block.id }}  h2
+    { 
+    margin-bottom: 20px;
+    font-size: 45px;
+    line-height: 50px;
+      color:{{ block.settings.titlecolor }};
+      margin-top:0px;
+    }
+     #block{{ block.id }}    p
+    {
+      color: {{ block.settings.textcolor }};   
+      margin-bottom: 0px;
+    line-height: 24px;
+    font-size: 19px;
+    }
+   #block{{ block.id }}  p  a
+    {
+          color: {{ block.settings.linkcolor }};
+      text-decoration: underline;    border: none;
+    }
+     #block{{ block.id }}  p  a::after
+    {
+      display:none;
+    }
+    {% if block.settings.layout == 'left' %}
+ #block{{ block.id }}   .bannerimgtxt img
+    {
+    height: 100%;
+    object-fit: cover;
+    object-position:{{ block.settings.alignment  }};
+    border-top-right-radius: 150px;
+    border-bottom-right-radius: 150px;
+    max-height: 100%;
+    position: relative;
+      }
+  #block{{ block.id }}    .bannerimgtxt .deco::before
+    {
+    content: "";
+    position: absolute;
+    left: 15px;
+    height: 100%;
+    width: calc(100% + 15px);
+    border-top-right-radius: 150px;
+    border-bottom-right-radius: 150px;
+     background:{{ block.settings.bgcolor }};
+    border-right: solid 11px {{ block.settings.boxborder }};
+    box-shadow: {{ block.settings.boxshadow }};
+    }
+   #block{{ block.id }}    .deco {
+    float: left;
+    position: relative;
+    height: 100%;
+}
+   #block{{ block.id }}    .bannerimgtxt {
+    text-align: left;top: 0;
+    left: 0;
+}
+    
+    {% else %}
+   #block{{ block.id }}    .bannerimgtxt {
+    text-align: right;top: 0;
+    right: 0;
+}
+   #block{{ block.id }}   .deco
+  {
+   float: right;
+    position: relative;
+    height: 100%;
+  }
+   #block{{ block.id }}   .bannerimgtxt img
+  {
+    height: 100%;
+    object-fit: cover;
+    object-position: {{ block.settings.alignment  }};
+    border-top-left-radius: 144px;
+    border-bottom-left-radius: 144px;
+    max-height: 100%;
+    position: relative;
+  }
+ #block{{ block.id }}  .bannerimgtxt .deco::before
+  {
+    content: "";
+    position: absolute;
+    right: 15px;
+    height: 100%;
+    width: calc(100% + 15px);
+    border-top-left-radius: 144px;
+    border-bottom-left-radius: 144px;
+    background:{{ block.settings.bgcolor }};
+    border-left: solid 11px {{ block.settings.boxborder }};
+    box-shadow: {{ block.settings.boxshadow }};
+  }
+    {% endif %}
+    
+    @media(max-width:767px)
+      {
+        {% if block.settings.mobhide %}
+         #block{{ block.id }} 
+         {
+         display: none;
+         }
+        {% endif %}
+      }
+    
+ </style>
+  

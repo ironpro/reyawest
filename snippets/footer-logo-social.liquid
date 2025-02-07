@@ -1,0 +1,38 @@
+<div class="footer__logo-social">
+  
+ 
+    {%- style -%}
+      .footer__logo a {
+        height: {{ block.settings.desktop_logo_height }}px;
+      }
+    {%- endstyle -%}
+    {%- assign footer_logo_size = block.settings.desktop_logo_height | prepend: 'x' -%}
+    <div class="footer__logo">
+      <a href="{{ routes.root_url }}">
+        
+        
+        <div class="logofotr medium-up--hide">
+          
+         {{ block.settings.logosvg }}
+      
+        </div>
+        <div class="logofotr small--hide">
+          
+         {{ block.settings.logosvgmob }}
+         
+          
+        </div>
+        {% if block.settings.logo  %}
+        <img class="small--hide" src="{{ block.settings.logo | img_url: footer_logo_size, scale: 2 }}" alt="{{ block.settings.logo.alt | default: shop.name }}">
+        {% endif %}
+        
+         {% if block.settings.moblogo  %}
+        <img class="medium-up--hide" src="{{ block.settings.moblogo | img_url: footer_logo_size, scale: 2 }}" alt="{{ block.settings.moblogo.alt | default: shop.name }}">
+        {% endif %}
+      </a>
+    </div>
+ 
+</div>
+
+<p class="footer__powered_by{% if first_instance %} small--hide{% endif %}">{{ powered_by_link }}</p>
+

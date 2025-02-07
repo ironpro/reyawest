@@ -1,0 +1,89 @@
+/* Product Description And Other Change Done By Multiinsight Developer */
+/* For Desktop */
+@media only screen and (min-width: 768px) {
+  button.label.collapsible-trigger.collapsible-trigger-btn.collapsible-trigger-btn--borders.collapsible--auto-height {
+    margin-top: 50px;
+    padding-top: 0px;
+}
+  button.label.collapsible-trigger.collapsible-trigger-btn.collapsible-trigger-btn--borders {
+    border: none;
+}
+  
+  .collapsible-trigger.is-open .collapsible-trigger__icon>.icon-chevron-mydown {
+    transform: rotate(
+180deg);
+}
+  
+  .collapsibles-wrapper--border-bottom
+  {
+    border: none;
+  }
+  span.collapsible-trigger__icon.collapsible-trigger__icon--open {
+    margin-left: 20px;
+}
+ .collapsible-content.collapsible-content--all.is-open {
+    margin-right: 30px;
+}
+  .collapsibles-wrapper.collapsibles-wrapper--border-bottom {
+    margin-top: 50px;
+  }
+  .label.collapsible-trigger.collapsible-trigger-btn {
+    margin-top: 10px;
+  }
+  .collapsible-content.is-open {
+    padding-top: 10px;
+}
+  .label.collapsible-trigger {
+    font-size: 17px !important;
+    font-weight: bold !important;
+  }
+  .collapsible-content__inner.rte p {
+    font-size: 17px !important;
+    font-weight: 100 !important;
+  }
+  .collapsible-trigger-btn--borders+.collapsible-content .collapsible-content__inner {
+    padding-bottom: 30px !important;
+  }
+}
+@media only screen and (max-width: 767px) {
+  
+  button.label.collapsible-trigger.collapsible-trigger-btn.collapsible-trigger-btn--borders {
+    border: none;
+}
+  .collapsible-content.collapsible-content--all.is-open {
+    margin-right: 30px;
+}
+  .collapsibles-wrapper--border-bottom
+  {
+    border: none;
+  }
+  
+  .collapsibles-wrapper.collapsibles-wrapper--border-bottom {
+    margin-top: 40px;
+  }
+  .collapsible-trigger-btn--borders+.collapsible-content .collapsible-content__inner {
+    padding-bottom: 30px !important;
+  }
+  .label.collapsible-trigger.collapsible-trigger-btn {
+    padding: 10px 0px;
+  }
+  button.label.collapsible-trigger.collapsible-trigger-btn.collapsible-trigger-btn--borders.collapsible--auto-height {
+    padding-top: 0px;
+}
+  .label.collapsible-trigger {
+    font-size: 17px !important;
+    font-weight: bold !important;
+  }
+  .collapsible-content__inner.rte p {
+    font-size: 17px !important;
+    font-weight: 100 !important;
+  }
+}
+
+.icon-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+}

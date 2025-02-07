@@ -1,0 +1,116 @@
+<div class="clear"></div>
+<div class="mobilebannerblock{{ block.id }}" {{ block.shopify_attributes }}>
+<div class="clear"></div>
+<div class="custimages" style="margin-bottom: 50px;">
+  
+  {% if block.settings.image %}
+  <img src="{{ block.settings.image | img_url:'original' }}">
+  {% endif %}
+  
+</div>
+<div class="clear"></div>
+<h2>
+  {{ block.settings.svgcode }}
+  
+  <span>{{ block.settings.title }}</span>
+</h2>
+<p>
+ {{ block.settings.text }} 
+</p>
+  
+  {% if block.settings.imagebottom %}
+<div class="mobilebannerblock_img">
+  <img src="{{ block.settings.imagebottom | img_url:'original' }}">
+</div>
+  {% endif %}
+  
+</div>
+<div class="clear"></div>
+
+<style>
+  .mobilebannerblock{{ block.id }}
+{
+  display:none;
+}
+    .mobilebannerblock{{ block.id }} h2 svg
+      {display: inline-block;
+    vertical-align: middle;
+    margin: 0 10px 0 0px;
+          max-width: 55px;
+    height: auto;
+    vertical-align: middle;
+    max-height: 30px;
+        width:auto;
+    }
+   .mobilebannerblock{{ block.id }} h2 img {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 10px 0 0px;
+}
+  @media(max-width:767px)
+    {
+       .mobilebannerblock{{ block.id }}
+{
+  display:block;
+}
+.mobilebannerblock{{ block.id }}
+{
+  {{ block.settings.gradiant }}
+}
+.mobilebannerblock{{ block.id }} .custimages 
+  {
+    width: 100%;
+}
+  .mobilebannerblock{{ block.id }} p
+  {
+    margin-bottom: 20px;
+    line-height: 24px;
+    font-size: 17px;
+    color:  {{ block.settings.txtcolor }};
+    padding: 0 20px;
+  }
+ .mobilebannerblock{{ block.id }}  a {
+    color: {{ block.settings.linkcolor }};
+    text-decoration: underline;
+   }
+ .mobilebannerblock{{ block.id }}  h2 {
+    font-size: 24px !important;margin-bottom: 20px;
+    line-height: 33px;
+    color: {{ block.settings.titlecolor }};
+    padding: 0 20px;
+    text-align: center;
+}
+ .mobilebannerblock{{ block.id }} h2 img {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 10px 0 0px;
+}
+ .mobilebannerblock{{ block.id }} h2 span {
+    display: inline-block;
+    vertical-align: middle;
+}
+    .mobilebannerblock{{ block.id }} .mobilebannerblock_img img
+      {
+    margin-bottom: -20px;
+} 
+     
+       .mobilebannerblock{{ block.id }} h2 svg
+      {display: inline-block;
+    vertical-align: middle;
+    margin: 0 10px 0 0px;
+          max-width: 55px;
+    height: auto;
+    vertical-align: middle;
+    max-height: 30px;width:auto;
+    }
+      
+      
+    }
+  @media (max-width: 360px)
+    {
+ .mobilebannerblock{{ block.id }} h2 img {
+    margin: 0 5px 0 5px !important;
+}
+    }
+  
+</style>

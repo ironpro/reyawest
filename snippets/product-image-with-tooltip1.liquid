@@ -1,0 +1,273 @@
+<div class="tabbanner" id="tabbanner{{ block.id }}"  {{ block.shopify_attributes }}>
+<div class="desktooltippart">
+<div class="page-width">
+   {% if block.settings.image %}
+  <img class="deskbnr" src="{{ block.settings.image  | img_url:'original' }}">
+   {% endif %}
+  
+  {% if block.settings.title1 %}
+<div class="topleft_tooltip">
+  {{ block.settings.title1 }}
+  {% if block.settings.image1 %}
+  <img src="{{ block.settings.image1 | img_url:'original' }}">
+ {% endif %}
+  </div>
+  {% endif %}
+  
+ {% if block.settings.title2 %}
+  <div class="topright_tooltip">
+   {% if block.settings.image2 %}
+  <img src="{{ block.settings.image2 | img_url:'original' }}">
+ {% endif %}
+  <span> 
+    {{ block.settings.title2 }}
+  </span>
+  </div>
+   {% endif %}
+  
+   {% if block.settings.title3 %}
+<div class="middleright_tooltip">
+  
+   {{ block.settings.title3 }}
+  
+  {% if block.settings.image3 %}
+  <img src="{{ block.settings.image3 | img_url:'original' }}">
+ {% endif %}
+</div>
+   {% endif %}
+  
+   {% if block.settings.title4 %}
+<div class="bottomcenter_tooltip">
+  
+  {% if block.settings.image4 %}
+  <img src="{{ block.settings.image4 | img_url:'original' }}">
+ {% endif %}
+  
+  {{ block.settings.title4 }}
+  
+  </div>
+   {% endif %}
+  
+    {% if block.settings.title5 %}
+<div class="middleleft_tooltip">
+  
+   {{ block.settings.title5 }}
+  
+  {% if block.settings.image5 %}
+  <img src="{{ block.settings.image5 | img_url:'original' }}">
+ {% endif %}
+</div>
+   {% endif %}
+  
+  {% if block.settings.title6 %}
+<div class="bottomright_tooltip">
+  
+  {% if block.settings.image6 %}
+  <img src="{{ block.settings.image6 | img_url:'original' }}">
+ {% endif %}
+  
+  {{ block.settings.title6 }}
+  
+  </div>
+   {% endif %}
+  
+  
+</div>
+</div>
+  {% if block.settings.image %}
+<img class="mobbnr" src="{{ block.settings.image | img_url:'original' }}">
+   {% endif %}
+<div class="fade_edge"></div>
+</div>
+
+<style>
+   .tabbanner
+  {
+    padding-bottom:70px;
+    text-align:center
+  }
+  .tabbanner img
+  {
+    display:block;
+    margin:0 auto;
+  }
+.tabbanner img.mobbnr
+      {
+        display:none
+      }
+   .tabbanner
+  {
+    position:relative;
+  }
+{% if block.settings.bg %}
+  .tabbanner .fade_edge 
+  {
+    width: 100%;
+    left: 0;
+    bottom: 70px;
+    height: 35px;
+  background-image:url({{ block.settings.bg | img_url:'original' }});
+   background-repeat: no-repeat;
+    background-position: top center;
+    position: absolute;
+}
+   {% endif %}
+   .topright_tooltip span
+  {
+    max-width: 170px;
+    display: inline-block;
+  }
+  .topright_tooltip
+  {
+    position: absolute;
+    top: 30px;
+    right: -145px; {{ block.settings.customcode2 }}
+  }
+   .topright_tooltip img
+  {
+        display: inline-block;
+    vertical-align: text-top;
+        position: relative;
+    top: -50px;{{ block.settings.customcode2_arrow }};
+  }
+  .topleft_tooltip
+  {
+    max-width: 215px;
+    position: absolute;
+    top: 15px;
+    left: -125px;
+    text-align:center;
+    {{ block.settings.customcode1 }}
+  }
+   .topleft_tooltip img
+  {
+    display:block;
+    vertical-align: top;
+    position: relative;
+    margin: 0;
+    top: -15px;
+    left: 50%;
+    {{ block.settings.customcode1_arrow }};
+  }
+ 
+ .middleright_tooltip
+  {
+    position: absolute;
+    right: -108px;
+    top: 50%;
+    transform: translate(0,-20%);
+    max-width: 150px;
+    {{ block.settings.customcode3 }};
+  }
+   .middleright_tooltip img
+  {
+    right: 50%;
+    position: relative;
+    top: -20px;{{ block.settings.customcode3_arrow }};
+  }
+ .bottomcenter_tooltip
+  {
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translate(-50%,0%); 
+    z-index: 9;
+     {{ block.settings.customcode4 }};
+  }
+   .bottomcenter_tooltip img
+  {
+     display:block;
+     vertical-align: top;
+     left:50%;
+     position: relative;
+     margin: 0; {{ block.settings.customcode4_arrow }};
+  }
+  .middleleft_tooltip
+  {
+    position: absolute;
+    top: 50%;transform: translate(0%,-50%); 
+    left: 0%;
+    z-index: 9;
+     {{ block.settings.customcode5 }};
+  }
+  .middleleft_tooltip img
+  {
+   display:block;
+     vertical-align: top;
+     left:50%;
+     position: relative;
+     margin: 0; {{ block.settings.customcode5_arrow }};
+  }
+  .bottomright_tooltip
+  {
+    position: absolute;
+    bottom: -20px;
+    right: 0%;
+    z-index: 9;
+     {{ block.settings.customcode6 }};
+  }
+  .bottomright_tooltip img
+  {
+     display:block;
+     vertical-align: top;
+     left:50%;
+     position: relative;
+     margin: 0; {{ block.settings.customcode6_arrow }};
+  }
+  .desktooltippart .page-width
+  {
+    max-width:812px;
+    margin:0 auto;
+    padding:0px;
+    position:relative;
+  }
+   .desktooltippart 
+  {
+    font-size:22px;
+    font-weight:bold;
+    line-height:27px;
+  }
+  #tabbanner{{ block.id }} .desktooltippart 
+  {
+     color:{{ block.settings.headingcolor }};
+   
+  }
+  
+  #tabbanner{{ block.id }}
+  {
+      padding:{{ block.settings.padding }};
+    margin:{{ block.settings.margin }};
+    {{ block.settings.secgradiant }}
+  }
+  
+  
+  @media(max-width:767px)
+    {
+        .tabbanner img.deskbnr
+      {
+        display:none;
+      }
+      .tabbanner img.mobbnr
+      {
+        display:block;
+        padding:0 10px;
+       }
+      .tabbanner {
+    padding-bottom: 30px;;
+}
+        .tabbanner .fade_edge
+  {
+    bottom:30px;    height: 20px;
+  }
+       .desktooltippart
+  {
+    display:none;
+  } 
+       #tabbanner{{ block.id }}
+  {
+     padding:{{ block.settings.padding_mob }};
+    margin:{{ block.settings.margin_mob }};
+    {{ block.settings.secgradiant_mob }}
+  }
+    }
+</style>

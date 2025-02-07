@@ -1,0 +1,273 @@
+<div class="clear"></div>
+<!-- TABle-->
+<div class="comparetable" {{ block.shopify_attributes }}>
+<h2>{{ block.settings.title }}</h2>
+<div class="page-width">
+<div class="tablerow">
+   {% if block.settings.showrow1 %}
+<div class="toprow">
+<div class="compare_col1">{{ block.settings.row1col1 }}</div>
+<div class="compare_col2">{{ block.settings.row1col2 }}</div>
+<div class="compare_col3">{{ block.settings.row1col3 }}</div>
+</div>
+  {% endif %}
+<div class="middlerow">
+  
+  {% if block.settings.showrow2 %}
+<div class="mid_rows">
+<div class="compare_col1">{{ block.settings.row2col1 }}</div>
+<div class="compare_col2">{{ block.settings.row2col2 }}</div>
+<div class="compare_col3">{{ block.settings.row2col3 }}</div>
+</div>
+ {% endif %}
+  
+   {% if block.settings.showrow3 %}
+  <div class="mid_rows">
+<div class="compare_col1">{{ block.settings.row3col1 }}</div>
+<div class="compare_col2">{{ block.settings.row3col2 }}</div>
+<div class="compare_col3">{{ block.settings.row3col3 }}</div>
+</div>
+   {% endif %}
+  
+   {% if block.settings.showrow4 %}
+  <div class="mid_rows">
+<div class="compare_col1">{{ block.settings.row4col1 }}</div>
+<div class="compare_col2">{{ block.settings.row4col2 }}</div>
+<div class="compare_col3">{{ block.settings.row4col3 }}</div>
+</div>
+   {% endif %}
+  
+   {% if block.settings.showrow5 %}
+  <div class="mid_rows">
+<div class="compare_col1">{{ block.settings.row5col1 }}</div>
+<div class="compare_col2">{{ block.settings.row5col2 }}</div>
+<div class="compare_col3">{{ block.settings.row5col3 }}</div>
+</div>
+   {% endif %}
+  
+   {% if block.settings.showrow6 %}
+  <div class="mid_rows">
+<div class="compare_col1">{{ block.settings.row6col1 }}</div>
+<div class="compare_col2">{{ block.settings.row6col2 }}</div>
+<div class="compare_col3">{{ block.settings.row6col3 }}</div>
+</div>
+   {% endif %}
+  
+   {% if block.settings.showrow7 %}
+  <div class="mid_rows">
+<div class="compare_col1">{{ block.settings.row7col1 }}</div>
+<div class="compare_col2">{{ block.settings.row7col2 }}</div>
+<div class="compare_col3">{{ block.settings.row7col3 }}</div>
+</div>
+   {% endif %}
+  
+   {% if block.settings.showrow8 %}
+  <div class="mid_rows">
+<div class="compare_col1">{{ block.settings.row8col1 }}</div>
+<div class="compare_col2">{{ block.settings.row8col2 }}</div>
+<div class="compare_col3">{{ block.settings.row8col3 }}</div>
+</div>
+   {% endif %}
+  
+   {% if block.settings.showrow9 %}
+  <div class="mid_rows">
+<div class="compare_col1">{{ block.settings.row9col1 }}</div>
+<div class="compare_col2">{{ block.settings.row9col2 }}</div>
+<div class="compare_col3">{{ block.settings.row9col3 }}</div>
+</div>
+   {% endif %}
+  
+
+  
+  
+</div>
+ {% if block.settings.showrow10 %}
+<div class="bottomrow">
+<div class="compare_col1">&nbsp;&nbsp;</div>
+<div class="compare_col2"></div>
+<div class="compare_col3"></div>
+</div>
+    {% endif %}
+<div class="clear"></div>
+</div>
+</div>
+</div>
+<style>
+ .middlerow  .mid_rows:first-child
+  {
+        border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+  .middlerow .mid_rows:nth-child(2n-1)
+  {
+    background:{{ block.settings.altcolor }}
+  }
+  .middlerow
+  {
+    box-shadow:{{ block.settings.shadow }}; 
+    border-radius:10px;
+    width:100%;
+    float:left;
+  }
+  .comparetable 
+  {
+    padding:0 0 100px 0;
+  }
+   .comparetable  .page-width
+  {
+    max-width:812px;
+    margin:0 auto;
+    padding:0px;
+  }
+.comparetable h2
+  {
+    color:{{ block.settings.headingcolor }};
+    font-size:45px;
+    margin-bottom:55px;
+    text-align:center;
+    font-weight:normal;
+  }
+  .compare_col2
+  {
+    background:{{ block.settings.bgcolor }};
+    width: 176px;
+    float: left;
+    text-align:center;
+    padding:15px;
+  }
+  .toprow .compare_col2
+  {
+    background:{{ block.settings.bgcolor }};
+    color: {{ block.settings.txtcolor  }};
+    font-size: 15px;
+    line-height: 13px;
+    border-top-left-radius: 28px;
+    border-top-right-radius: 28px;
+    padding:15px;font-weight:bold;position:relative;
+  }
+     .toprow   .compare_col3
+  {
+    color:{{ block.settings.hcolor }};
+    font-size:15px;
+    line-height:13px;
+    font-weight:bold;
+  }
+    .comparetable  img
+  {
+    vertical-align: top;
+  }
+   .toprow   .compare_col1
+  {
+    font-size: 15px;
+    line-height: 13px;
+  }
+  .compare_col1
+  {
+    width: calc(100% - 351px);
+    float: left;
+    
+  }
+   .compare_col3
+  {
+    width: 175px;
+    float: left;
+    text-align:center;
+  }
+    .toprow   .compare_col3
+  {
+    padding:15px;
+    text-align:center;font-size: 15px;
+    line-height: 13px;
+  }
+  .mid_rows
+  {
+   width:100%;
+    float:left;
+  }
+  .bottomrow .compare_col2
+  {
+        border-bottom-left-radius: 28px;
+    border-bottom-right-radius: 28px;
+  }
+  .middlerow .compare_col1
+  {
+    color:{{ block.settings.col1color }};
+    font-size:17px;
+    line-height:24px;padding:13px 15px;
+  }
+   .middlerow .compare_col2, .middlerow .compare_col3
+  {
+    padding: 11px;
+  }
+</style>
+<div class="clear"></div>
+
+<style>
+  
+  @media(max-width:767px)
+    {
+ .comparetable h2 
+{
+    font-size: 28px;
+    margin-bottom: 15px;
+    text-align: left;
+    padding: 0 20px;
+} 
+           
+ .comparetable {
+    padding: 0 0 0px 0;
+}     
+ .compare_col2
+      {
+        width:56px;
+      }
+    .compare_col3 {
+    width: 56px;
+    }
+.compare_col1 {
+    width: calc(100% - 112px);
+} 
+  .toprow .compare_col2 {
+   font-size: 10px;
+    padding: 15px 0px 5px;
+}    
+   .toprow .compare_col3 {
+  font-size: 10px;
+    padding: 15px 0px 5px;
+}   
+   .middlerow .compare_col2, .middlerow .compare_col3 {
+    padding: 7px;
+}   
+  .middlerow .compare_col1
+{
+   font-size: 15px;
+        padding: 7px 0px 7px 15px;
+}  
+ .comparetable img
+{
+    max-width: 20px;
+}     
+  .comparetable .page-width {
+    padding: 0px 20px;
+}    
+   .comparetable img {
+    vertical-align: middle;
+}    
+      
+      
+    }
+  @media(max-width:370px)
+    {
+     .middlerow .compare_col1 {
+    font-size: 13px  !important;
+    padding: 7px 0px 7px 11px  !important;
+}
+    }
+   @media(max-width:360px)
+    {
+      .middlerow .compare_col1 {
+ font-size: 12px  !important;
+    padding: 7px 0px 8px 8px  !important;
+}
+    }
+</style>

@@ -1,0 +1,38 @@
+{% if settings.cart_type == 'drawer' %}
+<div id="CartDrawer" class="drawer drawer--right">
+  <form id="cust-adjs" action="{{ routes.cart_url }}" method="post" novalidate class="drawer__contents">
+    <div class="drawer__fixed-header">
+      <div class="drawer__header appear-animation appear-delay-2">
+        <div class="drawer__title">{{ 'cart.general.title' | t }}: <span class="cdk_cartCount">{% if cart.item_count == 0 %} empty {% elsif cart.item_count == 1 %}{{ cart.item_count }} item {% else %}{{cart.item_count}} items {% endif %}</span> </div>
+        <div class="drawer__close">
+          <button type="button" class="drawer__close-button js-drawer-close">
+
+            <svg xmlns="http://www.w3.org/2000/svg" width="19.092" height="19.092" viewBox="0 0 19.092 19.092">
+              <g id="Group_2148" data-name="Group 2148" transform="translate(-6401.793 -97.793)" opacity="0.7">
+                <line id="Line_111" data-name="Line 111" x2="25" transform="translate(6402.5 98.5) rotate(45)" fill="{{ settings.color_body_text | default: "#1c1d1d" }}" stroke="{{ settings.color_body_text | default: "#1c1d1d" }}" stroke-linecap="round" stroke-width="1"/>
+                <line id="Line_112" data-name="Line 112" x2="25" transform="translate(6420.178 98.5) rotate(135)" fill="{{ settings.color_body_text | default: "#1c1d1d" }}" stroke="{{ settings.color_body_text | default: "#1c1d1d" }}" stroke-linecap="round" stroke-width="1"/>
+              </g>
+            </svg>
+
+
+            <span class="icon__fallback-text">{{ 'cart.general.close_cart' | t }}</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="CartContainer" class="drawer__inner">
+
+    </div>
+  </form>
+</div>
+{% endif %}
+
+
+
+<script>
+  $(document).ready(function(){
+  document.getElementById("cust-adjs").style.paddingBottom = "3px";
+    
+  });
+</script>

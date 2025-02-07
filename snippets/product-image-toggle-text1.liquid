@@ -1,0 +1,553 @@
+<div class="clear"></div>
+<div id="section5{{ block.id }}" class="section5" {{ block.shopify_attributes }}>
+  {% if  block.settings.title  != blank %}
+<h2>{{ block.settings.title }}</h2>
+  {% endif %}
+<div class="page-width">
+   {% if block.settings.text  != blank %}
+<p>{{  block.settings.text }}</p>
+  {% endif %}
+  <div class="threeblock">
+    <div id="cust-div1">
+<div class="grid">
+  
+  {% if block.settings.title1  != blank %}
+<div class="grid__item medium-up--one-third">
+<div class="block_wrap">
+  
+<div class="block_head">  
+<div class="threeicon" id="cust-d">
+  
+   {% if block.settings.iconcode1 != blank %}
+    {{ block.settings.iconcode1 }}
+    {% elsif block.settings.icon1 %}
+      <img src="{{  block.settings.icon1 | img_url:'130x' }}">
+    {% endif %}
+  
+  
+  </div>
+  
+<h3>{{ block.settings.title1 }}</h3>
+</div>
+<a href="#" class="toggle_content">
+  <span class="moretext"> {{ block.settings.more  }}</span> 
+  <span class="arrowup"> 
+  {{ block.settings.iconup }} 
+  </span>
+  <span class="arrowdown"> 
+  {{ block.settings.icondown }}  
+  </span> 
+  </a>
+<div class="collapse_info">
+  
+ {{ block.settings.text1 }}
+  
+  </div>
+  
+  
+</div>
+</div>
+  {% endif %}
+  
+   {% if block.settings.title2  != blank %}
+<div class="grid__item medium-up--one-third">
+<div class="block_wrap">
+  <div class="block_head">  
+<div class="threeicon" id="cust-d">
+  
+  {% if block.settings.iconcode2 != blank %}
+    {{ block.settings.iconcode2 }}
+    {% elsif block.settings.icon2 %}
+      <img src="{{  block.settings.icon2 | img_url:'130x' }}">
+    {% endif %}
+  
+  </div>
+
+ <h3>{{ block.settings.title2 }}</h3>
+ </div>
+<a href="#" class="toggle_content">
+  <span class="moretext"> {{ block.settings.more  }}</span> 
+  <span class="arrowup"> 
+  {{ block.settings.iconup }} 
+  </span>
+  <span class="arrowdown"> 
+  {{ block.settings.icondown }}  
+  </span> 
+  </a>
+<div class="collapse_info">
+  
+ {{ block.settings.text2 }}
+  
+  </div>
+
+  
+  </div>
+</div>
+  {% endif %}
+  
+   {% if block.settings.title3  != blank %}
+<div class="grid__item medium-up--one-third">
+<div class="block_wrap">
+<div class="block_head">    
+<div class="threeicon" id="cust-d">
+  
+  {% if block.settings.iconcode3 != blank %}
+    {{ block.settings.iconcode3 }}
+    {% elsif block.settings.icon3 %}
+      <img src="{{  block.settings.icon3 | img_url:'130x' }}">
+    {% endif %}
+  
+  </div>
+  
+<h3>{{ block.settings.title3}}</h3>
+  </div>
+<a href="#" class="toggle_content">
+  <span class="moretext"> {{ block.settings.more  }}</span> 
+  <span class="arrowup"> 
+  {{ block.settings.iconup }} 
+  </span>
+  <span class="arrowdown"> 
+  {{ block.settings.icondown }}  
+  </span> 
+  </a>
+<div class="collapse_info">
+  
+ {{ block.settings.text3 }}
+  
+  </div>
+
+  
+  </div>
+</div>
+  {% endif %}
+  
+
+  
+ {% if block.settings.title4  != blank %}
+<div class="grid__item medium-up--one-third fouthmargin {% if block.settings.hide_on_desk4 %} hide_on_desk {% endif %}">
+<div class="block_wrap">
+<div class="block_head">    
+<div class="threeicon" id="cust-d">
+  
+  {% if block.settings.iconcode4 != blank %}
+    {{ block.settings.iconcode4 }}
+    {% elsif block.settings.icon4 %}
+      <img src="{{  block.settings.icon4 | img_url:'130x' }}">
+    {% endif %}
+  
+  </div>
+  
+<h3>{{ block.settings.title4}}</h3>
+  </div>  
+<a href="#" class="toggle_content">
+  <span class="moretext"> {{ block.settings.more  }}</span> 
+  <span class="arrowup"> 
+  {{ block.settings.iconup }} 
+  </span>
+  <span class="arrowdown"> 
+  {{ block.settings.icondown }}  
+  </span> 
+  </a>
+<div class="collapse_info">
+  
+ {{ block.settings.text4 }}
+  
+  </div>
+
+  
+  </div>
+</div>
+  {% endif %}
+ 
+  {% if block.settings.title5  != blank %}
+<div class="grid__item medium-up--one-third  fouthmargin {% if block.settings.hide_on_desk5 %} hide_on_desk {% endif %}">
+<div class="block_wrap">
+<div class="block_head">    
+<div class="threeicon" id="cust-d">
+  
+  {% if block.settings.iconcode5 != blank %}
+    {{ block.settings.iconcode5 }}
+    {% elsif block.settings.icon5 %}
+      <img src="{{  block.settings.icon5 | img_url:'130x' }}">
+    {% endif %}
+  
+  </div>
+  
+<h3>{{ block.settings.title5}}</h3>
+  </div> 
+<a href="#" class="toggle_content">
+  <span class="moretext"> {{ block.settings.more  }}</span> 
+  <span class="arrowup"> 
+  {{ block.settings.iconup }} 
+  </span>
+  <span class="arrowdown"> 
+  {{ block.settings.icondown }}  
+  </span> 
+  </a>
+<div class="collapse_info">
+  
+ {{ block.settings.text5 }}
+  
+  </div>
+
+  
+  </div>
+</div>
+  {% endif %}
+   {% if block.settings.title6  != blank %}
+<div class="grid__item medium-up--one-third  fouthmargin {% if block.settings.hide_on_desk5 %} hide_on_desk {% endif %}">
+<div class="block_wrap">
+<div class="block_head">    
+<div class="threeicon" id="cust-d">
+  
+  {% if block.settings.iconcode6 != blank %}
+    {{ block.settings.iconcode6 }}
+    {% elsif block.settings.icon6 %}
+      <img src="{{  block.settings.icon6 | img_url:'130x' }}">
+    {% endif %}
+  
+  </div>
+  
+<h3>{{ block.settings.title6}}</h3>
+  </div> 
+<a href="#" class="toggle_content">
+  <span class="moretext"> {{ block.settings.more  }}</span> 
+  <span class="arrowup"> 
+  {{ block.settings.iconup }} 
+  </span>
+  <span class="arrowdown"> 
+  {{ block.settings.icondown }}  
+  </span> 
+  </a>
+<div class="collapse_info">
+  
+ {{ block.settings.text6 }}
+  
+  </div>
+
+  
+  </div>
+</div>
+  {% endif %}
+</div>
+    </div>
+    
+</div>
+</div>
+</div>
+<style>
+  .section5
+  {
+    padding:50px 0 100px 0;
+    background:{{ block.settings.bg }}
+  }
+    .section5 .page-width
+  {
+    max-width:812px;
+    padding:0px;
+    margin:0 auto
+  }
+  .section5 p
+  {
+    text-align:center;
+    color:{{ block.settings.textcolor }};
+/*     font-size:17px; */
+    line-height:24px;    font-weight: normal;
+    margin-top: 20px;
+    margin-bottom: 55px;
+  }
+  
+  
+  
+  .section5 h2
+  {
+    color:{{ block.settings.headingcolor }};
+    font-size:45px;
+    line-height:52px;
+    margin:0px;
+    text-align:center
+  }
+  .threeblock
+  {
+    text-align:center;
+  }
+  .threeblock .grid
+  {
+    margin-left:-20px;
+  }
+    .threeblock .grid__item
+  {
+    padding-left:20px;
+  }
+ 
+  .block_wrap
+  {
+    box-shadow: {{ block.settings.shadow }};
+    border-radius: 10px;
+    padding: 0 15px 30px 15px;
+    margin-top: 45px;
+    
+  }
+  .threeicon
+  {
+    top: -45px;
+    position: relative;
+    margin-bottom:0px;
+  }
+    .threeicon img,  .threeicon svg
+  {
+    max-width:129px;
+    height:auto;
+  }
+    .threeblock h3
+  {
+    color:{{ block.settings.boxheading_color }};
+    font-size:24px;
+    line-height:24px;  
+    min-height: 52px; 
+    margin: 0;
+    margin-top: -25px;
+    margin-bottom: 20px;   
+    padding: 0 15px;
+  }
+   .threeblock a
+  {
+    font-weight:bold;
+    color:{{ block.settings.boxlink_color }};
+    font-size: 17px;
+    line-height: 24px;
+    display: block;
+  }
+  .moretext
+  {
+      text-decoration: underline;
+    text-align: center;
+    display: inline-block;    margin-right: 10px;
+  }
+  .collapse_info
+  {
+    margin-top: 30px;
+    display:none;
+  }
+   .collapse_info
+  {
+    font-size:15px;
+    line-height:24px;
+    color:{{ block.settings.boxtext_color }}
+  }
+  .arrowup
+  {
+    display:none;
+    height: 36px;
+    line-height: 36px;
+    
+  }
+  .arrowdown
+  {
+    height: 36px;
+    line-height: 36px;
+  }
+  .active.arrowdown
+  {
+    display:none;
+    height: 36px;
+    line-height: 36px;
+  }
+   .arrowup svg,.arrowdown svg
+  {
+        top: -2px;
+    position: relative;
+  }
+  .toggle_content
+  {
+    
+  }
+#section5{{ block.id }} .hide_on_desk
+  {
+    display:none;
+    
+  }
+ 
+    @media(min-width:768px)
+    {
+      
+     .block_wrap
+      {
+        border: solid 1px {{ block.settings.border }};
+      }
+       .fouthmargin
+  {
+    margin-top:20px;
+  }
+    }
+  
+  #section5{{ block.id }}
+  {
+     padding:{{ block.settings.padding }};
+    margin:{{ block.settings.margin }};
+    {{ block.settings.secgradiant }}
+  }
+  
+  
+  @media(max-width:767px)
+    {
+    #section5{{ block.id }}   .hide_on_desk
+  {
+    display:block;
+  }
+        .section5
+{
+    padding: 20px 0 40px 0;
+}   
+  .section5 h2 
+      {
+   font-size: 28px;
+    line-height: 33px;
+    margin: 0px;
+    text-align: left;
+}    
+  .section5 p
+      {
+    text-align: left;
+/*      font-size: 17px; */
+    line-height: 24px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}    
+   .section5 .page-width,.section5 h2
+      {
+        padding: 0px 20px;
+      }
+.block_wrap
+{
+    box-shadow: none;
+    border-radius: 0;
+    padding: 0;
+    margin-top: 15px;
+    position: relative;
+  
+}     
+ .block_head {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+      
+.threeicon
+{
+/* top: 0;    position: absolute; */
+    left: 0;
+    top: 0;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    width: 40px;
+
+}  
+.threeicon img
+{
+max-width:36px;
+}
+.moretext 
+{
+ display: none;
+}      
+.threeblock h3 
+{
+  color:  {{ block.settings.mob_color }};
+    font-size: 17px;
+        line-height: 36px;
+    min-height: inherit;
+     margin: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 0px;
+    text-align: left;
+}
+    .threeblock a
+      {
+      position: absolute;
+      right: 0;
+      top: 0;   
+      line-height:36px;    width: 100%;
+    text-align: right;
+      }  
+   .collapse_info
+      {
+     text-align: left;  
+     margin-top: 10px;
+     }  
+      
+       #section5{{ block.id }}
+      {
+          padding:{{ block.settings.padding_mob }};
+          margin:{{ block.settings.margin_mob }};
+          {{ block.settings.secgradiant_mob }}
+      }
+      .threeicon img, .threeicon svg {
+    max-height: 36px;
+    vertical-align: middle;
+        max-width:36px;
+}
+    }
+  @media(min-width:768px)
+{
+  .threeicon
+  {
+    width:100px;
+    height:100px;
+    margin: 0 auto;
+  }
+  .threeicon img,  .threeicon svg
+  {
+    width:100px;
+    height:100px;
+  }
+ 
+  
+ .threeblock .grid__item
+{
+    float: none;
+    display: inline-block;
+    width: 32.333%;
+    vertical-align:top;
+}
+ }
+</style>
+<div class="clear"></div>
+
+<script>
+  $(document).ready(function(){
+
+    	const x = document.getElementById("cust-div1").getElementsByTagName('linearGradient');
+		const y = document.getElementsByClassName("threeicon");
+		for (let i = 0; i < x.length ;i++) {
+        	var z = x[i].parentNode;
+          	var a = z.nextElementSibling;
+          
+          
+          	if (x[i].hasAttribute("id")) {
+    			x[i].setAttribute("id", "linear-gradient"+i);
+  			}
+          if (y[i].hasAttribute("id")) {
+    			y[i].setAttribute("id", "cust-d"+i);
+  			}
+          if(a.nodeName != "path"){
+          	temp2 = "cust-d"+i;
+            temp = document.getElementById(temp2).getElementsByTagName('path');
+            if (temp[0].hasAttribute("fill")) {
+    			temp[0].setAttribute("fill", "url(#linear-gradient"+i+")");
+            	
+  			}
+          } 
+          
+          
+          if (a.hasAttribute("fill")) {
+    			a.setAttribute("fill", "url(#linear-gradient"+i+")");
+            	
+  			}
+          
+		}
+  });
+
+</script>

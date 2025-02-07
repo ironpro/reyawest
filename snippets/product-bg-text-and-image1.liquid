@@ -1,0 +1,201 @@
+<div class="clear"></div>
+<!-- Image with text -->
+<div class="section1" id="section1{{ block.id }}"  {{ block.shopify_attributes }}>
+<div class="page-width">
+<div class="grid">
+  
+    {% capture image_layout %}
+  
+<div class="grid__item medium-up--one-half imagepart">
+  
+      {% if block.settings.video_url != blank %}
+      <div class="video-wrapper">
+        <video  {% if block.settings.autoplay %} class="auto_video"  playsinline autoplay loop {% else %} playsinline controls="controls" {% endif %}  {% if block.settings.muted %}muted="muted"{% endif %} {% if block.settings.videothumb  %} poster="{{ block.settings.videothumb | img_url:'original' }}" {% endif %}> 
+          <source src="{{ block.settings.video_url }}" type="video/mp4" />
+        </video>
+      
+    </div>
+  
+    {% endif %}
+  
+  
+  
+  {% if block.settings.image %}
+  <img src="{{ block.settings.image | img_url:'original'  }}">
+  {% endif %}
+  </div>
+  {% endcapture %}
+  
+  {% if block.settings.layout == 'left' %}
+        {{ image_layout }}
+      {% endif %}
+  
+<div class="grid__item medium-up--one-half textpart">
+<h2>{{ block.settings.title }}</h2>
+<div>
+{{ block.settings.text }}
+</div>
+</div>
+  
+{% if block.settings.layout == 'right' %}
+        {{ image_layout }}
+      {% endif %}
+  
+  
+</div>
+<div class="clear"></div>
+</div>
+<div class="clear"></div>
+</div>
+
+<div class="clear"></div>
+
+<style>
+  .section1
+{
+  width:100%;
+  
+  float:left;
+}
+  #section1{{ block.id }} img
+  {
+    vertical-align:top;
+    box-shadow:{{ block.settings.shadow }};   
+      {% if block.settings.roundcorner %}
+    border-radius: {{ block.settings.roundvalue }};
+    {% endif %}
+  }
+   #section1{{ block.id }}   .video-wrapper
+  {
+    box-shadow:{{   block.settings.shadow}};
+    line-height: 0;
+    padding: 0;
+    padding-bottom: 0 !important;
+  }
+ .section1 .page-width
+  {
+    max-width:812px;
+    margin:0px auto;
+    padding:0px;
+  }
+  .section1 h2
+  {
+   
+    font-size:45px;
+    margin-bottom: 20px;
+    font-weight:normal;    line-height: 49px;
+  }
+  #section1{{ block.id }} h2
+  {
+     color:{{ block.settings.headingcolor }};
+  }
+ .section1 p
+  {
+   font-size:17px;
+    margin:0px;line-height: 24px;
+  }
+  #section1{{ block.id }} p
+  {
+      color:{{ block.settings.textcolor }};
+   
+  }
+ .section1   .grid__item 
+  {
+    padding-left: 50px;
+  }
+   .section1  .grid
+  {
+    margin-left: -50px;
+  }
+  #section1{{ block.id }}
+  {
+     padding:{{ block.settings.padding }};
+    margin:{{ block.settings.margin }};
+    {{ block.settings.secgradiant }}
+  }
+  @media(max-width:767px)
+    {
+   .section1 .grid__item {
+    padding-left: 20px;
+}     
+ .section1 .page-width {
+    margin: 0px auto 0px;
+    padding: 0 20px;
+}     
+  .section1 h2 {
+   font-size: 28px;
+    line-height: 33px;
+}    
+ .section1 p {
+   margin-bottom: 30px;
+}  
+      #section1{{ block.id }}
+      {
+        padding:{{ block.settings.padding_mob }};
+    margin:{{ block.settings.margin_mob }};
+    {{ block.settings.secgradiant_mob }}
+      }
+      .section1 .grid {
+    margin-left: -20px;
+}
+      #section1{{ block.id }}  .imagepart {
+    padding-left: 0px;
+}
+      #section1{{ block.id }} .grid {
+    margin-left: 0;
+}
+       #section1{{ block.id }} .page-width
+      {
+        padding:0px;
+      }
+     #section1{{ block.id }}  .textpart
+      {
+        padding:0 20px
+      }
+       #section1{{ block.id }}  .imagepart
+      {
+        padding:{{ block.settings.imagepadding }}
+      }
+      
+         {% if block.settings.layout_mob == 'up' %}
+      #section1{{ block.id }} .grid
+      {
+        display: flex;
+       flex-direction: column;
+      }
+       #section1{{ block.id }} .textpart
+      {
+        order:1;
+      }
+      #section1{{ block.id }} .imagepart
+      {
+        order:0;
+      }
+    #section1{{ block.id }} .textpart
+      {
+        margin-top:30px
+      }
+     
+      
+      {% endif %}
+       {% if block.settings.layout_mob == 'down' %}
+      #section1{{ block.id }} .grid
+      {
+        display: flex;
+       flex-direction: column;
+      }
+       #section1{{ block.id }} .textpart
+      {
+        order:0;
+      }
+      #section1{{ block.id }} .imagepart
+      {
+        order:1;
+      }
+      {% endif %}
+      
+      
+      
+      
+    }
+</style>

@@ -1,0 +1,254 @@
+{%- liquid
+  assign recommend_products = false
+
+  if recommendations.products and recommendations.products_count > 0
+    assign related_collection = recommendations
+  endif
+
+  for tag in product.tags
+    if tag contains '_related'
+      assign include_collection_handle = tag | split: '_' | last
+      assign include_collection = collections[include_collection_handle]
+      if include_collection != empty and include_collection.products_count > 0
+        assign related_collection = include_collection
+        assign recommend_products = false
+        break
+      endif
+    endif
+  endfor
+
+  assign number_of_products = section.settings.related_count
+  assign per_row = number_of_products
+  assign number_of_products_to_fetch = number_of_products | plus: 1
+  case per_row
+    when 1
+      assign grid_item_width = ''
+    when 2
+      assign grid_item_width = 'medium-up--one-half'
+    when 3
+      assign grid_item_width = 'small--one-half medium-up--one-third'
+    when 4
+      assign grid_item_width = 'small--one-half medium-up--one-quarter'
+    when 5
+      assign grid_item_width = 'small--one-half medium-up--one-fifth'
+    when 6
+      assign grid_item_width = 'small--one-half medium-up--one-sixth'
+  endcase
+-%}
+
+{%- if section.settings.show_product_recommendations -%}
+<div
+     id="Recommendations-{{ product.id }}"
+     data-section-id="{{ product.id }}"
+     data-section-type="product-recommendations"
+     data-enable="{{ recommend_products }}"
+     data-product-id="{{ product.id }}"
+     data-url="{{ routes.product_recommendations_url }}"
+     data-limit="{{ number_of_products_to_fetch }}">
+
+  <div
+       data-section-id="{{ product.id }}"
+       data-subsection
+       data-section-type="collection-template"
+       class="index-section product-single__description-full">
+    <div class="page-width">
+      <header class="section-header">
+        <h3 class="section-header__title">
+          {{ section.settings.product_recommendations_heading }}
+        </h3>
+      </header>
+    </div>
+
+    <div class="page-width page-width--flush-small CutomRecommendationBoxBlock">
+      <div class="grid-overflow-wrapper">
+        {%- if recommend_products -%}
+        <div class="product-recommendations-placeholder">
+          {% comment %}
+          This content is visually hidden and replaced when recommended
+          products show up
+          {% endcomment %}
+          <div class="grid grid--uniform visually-invisible" aria-hidden="true">
+            {%- render 'product-reco-pro', product: product, grid_item_width: grid_item_width, per_row: per_row -%}
+          </div>
+        </div>
+        {%- endif -%}
+        {%- if related_collection.products_count > 1 -%}
+        <div class="product-recommendations">
+          <div class="product-single__related grid grid--uniform" data-aos="overflow__animation">
+            <div class="ox_slider_recom">
+
+              {%- liquid
+                  assign current_product = product
+                  assign current_product_found = false
+                  assign related_count = 0
+                -%}
+              {%- for product in related_collection.products  -%}
+              {%- if product.handle == current_product.handle -%}
+              {%- assign current_product_found = true -%}
+              {%- else -%}
+              {%- assign related_count = related_count | plus: 1 -%}
+              {% unless related_count > number_of_products %}
+              {%- if forloop.last and current_product_found -%}
+              {%- render 'product-reco-pro', product: product -%}
+              {%- else -%}
+              {%- render 'product-reco-pro', product: product-%}
+              {%- endif -%}
+              {%- endunless -%}
+              {%- endif -%}
+              {%- endfor -%}
+            </div>
+          </div>
+
+        </div>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</div>
+{%- endif -%}
+
+<script>
+  $( document ).ready(function() { 
+    setTimeout(function(){
+      $('.ox_slider_recom').slick({
+        infinite: false,
+        swipeToSlide: true,
+        arrows: true, 
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        responsive: [
+          {
+            breakpoint: 1024,
+            settings: {
+              slidesToShow: 3,
+              slidesToScroll: 3,
+              infinite: true,
+            }
+          },
+          {
+            breakpoint: 600,
+            settings: {
+              slidesToShow: 2,
+              arrows: true, 
+              slidesToScroll: 2
+            }
+          },
+          {
+            breakpoint: 480,
+            settings: {
+              slidesToShow: 1,
+              centerMode: true,
+              centerPadding:'50px',
+              arrows: true, 
+              slidesToScroll: 1
+            }
+          }
+
+        ]
+      });
+
+      setInterval(function(){ 
+        if( $('.ox_slider_recom.slick-initialized.slick-slider').length > 0 ){
+          var highest110 = 0; 
+          $('.ox_slider_recom').children('.slick-list').children('.slick-track').children('.ox-grid-custom').children('.ox-grid-content').children('a').children('.grid-product__meta').children('.recommendationTitleHeight').each(function(){
+            var ht1 = $(this).height();
+            highest110 = Math.max(highest110, parseFloat(ht1));
+          });
+          $('.recommendationTitleHeight').css('height',highest110 +'px');
+        }
+      },200);
+
+      setInterval(function(){ 
+        if( $('.ox_slider_recom.slick-initialized.slick-slider').length > 0 ){
+          var highest111 = 0; 
+          $('.ox_slider_recom').children('.slick-list').children('.slick-track').children('.ox-grid-custom').children('.ox-grid-content').children('.captureFormBuilt').children('.product_recommend_v_mn').each(function(){
+            var ht2 = $(this).height();
+            highest111 = Math.max(highest111, parseFloat(ht2));
+          });
+          $('.product_recommend_v_mn').css('height',highest111 +'px');
+        }
+      },200);
+
+      setInterval(function(){ 
+        if( $('.ox_slider_recom.slick-initialized.slick-slider').length > 0 ){
+          var highest118 = 0; 
+          $('.ox_slider_recom').children('.slick-list').children('.slick-track').children('.ox-grid-custom').children('.ox-grid-content').children('a').children('.recommendationTitleHeightMeta').children('.productRecommendationPricebg').each(function(){
+            var ht18 = $(this).height();
+            highest118 = Math.max(highest118, parseFloat(ht18));
+          });
+          $('.productRecommendationPricebg').css('height',highest118 +'px');
+        }
+      },200);
+      
+
+      
+      
+    },3000);
+  });
+</script>
+<style>
+  .product-single__form .add-to-cart.ox_cll_atc{
+    background: {{ section.settings.color_atc_bg }} !important;
+    box-shadow: {{ section.settings.color_atc_shadow }} !important;
+  }
+  .product-single__form .add-to-cart.ox_cll_atc:hover{
+    background: {{ section.settings.color_atc_hover }} !important;
+    box-shadow: {{ block.settings.color_atc_shadow_hover }} !important;
+  }
+
+</style>
+{% schema %}
+{
+"name": "Product recommendations",
+"settings": [
+{
+"type": "checkbox",
+"id": "show_product_recommendations",
+"label": "Show dynamic recommendations",
+"info": "Dynamic recommendations change and improve with time. [Learn more](https://help.shopify.com/en/themes/development/recommended-products)",
+"default": true
+},
+{
+"type": "text",
+"id": "product_recommendations_heading",
+"label": "Heading",
+"default": "You may also like"
+},
+{
+"type": "header",
+"content": "Atc button"
+},
+{
+"type": "color",
+"id": "color_atc_bg",
+"label": "button Background",
+"default": "#ffffff"
+},
+{
+"type": "text",
+"id": "color_atc_shadow",
+"label": "button shadow"
+},
+{
+"type": "color",
+"id": "color_atc_hover",
+"label": "button hover",
+"default": "#ffffff"
+},
+{
+"type": "text",
+"id": "color_atc_shadow_hover",
+"label": "button shadow hover"
+},
+{
+"type": "range",
+"id": "related_count",
+"label": "Number of related products",
+"default": 5,
+"min": 2,
+"max": 6,
+"step": 1
+}
+]
+}
+{% endschema %}

@@ -1,0 +1,469 @@
+<div class="clear"></div>
+<!-- REVIEWS-->
+<div id="customers{{ block.id }}" class="customers" {{ block.shopify_attributes }}>
+<div class="page-width">
+<div class="cust_title">
+  
+  {% if block.settings.bg_enable %}
+  <div class="deskbnr">  {{ block.settings.titlebg_svg  }}</div>
+  {% if block.settings.titlebg %}
+  
+  <img class="deskbnr" src="{{  block.settings.titlebg | img_url:'original' }}"> 
+{% endif %}
+    <div class="mobbnr">   {{ block.settings.titlemobbg_svg  }} </div>
+  {% if block.settings.titlebgmob %}
+
+  <img class="mobbnr" src="{{ block.settings.titlebgmob | img_url:'original' }}">
+{% endif %}
+  {% endif %}
+  
+  <h2>{{ block.settings.title }}</h2>
+</div>
+  
+<div class="custwrap">
+  
+<div class="custimages">
+  
+   {% if block.settings.image %}
+  <img src="{{ block.settings.image | img_url:'original' }}">
+  {% endif %}
+  
+  </div>
+  
+<div class="quotes">
+<div class="quote1">
+  {{ block.settings.quote1SVG }}
+ 
+
+  <div>
+  
+  <p>{{ block.settings.quote_text1 }}</p>
+<p><b>{{ block.settings.quote_author1 }}</b></p>
+  </div>
+  
+</div>
+<div class="quote2">
+{{ block.settings.quote2SVG }}
+ 
+  
+<div>
+ <p>{{ block.settings.quote_text2 }}</p>
+<p><b>{{ block.settings.quote_author2 }}</b></p>
+</div>
+</div>
+<div class="quote3">
+  {{ block.settings.quote3SVG }}
+
+  
+<div>
+ <p>{{ block.settings.quote_text3 }}</p>
+<p><b>{{ block.settings.quote_author3 }}</b></p>
+</div>
+</div>
+</div>
+  
+<div class="clear"></div>
+</div>
+  
+</div>
+</div>
+<style>
+  
+   .quote1 div
+  {
+        max-width: 307px;
+    position: absolute;
+       top: 45px;
+    left: 55px;
+  }
+  .quote2 div
+  {
+        max-width: 307px;
+    position: absolute;
+    top: 28px;
+    left: 42px;
+  }
+   .quote3 div
+  {
+        max-width: 290px;
+    position: absolute;
+    top: 28px;
+    left: 35px;
+  }
+  .custwrap
+  {
+    max-width:1130px;
+    margin:0 auto;
+  }
+  .quote1
+  {
+    position:relative;
+  }
+  /*
+  .quote1::after
+  {
+    content:"";
+    position:absolute;
+   right:-10px;
+    bottom:-10px; 
+    background:url('https://cdn.shopify.com/s/files/1/0020/6998/7374/files/quote3.png?v=1617379745');
+  width:26px;
+    height:25px;
+  }*/
+   .quote2
+  {
+    position:relative;
+  }
+ 
+ 
+   .quote3
+  {
+    position:relative;
+  }
+  /*
+  .quote3::after
+  {
+    content:"";
+    position:absolute;
+   right:-10px;
+    bottom:-10px; 
+    background:url('https://cdn.shopify.com/s/files/1/0020/6998/7374/files/quote1_df15eb06-d705-4c1d-b338-994582819bd0.png?v=1617379144');
+     width:26px;
+    height:25px;
+  }
+  */
+  .custimages
+  {
+    width:60%;
+    float:left;
+  }
+  .quotes
+  {
+    width:40%;
+    float:left;
+  }
+.customers
+{
+  padding-bottom:80px;
+}
+  .page-width
+  {
+    max-width:1260px;
+    margin:0 auto;
+  }
+  
+  .cust_title 
+  {
+    position: relative;
+    padding:  {% if block.settings.bg_enable %} 0px 0 0px {% else %} {{ block.settings.titlespacing }}  {% endif %};
+    max-width: 100%;
+    margin: 0px auto ;
+    {% if block.settings.bg_enable %}
+        margin: 0px auto 100px;
+    {% endif %}
+  }
+   .cust_title   img
+  {
+    display:block;
+    margin:0 auto;
+  }
+ .cust_title  h2
+  {
+    font-size:45px;
+    line-height:52px;
+    color:{{ block.settings.titlecolor }};
+    max-width:100%;
+      margin: 0;
+    letter-spacing: 0;
+    text-align: center;
+    {% if block.settings.bg_enable %}
+    position:absolute;
+    top:50%;
+    left:50%;
+    width:100%;
+    transform:translate(-50%,-50%);
+   
+    {% endif %}
+    
+  
+  }
+  .quote1
+  {
+  
+    border-radius:15px;
+  
+    max-width: 337px;
+    padding: 20px 20px 0px 20px;
+    font-size: 17px;
+    color:{{  block.settings.quote1txt }};
+    line-height: 24px;
+    margin-left:40px;
+  }
+  
+  .quote1 svg path
+  {
+    fill:{{ block.settings.quote1bg }}
+  }
+  
+  .quote2 svg path
+  {
+    fill:{{ block.settings.quotebg2 }}
+  }
+  .quote3 svg path
+  {
+    fill:{{ block.settings.quotebg3 }}
+  }
+   .quote1 p
+  {
+   color:{{  block.settings.quote1txt }};
+    margin-bottom: 10px;    line-height: 24px;
+  }
+  .quote1 p:last-child
+  {
+    padding-bottom: 20px;
+    margin: 0;
+  }
+    .quote2
+  {
+      border-radius: 15px;
+    padding: 0;
+    font-size: 17px;
+     color:{{  block.settings.quote2txt }};
+    line-height: 24px;
+    margin-bottom: 0px;
+    position: relative;
+      
+  }
+  .quote2 p
+  {
+    color:{{  block.settings.quote2txt }};
+    margin-bottom: 10px;    line-height: 24px;
+  }
+  .quote2 p:last-child
+  {
+    padding-bottom: 20px;
+    margin: 0;
+  }
+ 
+  
+  
+  .quote3
+  {
+   
+        padding: 0px;
+    font-size: 17px;
+     color:{{  block.settings.quote3txt }};
+    line-height: 24px;
+    margin-left:60px; position:relative;
+  }
+    .quote3 p
+  {
+      color:{{  block.settings.quote3txt }}; 
+    margin-bottom: 10px;    line-height: 24px;
+  }
+  .quote3 p:last-child
+  {
+    padding-bottom: 20px;
+    margin: 0;
+  }
+  
+    .cust_title .mobbnr
+      {
+        display:none;
+      }
+  
+  #customers{{ block.id }}
+  {
+      padding:{{ block.settings.padding }};
+    margin:{{ block.settings.margin }};
+    {{ block.settings.secgradiant }}
+  }
+ 
+  .customers   .cust_title svg
+  {
+        margin: 0 auto;
+    display: block;
+    width: 100%;
+  }
+  
+  
+  @media(max-width:767px)
+    {
+      .cust_title .deskbnr
+      {
+        display:none;
+      }
+     .cust_title .mobbnr
+      {
+        display:block;
+      }  
+      .cust_title h2 {
+    font-size: 28px;
+    line-height: 33px;
+    padding: 0 15px;
+    max-width: 275px;    margin: 0 auto;
+}
+      {% if block.settings.show_onmob %}
+    #customers{{ block.id }}  .custimages
+      {
+    display: none;
+       }
+      {% endif %}
+      
+      {% if block.settings.hide %}
+      .quotes 
+      {
+    display: none;
+       }
+      {% endif %}
+      
+      .customers {
+    padding-bottom: 0;
+}
+      .customers .page-width {
+    padding: 0 0px;
+}
+      .cust_title {
+        margin: 0px auto  {% if block.settings.bg_enable %}0px {% else %}  {% endif %};
+    padding:{% if block.settings.bg_enable %}0px {% else %} {{ block.settings.titlespacing_mob }}{% endif %};
+        
+        
+}
+      #customers{{ block.id }} .custimages {
+    width: 100%;
+    float: left;
+}
+   #customers{{ block.id }} .quotes {
+    width: 100%;
+    float: left;   
+    position: relative;    z-index: 0;
+}  
+     #customers{{ block.id }}   .quote1 {
+    max-width: 100%;
+    margin-left: 12px;
+}
+      #customers{{ block.id }}  .quote3 div {
+    max-width: 280px;
+}
+     #customers{{ block.id }}  .quote2 {
+      margin-right: 12px;
+    max-width: 100%;
+} 
+     #customers{{ block.id }}
+  {
+          padding:{{ block.settings.padding_mob }};
+          margin:{{ block.settings.margin_mob }};
+          {{ block.settings.secgradiant_mob }} 
+  }  
+      
+     #customers{{ block.id }}   .quote3
+      {
+        margin-left: 10px;
+      }
+     #customers{{ block.id }}   .quote3 svg, #customers{{ block.id }}  .quote2 svg
+      {
+        max-width:100%;
+      }
+      #customers{{ block.id }}  .quote1 svg
+      {
+        max-width:100%;    margin-left: 10px;
+      }
+     #customers{{ block.id }}   .quote1
+      {
+        max-width: 100%;
+    margin-left: 0;
+    padding: 0;margin-right: 12px;
+      }
+    #customers{{ block.id }}    .quote1 div {
+        max-width: 285px;
+    position: absolute;
+    top: 30px;
+    left: 42px;
+}
+      .quote2 div
+      {
+        right:35px;
+      }
+    .quote3 p,   .quote2 p, .quote1 p {
+  
+    line-height: 23px;
+}
+      .quote3 div {
+    left: 30px;
+}
+      
+      
+      
+      
+    }
+  
+@media(min-width:768px)
+{
+#customers{{ block.id }}  .custimages
+{
+   padding-right: 78px;
+}
+   {% if  block.settings.chathide != true and block.settings.hide_ondesk != true %}
+  .custimages {
+    width: 60%;
+    float: none;
+    flex: 0 0 60%;
+}
+  .quotes {
+    width: 40%;
+    float: none;
+    flex: 0 0 40%;
+}
+  .custwrap {
+    display: flex;
+    align-items: center;
+}
+  {% endif %}
+  
+    {% if block.settings.chathide %}
+   #customers{{ block.id }}  .custimages {
+    width: 60%;
+    float: none;
+    margin: 0 auto;
+    display: block;
+    padding: 0 39px !important;
+}
+#customers{{ block.id }}  .quotes
+  {
+    display:none;
+  }
+
+  {% endif %}
+  {% if block.settings.hide_ondesk %}
+  
+#customers{{ block.id }}   .custwrap
+  {
+    text-align: center;
+}
+ 
+  #customers{{ block.id }}  .quotes {
+    width: 40%;
+    float: none;
+    display: inline-block;
+    margin: 0 auto;
+    text-align: left;
+}
+   #customers{{ block.id }}  .custimages
+{
+ display:none;
+}
+  {% endif %}
+  {% if block.settings.chathide and block.settings.hide_ondesk %} 
+ #customers{{ block.id }}  .custimages
+{
+ display:none;
+}
+  #customers{{ block.id }}  .quotes
+  {
+    display:none;
+  }
+  {% endif %}
+}
+</style>
+<div class="clear"></div>
+<!--top banner with text -->

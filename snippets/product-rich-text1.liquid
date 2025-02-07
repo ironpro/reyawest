@@ -1,0 +1,97 @@
+<div id="richtext-section{{ block.id }}" {{ block.shopify_attributes }}>
+<h2>{{ block.settings.title }}</h2>
+<div class="tabtopdetail">
+  <p class="subdetil"> {{ block.settings.text }}</p>
+</div>
+</div>
+
+
+<style>
+   #richtext-section{{ block.id }}
+  {
+    text-align:{{ block.settings.align_text }};
+    padding:0 20px
+  }
+ #richtext-section{{ block.id }} h2
+  {
+    color:{{ block.settings.colortitle }};
+    font-size:45px;
+    font-weight:bold;
+    line-height:52px;
+     text-align:{{ block.settings.align_text }};
+   
+    {% if block.settings.narrow_column %}
+    max-width:812px;margin:0 auto;
+    {% else %}
+    max-width:100%;margin:0 auto;
+    {% endif %}
+     {% if block.settings.align_text == 'center' %}
+     max-width:100%;margin:0 auto;
+    {% endif %}
+     margin-bottom:20px;
+    
+  }
+  #richtext-section{{ block.id }} p
+  {
+    color:{{ block.settings.colortext }};
+/*     font-size:17px; */
+    line-height:24px;
+     text-align:{{ block.settings.align_text }};
+    
+    {% if block.settings.narrow_column %}
+    max-width:812px;margin:0 auto;
+    {% else %}
+    max-width:100%;margin:0 auto;
+    {% endif %}
+    
+  }
+   #richtext-section{{ block.id }}
+  {
+    padding:{{ block.settings.padding }};
+    margin:{{ block.settings.margin }}
+  }
+  #richtext-section{{ block.id }}
+  {
+    {{ block.settings.secgradiant }}
+  }
+@media(max-width:767px)
+{
+#richtext-section{{ block.id }} h2
+{
+   font-size: 28px;
+    line-height: 33px;
+    text-align: left;
+}
+  #richtext-section{{ block.id }} p
+  {
+     text-align: left;
+  }
+    #richtext-section{{ block.id }}
+  {
+    {{ block.settings.secgradiant_mob }}
+  }
+      #richtext-section{{ block.id }}
+  {
+    padding:{{ block.settings.padding_mob }};
+    margin:{{ block.settings.margin_mob }}
+  }
+  
+    {% if block.settings.centertitle %}
+      
+       #richtext-section{{ block.id }} h2
+      {
+        text-align:center;
+      }
+      
+      {% endif %}
+  
+  {% if block.settings.centertext %}
+   #richtext-section{{ block.id }} p
+      {
+        text-align:center;
+      }
+  {% endif %}
+  
+}
+</style>
+

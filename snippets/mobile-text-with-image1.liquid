@@ -1,0 +1,175 @@
+<div class="clear"></div>
+<!--bottom banner with text -->
+<div class="mobilebannerblock{{ block.id }}"  {{ block.shopify_attributes }}>
+<h2>
+  {% if block.settings.iconcode != blank %}
+    {{ block.settings.iconcode }}
+    {% elsif block.settings.icon %}
+      <img src="{{  block.settings.icon | img_url:'70x' }}">
+    {% endif %}
+  <span> {{ block.settings.title }} </span>
+  </h2>
+
+  {{ block.settings.text }}
+  
+<div class="mobilebannerblock_img2">
+  
+  {% if block.settings.imagebottom %}
+<div class="mainbnr">
+  <img src="{{ block.settings.imagebottom  | img_url:'original' }}">
+  </div>
+    {% endif %}
+  
+  {% if block.settings.image %}
+<div class="doggy_pic">
+  <img src="{{ block.settings.image | img_url:'original' }}">
+  </div>
+    {% endif %}
+  
+    
+<div class="arrowblock">
+   {% if block.settings.imagearrow %}
+<div class="rightarow">
+  {{ block.settings.imagearrow  }}
+  </div>
+  {% endif %}
+<p>{{ block.settings.author  }}</p>
+  
+</div>
+</div>
+  
+  
+</div>
+<div class="clear"></div>
+
+
+
+<style>
+  .mobilebannerblock{{ block.id }}
+  {
+    display:none;
+  }
+  @media(max-width:767px)
+    {
+  .mobilebannerblock{{ block.id }}  .mobilebannerblock_img2
+      {
+        position:relative;
+      }
+   .mobilebannerblock{{ block.id }}   .doggy_pic
+      {
+        height: calc(100% + 100px);
+    position: absolute;
+    bottom: 20px;    left: 10%;transform: rotate(-2deg);
+        {{ block.settings.pointingimageposition }}
+      }
+   .mobilebannerblock{{ block.id }}   .doggy_pic img
+      {
+        max-height:100%;
+        width:auto;
+      }
+ .mobilebannerblock{{ block.id }}    .mobilebannerblock_img2 .arrowblock p 
+     {
+        color: #fff;
+    max-width: 210px;
+    text-align: center;
+    font-style: italic;
+    font-size: 17px;
+    line-height: 24px;
+      }
+   .mobilebannerblock{{ block.id }}   .mobilebannerblock_img2  p b
+      {
+        color:#fff
+      }
+   .mobilebannerblock{{ block.id }}   .rightarow
+      {
+        text-align:center;
+        
+      }
+   .mobilebannerblock{{ block.id }}   .arrowblock
+      {
+        position: absolute;
+    right: 0;
+    bottom: 35px;
+        top:auto;
+        left:auto;
+        {{ block.settings.arrowcode }}
+      }
+    .mobilebannerblock{{ block.id }}  .rightarow img
+      {
+     margin-bottom: 0px;
+    margin-right: 60px;
+      }
+   .mobilebannerblock{{ block.id }}   .mainbnr
+      {
+        margin-top: {{ block.settings.topspacing }};
+      }
+      
+      
+.mobilebannerblock{{ block.id }}
+      {
+        display:block;    padding-top: 0px;
+      }
+     .mobilebannerblock{{ block.id }} h2  
+  {
+    margin-bottom: 20px;
+    font-size: 27px;
+    line-height: 33px;
+    color: {{ block.settings.titlecolor }};
+    padding: 0 20px;
+    text-align:left;
+  }
+  .mobilebannerblock{{ block.id }} p  
+  {
+    margin-bottom: 20px;
+    line-height:24px;
+    font-size:17px;color: {{ block.settings.txtcolor }};
+    padding:0 20px;
+ 
+  }    
+     .mobilebannerblock{{ block.id }} p b
+      {
+        color: {{ block.settings.txtcolor }};font-weight:bold;
+        text-align:center;    display: block;
+      }
+.mobilebannerblock{{ block.id }} a
+  {
+   color:{{ block.settings.linkcolor }};
+    text-decoration:underline;
+  }
+.mobilebannerblock{{ block.id }} h2
+      {
+        padding-top: 70px;   
+      }
+.mobilebannerblock{{ block.id }} h2 img
+      {
+        display:block;
+        margin:0 auto;    margin: 0 auto 20px;
+      }
+      .mobilebannerblock{{ block.id }} h2 svg
+      {
+        display:block;
+        margin:0 auto;    margin: 0 auto 20px;
+      }
+      
+.mobilebannerblock{{ block.id }} h2 span
+      {
+        display:block;
+      }
+.mobilebannerblock{{ block.id }}
+  {
+    {{ block.settings.gradiant }}
+  
+  }
+     .mobilebannerblock{{ block.id }} .mobilebannerblock_img2 img {
+    margin-bottom: -20px;
+}
+    }
+  
+  @media(max-width:420px)
+    {
+       .mobilebannerblock{{ block.id }} h2  
+  {
+   font-size: 26px;
+  }
+    }
+</style>

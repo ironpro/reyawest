@@ -1,0 +1,32 @@
+<div class="js-qty__wrapper">
+  <input type="text" id="Quantity-{{ id }}"
+    class="js-qty__num"
+    value="{{ qty }}"
+    min="{{ min }}"
+    aria-label="quantity"
+    pattern="[0-9]*"
+    name="quantity">
+  <button type="button"
+    class="js-qty__adjust js-qty__adjust--minus minus_active"
+    aria-label="{{ 'cart.general.reduce_quantity' | t }}">
+     
+   <svg xmlns="http://www.w3.org/2000/svg" width="4.777" height="1.751" viewBox="0 0 4.777 1.751">
+  <path id="Path_9635" data-name="Path 9635" d="M.782-6H5.559V-4.25H.782Z" transform="translate(-0.782 6.001)" fill="#17428b"/>
+</svg>
+
+    
+    <span class="icon__fallback-text" aria-hidden="true">&minus;</span>
+  </button>
+  <button type="button"
+    class="js-qty__adjust js-qty__adjust--plus"
+    aria-label="{{ 'cart.general.increase_quantity' | t }}">
+    
+  <svg xmlns="http://www.w3.org/2000/svg" width="8.636" height="8.347" viewBox="0 0 8.636 8.347">
+  <path id="Path_9634" data-name="Path 9634" d="M5.627-8.347v3.3H8.942V-3.3H5.627V0H3.621V-3.3H.306V-5.049H3.621v-3.3Z" transform="translate(-0.306 8.347)" fill="#17428b"/>
+</svg>
+
+
+    
+    <span class="icon__fallback-text" aria-hidden="true">+</span>
+  </button>
+</div>

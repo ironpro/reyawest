@@ -1,0 +1,337 @@
+<div class="clear"></div>
+<div class="section5" {{ block.shopify_attributes }}>
+  
+<h2>{{ block.settings.title }}</h2>
+  
+<div class="page-width">
+  
+<h4>{{  block.settings.text }}</h4>
+
+  <div class="threeblock">
+<div class="grid">
+  
+  
+<div class="grid__item medium-up--one-third">
+<div class="block_wrap">
+  
+<div class="threeicon">
+  
+   {% if block.settings.iconcode1 != blank %}
+    {{ block.settings.iconcode1 }}
+    {% elsif block.settings.icon1 %}
+      <img src="{{  block.settings.icon1 | img_url:'130x' }}">
+    {% endif %}
+  
+  
+  </div>
+  
+<h3>{{ block.settings.title1 }}</h3>
+<a href="#" class="toggle_content">
+  <span class="moretext"> {{ block.settings.more  }}</span> 
+  <span class="arrowup"> 
+  {{ block.settings.iconup }} 
+  </span>
+  <span class="arrowdown"> 
+  {{ block.settings.icondown }}  
+  </span> 
+  </a>
+<div class="collapse_info">
+  
+ {{ block.settings.text1 }}
+  
+  </div>
+  
+  
+</div>
+</div>
+  
+  
+<div class="grid__item medium-up--one-third">
+<div class="block_wrap">
+<div class="threeicon">
+  
+  {% if block.settings.iconcode2 != blank %}
+    {{ block.settings.iconcode2 }}
+    {% elsif block.settings.icon2 %}
+      <img src="{{  block.settings.icon2 | img_url:'130x' }}">
+    {% endif %}
+  
+  </div>
+
+ <h3>{{ block.settings.title2 }}</h3>
+<a href="#" class="toggle_content">
+  <span class="moretext"> {{ block.settings.more  }}</span> 
+  <span class="arrowup"> 
+  {{ block.settings.iconup }} 
+  </span>
+  <span class="arrowdown"> 
+  {{ block.settings.icondown }}  
+  </span> 
+  </a>
+<div class="collapse_info">
+  
+ {{ block.settings.text2 }}
+  
+  </div>
+
+  
+  </div>
+</div>
+  
+  
+<div class="grid__item medium-up--one-third">
+<div class="block_wrap">
+<div class="threeicon">
+  
+  {% if block.settings.iconcode3 != blank %}
+    {{ block.settings.iconcode3 }}
+    {% elsif block.settings.icon3 %}
+      <img src="{{  block.settings.icon3 | img_url:'130x' }}">
+    {% endif %}
+  
+  </div>
+  
+<h3>{{ block.settings.title3}}</h3>
+<a href="#" class="toggle_content">
+  <span class="moretext"> {{ block.settings.more  }}</span> 
+  <span class="arrowup"> 
+  {{ block.settings.iconup }} 
+  </span>
+  <span class="arrowdown"> 
+  {{ block.settings.icondown }}  
+  </span> 
+  </a>
+<div class="collapse_info">
+  
+ {{ block.settings.text3 }}
+  
+  </div>
+
+  
+  </div>
+</div>
+  
+  
+</div>
+</div>
+</div>
+</div>
+<style>
+  .section5
+  {
+    padding:50px 0 100px 0;
+    background:{{ block.settings.bg }}
+  }
+    .section5 .page-width
+  {
+    max-width:812px;
+    padding:0px;
+    margin:0 auto
+  }
+  .section5 h4
+  {
+    text-align:center;
+    color:{{ block.settings.textcolor }};
+    font-size:17px;
+    line-height:24px;    font-weight: normal;
+    margin-top: 20px;
+    margin-bottom: 55px;
+  }
+  .section5 h2
+  {
+    color:{{ block.settings.headingcolor }};
+    font-size:45px;
+    line-height:52px;
+    margin:0px;
+    text-align:center
+  }
+  .threeblock
+  {
+    text-align:center;
+  }
+  .threeblock .grid
+  {
+    margin-left:-20px;
+  }
+    .threeblock .grid__item
+  {
+    padding-left:20px;
+  }
+  .block_wrap
+  {
+    box-shadow: {{ block.settings.shadow }};
+    border-radius: 10px;
+    padding: 0 15px 30px 15px;
+    margin-top: 45px;
+  }
+  .threeicon
+  {
+    top: -45px;
+    position: relative;
+   margin-bottom:0px;
+  }
+    .threeicon img
+  {
+    max-width:129px;
+  }
+    .threeblock h3
+  {
+    color:{{ block.settings.boxheading_color }};
+    font-size:24px;
+    line-height:24px;  
+    min-height: 52px; 
+    margin: 0;
+    margin-top: -25px;
+    margin-bottom: 20px;   
+    padding: 0 15px;
+  }
+   .threeblock a
+  {
+    font-weight:bold;
+    color:{{ block.settings.boxlink_color }};
+    font-size: 17px;
+    line-height: 24px;
+    display: block;
+  }
+  .moretext
+  {
+      text-decoration: underline;
+    text-align: center;
+    display: inline-block;    margin-right: 10px;
+  }
+  .collapse_info
+  {
+    margin-top: 30px;
+    display:none;
+  }
+   .collapse_info
+  {
+    font-size:15px;
+    line-height:24px;
+    color:{{ block.settings.boxtext_color }}
+  }
+  .arrowup
+  {
+    display:none;
+    height: 36px;
+    line-height: 36px;
+    
+  }
+  .arrowdown
+  {
+    height: 36px;
+    line-height: 36px;
+  }
+  .active.arrowdown
+  {
+    display:none;
+    height: 36px;
+    line-height: 36px;
+  }
+   .arrowup svg,.arrowdown svg
+  {
+        top: -2px;
+    position: relative;
+  }
+  .toggle_content
+  {
+    
+  }
+    @media(min-width:768px)
+    {
+     .block_wrap
+      {
+        border: solid 1px {{ block.settings.border }};
+      }
+      
+    }
+  
+  @media(max-width:767px)
+    {
+        .section5
+{
+    padding: 20px 0 40px 0;
+}   
+  .section5 h2 
+      {
+   font-size: 28px;
+    line-height: 33px;
+    margin: 0px;
+    text-align: left;
+}    
+  .section5 h4
+      {
+    text-align: left;
+     font-size: 17px;
+    line-height: 24px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}    
+   .section5 .page-width,.section5 h2
+      {
+        padding: 0px 20px;
+      }
+.block_wrap
+{
+    box-shadow: none;
+    border-radius: 0;
+    padding: 0;
+    margin-top: 15px;position: relative;
+}     
+.threeicon
+{
+top: 0;    position: absolute;
+    left: 0;
+    top: 0;
+}  
+.threeicon img
+{
+max-width:36px;
+}
+.moretext 
+{
+ display: none;
+}      
+.threeblock h3 
+{
+  color:  {{ block.settings.mob_color }};
+    font-size: 17px;
+        line-height: 36px;
+    min-height: inherit;
+     margin: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 51px;
+    text-align: left;
+}
+    .threeblock a
+      {
+      position: absolute;
+      right: 0;
+      top: 0;   
+      line-height:36px;    width: 100%;
+    text-align: right;
+      }  
+   .collapse_info
+      {
+     text-align: left;  
+     margin-top: 10px;
+     }  
+    }
+  
+</style>
+<div class="clear"></div>
+
+<script>
+const x = document.getElementsByTagName('linearGradient');
+const y = document.getElementsByTagName('path');
+for (let i = 0; i < x.length ;i++) {
+  if (x[i].hasAttribute("id")) {
+    x[i].setAttribute("id", "linear-gradient"+i);
+  }
+  if (y[i].hasAttribute("fill")) {
+    y[i].setAttribute("fill", "url(#linear-gradient"+i+")");
+    alert("Done");
+  }
+}
+</script>

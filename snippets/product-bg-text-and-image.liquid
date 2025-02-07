@@ -1,0 +1,103 @@
+<div class="clear"></div>
+<!-- Image with text -->
+<div class="section1" id="section1{{ block.id }}"  {{ block.shopify_attributes }}>
+<div class="page-width">
+<div class="grid">
+  
+    {% capture image_layout %}
+  
+<div class="grid__item medium-up--one-half">
+  {% if block.settings.image %}
+  <img src="{{ block.settings.image | img_url:'original'  }}">
+  {% endif %}
+  </div>
+  {% endcapture %}
+  
+  {% if block.settings.layout == 'left' %}
+        {{ image_layout }}
+      {% endif %}
+  
+<div class="grid__item medium-up--one-half">
+<h2>{{ block.settings.title }}</h2>
+<div>
+{{ block.settings.text }}
+</div>
+</div>
+{% if block.settings.layout == 'right' %}
+        {{ image_layout }}
+      {% endif %}
+  
+  
+</div>
+<div class="clear"></div>
+</div>
+<div class="clear"></div>
+</div>
+
+<div class="clear"></div>
+
+<style>
+  .section1
+{
+  width:100%;
+  background:url("{{ block.settings.gradiant | img_url:'master' }}") no-repeat;
+  float:left;
+  background-size: cover;
+}
+   .section1 img
+  {
+    vertical-align:top;
+    box-shadow:0px 0px 15px rgba(19,32,56,0.30);    border-radius: 4px;
+  }
+ .section1 .page-width
+  {
+    max-width:812px;
+    margin:50px auto;
+    padding:0px;
+  }
+  .section1 h2
+  {
+    color:{{ block.settings.headingcolor }};
+    font-size:45px;
+    margin-bottom: 20px;
+    font-weight:normal;    line-height: 49px;
+  }
+ .section1 p
+  {
+    color:{{ block.settings.textcolor }};
+    font-size:17px;
+    margin:0px;line-height: 24px;
+  }
+ .section1   .grid__item 
+  {
+    padding-left: 50px;
+  }
+   .section1  .grid
+  {
+    margin-left: -50px;
+  }
+  @media(max-width:767px)
+    {
+   .section1 .grid__item {
+    padding-left: 20px;
+}     
+ .section1 .page-width {
+    margin: 20px auto 30px;
+    padding: 0 20px;
+}     
+  .section1 h2 {
+   font-size: 28px;
+    line-height: 33px;
+}    
+ .section1 p {
+   margin-bottom: 30px;
+}  
+ .section1
+      {
+       background:{{ block.settings.gradiant_mob }};
+      }
+      .section1 .grid {
+    margin-left: -20px;
+}
+    }
+</style>
